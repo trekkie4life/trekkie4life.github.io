@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://trekkie4life.github.io/sitemap.xml 
