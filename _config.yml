@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://trekkie4life.github.io
+title: Bytes to Bits
+subtitle: one boot's journey through dev bootcamp
+author: Armando Reed
 simple_search: http://google.com/search
 description:
 
