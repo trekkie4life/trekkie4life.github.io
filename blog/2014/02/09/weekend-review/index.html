@@ -99,8 +99,42 @@
 
 <p>Reading Practical Object Oriented Design for Ruby &ndash; affectionately referred to as &ldquo;POODR&rdquo; (pooh-der).</p>
 
-<p>super in inheritance
-passing an argument into super so the Superclass receieves it.</p>
+<p>One problem we had was trying to keep the code DRY (Don&rsquo;t Repeat Yourself) in regards to our Fruit class and the classes that inherited from it. We wanted to have different fruits (Apples, Oranges, Pears) be initialized with different diameters. For awhile we couldn&rsquo;t figure out how to do that without repeating the code containing the diameter instance variable, until&hellip;</p>
+
+<p>Solution: passing an argument into <strong>super</strong> so the Superclass receives it.  I didn&rsquo;t know super was capable of that. Ruby, you are so nifty and great.</p>
+
+<p>Brain, grow more neurons to retain this nugget.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Initializes a new fruit with diameter +diameter+</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Fruit</span>
+</span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:diameter</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">diameter</span><span class="p">)</span>  <span class="c1"># initialize takes an argument from super</span>
+</span><span class='line'>    <span class="vi">@diameter</span> <span class="o">=</span> <span class="n">diameter</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Initializes a new Orange with diameter +diameter+ (of random size)</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Orange</span> <span class="o">&lt;</span> <span class="no">Fruit</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span>
+</span><span class='line'>    <span class="k">super</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># super takes an argument - </span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>9:30pm &ndash; Depart</p>
 </div>
@@ -145,6 +179,8 @@ passing an argument into super so the Superclass receieves it.</p>
         <a class="basic-alignment left" href="/blog/2014/02/08/dbc-hackathon/" title="Previous Post: DBC-Hackathon">&laquo; DBC-Hackathon</a>
       
       
+        <a class="basic-alignment right" href="/blog/2014/02/10/phase-1-week-3-day-1-databases/" title="Next Post: Phase 1: Week 3: Day 1 - Databases">Phase 1: Week 3: Day 1 - Databases &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -157,6 +193,10 @@ passing an argument into super so the Superclass receieves it.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/10/phase-1-week-3-day-1-databases/">Phase 1: Week 3: Day 1 - Databases</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/02/09/weekend-review/">Weekend Review</a>
@@ -172,10 +212,6 @@ passing an argument into super so the Superclass receieves it.</p>
     
       <li class="post">
         <a href="/blog/2014/02/06/phase-1-week-2-day-4-database-intro/">Phase 1: Week 2: Day 4 - Database Intro</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/05/phase-1-week-2-day-3-building-applications-flashcards-and-todo/">Phase 1: Week 2: Day 3 - Building Applications (Flashcards &amp; ToDo)</a>
       </li>
     
   </ul>
