@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-09T21:24:13-08:00</updated>
+  <updated>2014-02-09T21:27:48-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -97,8 +97,9 @@ passing an argument into super so the Superclass receieves it.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Two things went wrong:
-1) Animation debacle! Unfortunately tried as we might, we couldn&rsquo;t get it working in time by the end of the Hackathon. The animation was the fresh coat of paint on the whole project.  At least we do know through thorough testing that our algorithm works as it should.</p>
+<p>Two things went wrong:</p>
+
+<p>1) Animation debacle! Unfortunately tried as we might, we couldn&rsquo;t get it working in time by the end of the Hackathon. The animation was the fresh coat of paint on the whole project.  At least we do know through thorough testing that our algorithm works as it should.</p>
 
 <p>2) Because the unions are randomly generated, there isn&rsquo;t always a path from A to B.</p>
 
