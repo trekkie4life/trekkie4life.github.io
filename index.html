@@ -151,23 +151,67 @@ passing an argument into super so the Superclass receieves it.</p>
 
 <p>I should preface this by saying the Phase 1 students have no JavaScript experience, vanilla or otherwise.</p>
 
-<p>Use JS to build a 9 x 9 board of cells. Randomly generate unions between the cells.</p>
+<p>Use JS to build a 9 x 9 board of cells. Randomly generate  (horizontal/vertical)unions between the cells.</p>
 
-<p>Make an algorithm to see if there is a path that will connect two points, A and B on the board.</p>
+<p>Make a Dynamic Connectivity algorithm to see if there is a path that will connect two points, A and B on the board.</p>
 
 <p>Animate the algorithm, so we can see it make a path as it goes through various possiblities until it finally reaches the destination cell OR runs out of possible options.</p>
 
 <h4>Execution</h4>
 
-<p>Javascript &ndash; closures</p>
+<p>Javascript &ndash; closures!! You can wrap a group of functions together such that the variables in the &ldquo;wrapper&rdquo; can be used by functions contained in the wrapper but not by those outside of it. In other words &hellip; Whenever you see the function keyword within another function, the inner function has access to variables in the outer function. It&rsquo;s all about the scope!!</p>
 
-<p>Animation &ndash; things go haywire</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">Board</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">board</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">saveState</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">makeSomeCells</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">81</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">cell</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cell</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">board</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">cell</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">connectCells</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">81</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">findNeighbors</span><span class="p">();</span>
+</span><span class='line'>        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">makeConnections</span><span class="p">(</span><span class="nx">board</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Two things went wrong:
+1) Animation debacle! Unfortunately tried as we might, we couldn&rsquo;t get it working in time by the end of the Hackathon. The animation was the fresh coat of paint on the whole project.  At least we do know through thorough testing that our algorithm works as it should.</p>
+
+<p>2) Because the unions are randomly generated, there isn&rsquo;t always a path from A to B.</p>
 
 <h4><strong>10:00pm &ndash; &ldquo;Pencils down&rdquo;</strong></h4>
 
 <p>Our team takes a huddle to discuss how we&rsquo;re going to present, points to concentrate on, things we took away, etc.</p>
 
 <h4><strong>10:20pm &ndash; Judging</strong></h4>
+
+<p>There were some amazing apps, only two teams had Phase 1 boots, and one of them won!  It wasn&rsquo;t us, but I was still really proud of everyone in my cohort that participated!</p>
 </div>
   
   
@@ -219,12 +263,17 @@ passing an argument into super so the Superclass receieves it.</p>
 <li>individuals and interactions &mdash; are more worthy of our attention than &mdash; processes and tools</li>
 <li>working software &mdash; is more worthy of our attention than &mdash; comprehensive documentation</li>
 <li>customer collaboration &mdash; is more worthy of our attention than &mdash; contract negotiation</li>
-<li>responding to change &mdash; is more worthy of our attention than &mdash; following a plan
-you want some clarification on that do you?</li>
+<li>responding to change &mdash; is more worthy of our attention than &mdash; following a plan</li>
+</ul>
+
+
+<p>you want some clarification on that do you?</p>
+
+<ul>
 <li>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.</li>
 <li>Welcome changing requirements, even late in development. Agile processes harness change for the customer&rsquo;s competitive advantage.</li>
 <li>Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.</li>
-<li>Business people and developers must worktogether daily throughout the project.</li>
+<li>Client-side personnel and developers must work together daily throughout the project.</li>
 <li>Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.</li>
 <li>The most efficient and effective method ofconveying information to and within a development team is face-to-face conversation.</li>
 <li>Working software is the primary measure of progress.</li>
@@ -246,8 +295,7 @@ you want some clarification on that do you?</li>
 
 <ul>
 <li>who is part of the team (by naming individuals)?</li>
-<li>what roles do they play (although generic roles are ok, specific</li>
-<li>roles are better)?</li>
+<li>what roles do they play (although generic roles are ok, specific roles are better)?</li>
 <li>how do people stay in touch (cell phones, email, etc)?</li>
 <li>when will the team work together vs apart?</li>
 <li>what are the working hours?</li>
