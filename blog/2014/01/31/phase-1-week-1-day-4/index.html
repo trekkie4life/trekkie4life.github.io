@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Phase 1: Week 1: Day 4 - Bytes to Bits</title>
+  <meta name="author" content="Armando Reed">
+
+   
+  <meta name="description" content="">
+  
+  <meta name="keywords" content="">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://trekkie4life.github.io/blog/2014/01/31/phase-1-week-1-day-4">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Bytes to Bits" type="application/atom+xml">
+  <script src="/js/jquery.js"></script>
+  <script src="/js/bootstrap-collapse.js"></script>
+  <script src="/js/modernizr-2.0.js"></script>
+  <script src="/js/octopress.js" type="text/javascript"></script>
+  <script src="/js/application.js"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <div class="navbar navbar-inverse navbar-static-top">
+  	<div class="navbar-inner">
+  	  <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="fui-menu-24"></span>
+        </a>
+  	  	<div class="nav-collapse collapse navbar-responsive-collapse" style="height:0;">
+  	      <ul class="nav">
+    
+</ul>
+
+<ul class="nav pull-right">
+    
+    
+    
+    
+    
+    
+    
+
+    
+</ul>
+
+  	    </div>
+  	  </div>
+  	</div>
+  </div>
+  <div class="container" id="main">
+      <div class="row-fluid">
+        <div id="content">
+          <div>
+<article class="hentry" role="article">
+  
+
+  <header>
+  <div class="jumbotron">
+    Phase 1: Week 1: Day 4
+	<h5>
+
+
+
+
+
+
+
+
+  
+
+
+<i class="icon-calendar-empty"></i> <time datetime="2014-01-31T02:00:49-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time></h5>
+  </div>
+</header>
+  <div class="row-fluid">
+    <div class="span12">
+      <p><img src="https://github-camo.global.ssl.fastly.net/263edda0ba67654c5e68725c981d6701c0f4b8eb/68747470733a2f2f736f6372617465732e646576626f6f7463616d702e636f6d2f6173736574732f747265655f636f6d69632e6a7067" alt="communication" /></p>
+
+<p>How can you not love the above picture &ndash; it&rsquo;s correct on so many levels!</p>
+
+<p><strong>8:00am &ndash; Arrive</strong></p>
+
+<p>Diving into games! Scary and fun at the same time.</p>
+
+<p>First up: Pig Latin</p>
+
+<p>take an input string</p>
+
+<p>IF the string starts with a vowel, return the word (unchanged)
+ELSE set the consonants at the of the word and add the suffix &ldquo;ay&rdquo;
+PRINT the pig-latin-ified word
+The best way in my mind would be to use RegEx, and that&rsquo;s exactly what happened.</p>
+
+<p>For the first example.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">normal_word</span> <span class="o">=~</span> <span class="sr">/\A[aeiyou]/</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">normal_word</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>=~ \A  means the search MUST start at the beginning of the string.</p>
+
+<p>[aeiyou] the square brackets mean that a positive match will occur if the first letter (in this case) is one of the characters in the brackets &ndash; like “a” or “e” or “i” or “y” or “o” or “u” is the first letter, then <em>BING</em> we have a match</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="nb">p</span> <span class="n">normal_word</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="sr">/(^[^aeiyou]*)(.+)/</span><span class="p">,</span> <span class="err">”</span><span class="p">\</span><span class="mi">2</span><span class="o">-</span><span class="p">\</span><span class="mi">1</span><span class="n">ay</span><span class="err">”</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You’ll notice 2 pairs of brackets.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="sr">/(^[^aeiyou]*)(.+)/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>the first hat ^ acts the same as \A</p>
+
+<p>inside the [ ] the ^ acts as “NOT”</p>
+
+<ul>
+<li>after the right bracket ] means to end that search there</li>
+</ul>
+
+
+<p>the second pair of brackets assigns the result of that search to a second group.</p>
+
+<p>the period means to match any character, the + means “one or more”</p>
+
+<p>#gsub!(this is what we are searching for, replace it with this)</p>
+
+<p>will destructively match and replace the match. There’s a special syntax when you use those captured groups</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">“</span><span class="p">\</span><span class="mi">2</span><span class="o">-</span><span class="p">\</span><span class="mi">1</span><span class="n">ay</span><span class="err">”</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When the group is inside double quotes, we have to have \ preceding the group number. \2 refers to group two, \1 refers to group one.</p>
+
+<p>So here, we’d have group two followed by a dash, then group one, followed by “ay” with no white-spaces separating them.</p>
+
+<p>DBC Yoga &ndash; especially good</p>
+
+<p>AHA Moments!</p>
+
+<p>Linked Lists:</p>
+
+<p>the pointer points to the entire object, not just the value
+object within an object within an object &ndash; on and on until the end of the list</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/CPT-LinkedLists-deletingnode.svg/380px-CPT-LinkedLists-deletingnode.svg.png" alt="Linked Lists" /></p>
+
+<h4>Assignment Operators</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">||=</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>tests left argument for truthiness, if nil or false will overwrite it with right argument.  In the example below, if a is nil or false, it is assigned the value 3</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span><span class="o">||=</span><span class="mi">3</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span><span class="o">||</span> <span class="n">a</span><span class="o">=</span><span class="mi">3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>11:35pm &ndash; Depart</strong></p>
+
+<blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
+&ndash; Eric S. Raymond</p></blockquote>
+
+    </div>
+  </div>
+
+
+
+  <footer>
+    <hr>
+    
+    <div class="row-fluid">
+      
+      <div class="span6">
+        <p class="meta">
+        
+        
+
+
+        </p>
+      </div>
+      
+      <div class="span6 social-sharing">
+        <div class="sharing">
+  <div class="addthis_toolbox addthis_default_style ">
+  
+  
+  <a class="addthis_button_tweet"></a>
+  
+  
+  <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+      </div>
+      
+      
+    </div>
+    
+    <div class="row-fluid">
+      <div class="span12">
+        <p class="meta">
+          
+            <a class="basic-alignment left" href="/blog/2014/01/29/phase-1-week-1-day-3/" title="Previous Post: Phase 1: Week 1: Day 3">&laquo; Phase 1: Week 1: Day 3</a>
+          
+          
+            <a class="basic-alignment right" href="/blog/2014/01/31/phase-1-week-1-day-5-sudoku/" title="Next Post: Phase 1: Week 1: Day 5 - Sudoku">Phase 1: Week 1: Day 5 - Sudoku &raquo;</a>
+          
+        </p>
+      </div>
+    </div>
+  </footer>
+</article>
+
+</div>
+
+
+
+        </div>
+      </div>
+      <div class="row-fluid">
+        <footer class="footer-page" role="contentinfo">
+          <p>
+  Copyright &copy; 2014 - Armando Reed -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> - Theme by <a href="http://alexgaribay.com">Alex Garibay</a>
+</p>
+
+
+        </footer>
+      </div>
+  </div>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

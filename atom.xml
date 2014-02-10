@@ -4,7 +4,7 @@
   <title><![CDATA[Bytes to Bits]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-05T22:14:04-08:00</updated>
+  <updated>2014-02-09T19:01:52-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -14,17 +14,160 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Phase 1: Week 2: Day 5 - Team Projects]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/08/phase-1-week-2-day-5-team-projects/"/>
+    <updated>2014-02-08T21:59:01-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/08/phase-1-week-2-day-5-team-projects</id>
+    <content type="html"><![CDATA[<p><strong>7:30am &ndash; Arrive</strong></p>
+
+<p>TEAM PROJECTS!  Holy crap &ndash; nervous and excited (but this seems to be the norm for my DBC experience thus far). NO RULES! NO RULES?!</p>
+
+<p>Well, maybe one &ndash; don&rsquo;t bit off more than we can chew for our first project but push ourselves.</p>
+
+<p>Our main goal &ndash; LEARN</p>
+
+<p><img src="https://github-camo.global.ssl.fastly.net/555fcf42315d33424e6ed0c9f0a9568f6b4fbbfb/687474703a2f2f662e636c2e6c792f6974656d732f32473170305530473133327231463335323034352f53637265656e25323053686f74253230323031332d31302d31382532306174253230332e33382e3237253230504d2e706e67" alt="Agile" /></p>
+
+<h3>The 4 main goals of Agile:</h3>
+
+<ul>
+<li>individuals and interactions &mdash; are more worthy of our attention than &mdash; processes and tools</li>
+<li>working software &mdash; is more worthy of our attention than &mdash; comprehensive documentation</li>
+<li>customer collaboration &mdash; is more worthy of our attention than &mdash; contract negotiation</li>
+<li>responding to change &mdash; is more worthy of our attention than &mdash; following a plan</li>
+</ul>
+
+
+<h3>Working Agreements</h3>
+
+<p>Once you&rsquo;ve decided to work with other human beings, things tend to get a little complicated.</p>
+
+<p>The idea is that, once you&rsquo;re part of a team, it&rsquo;s impossible to operate independently without considering other members of your tribe. You have to spend time (basically overhead) to work out how to interact with each other in a meaningful way.</p>
+
+<p>For example, imagine a project has just started on Friday and your team is supposed to work through the weekend. does everyone agree on that plan? What if someone on the team had other plans for the weekend? When will everyone else find out? Not on Saturday morning, I hope.</p>
+
+<ul>
+<li>who is part of the team (by naming individuals)?</li>
+<li>what roles do they play (although generic roles are ok, specific</li>
+<li>roles are better)?</li>
+<li>how do people stay in touch (cell phones, email, etc)?</li>
+<li>when will the team work together vs apart?</li>
+<li>what are the working hours?</li>
+<li>what absences are expected?</li>
+<li>what are your goals as a team?</li>
+<li>what are your shared values as a team?</li>
+</ul>
+
+
+<p>Dinner was pizza with some of the cohort and then back to DBC for some coding!</p>
+
+<p><strong>11:30pm &ndash; Depart</strong></p>
+
+<blockquote><p>Science is what we understand well enough to explain to a computer. Art is everything else we do.<br/>
+&ndash; Donald Knuth</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Phase 1: Week 2: Day 4 - Database Intro]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/06/phase-1-week-2-day-4-database-intro/"/>
+    <updated>2014-02-06T23:46:23-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/06/phase-1-week-2-day-4-database-intro</id>
+    <content type="html"><![CDATA[<p>7:15am &ndash; Arrive</p>
+
+<p>After going through how to design the schema for the different database types [One to One; One to Many; Many to Many] our challenge was to get aquainted with PostgreSQL.</p>
+
+<p>My thoughts &ndash; it&rsquo;s one ugly but powerful duckling. After getting our feet wet we were supposed to use Ruby to create a database and then the faker gem to populate the tables with some fake data, but we wanted to get a little dirtier so we went into Terminal and loaded up psql &ndash; created a database, some tables and columns and populated the fields ourselves. It was good to know what to expect from Postgres when we entered things correctly and incorrectly.  After that we went ahead and did it the way we were supposed to using Ruby.</p>
+
+<p>Tonight I took a small break in the evening to meet some good friends of mine who were visiting from overseas. A nice luxury to unwind for 90 minutes before heading back to DBC to spend some more time trying to hog-tie PostGres</p>
+
+<p>00:30am &ndash; Depart</p>
+
+<blockquote><p>Science is the belief in the ignorance of experts. The first principle is that you must not fool yourself — and you are the easiest person to fool.<br/>
+-Richard Feynman</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Phase 1: Week 2: Day 3 - Building Applications (Flashcards &amp; ToDo)]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/05/phase-1-week-2-day-3-building-applications-flashcards-and-todo/"/>
+    <updated>2014-02-05T22:52:00-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/05/phase-1-week-2-day-3-building-applications-flashcards-and-todo</id>
+    <content type="html"><![CDATA[<p><strong>7:30am &ndash; Arrive</strong></p>
+
+<p>Todo list!  Today one of the challenges was&hellip; build a todo list!</p>
+
+<p>We want to be able to interact with the user via the terminal&hellip; passing in commands to read and write to an external file.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">add</span> <span class="no">Bake</span> <span class="n">a</span> <span class="n">delicious</span> <span class="n">blueberry</span><span class="o">-</span><span class="n">glazed</span> <span class="n">cheesecake</span>
+</span><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">list</span>
+</span><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">delete</span> <span class="o">&lt;</span><span class="n">task_id</span><span class="o">&gt;</span>
+</span><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">complete</span> <span class="o">&lt;</span><span class="n">task_id</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We had to build the program using the MVC (Model-View-Controller) design method.</p>
+
+<p>The general consensus is that in Ruby the lines are semi-fuzzy between the Model and the Controller.  Apparently this fuzziness clears up dramaticaly in Rails, but since we&rsquo;re not yet using Rails, my partner and I had a discussion and mini-whiteboard session to see if we preferred one way over the other.  Ultimately we decided to have our Model hold not only the data but also the methods for manipulating the data, where our Controller essentially acted as the interpreter for what the View was saying.</p>
+
+<p>One of the early problems we encountered was how to have our program add to the external todo list (txt file) without overwriting what was already in it.  The solution was to use &lsquo;a+&rsquo; with File.open</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">add_task</span><span class="p">(</span><span class="n">task_to_add</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@your_todo</span> <span class="o">&lt;&lt;</span> <span class="n">task_to_add</span>
+</span><span class='line'>  <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;todo_practice.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">#{</span><span class="n">task_to_add</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>10:40pm &ndash; Depart</strong></p>
+
+<blockquote><p>The question of whether Machines Can Think&hellip; is about as relevant as the question of whether Submarines Can Swim.<br/>
+&ndash; Edsger W. Dijkstra</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Phase 1: Week 2: Day 2: OOP]]></title>
     <link href="http://trekkie4life.github.io/blog/2014/02/04/phase-1-week-2-day-2-OOP/"/>
     <updated>2014-02-04T22:30:31-08:00</updated>
     <id>http://trekkie4life.github.io/blog/2014/02/04/phase-1-week-2-day-2-OOP</id>
-    <content type="html"><![CDATA[<p>8:00am &ndash; Arrive</p>
+    <content type="html"><![CDATA[<p><strong>8:00am &ndash; Arrive</strong></p>
 
-<p>&ldquo;Something old, something new&rdquo;</p>
+<h2>Morning session:</h2>
 
-<p>revisiting Fibonacci &ndash; benchmarking to see whether having the program run iteratively or recursively was quicker</p>
+<ul>
+<li>Part 1: public vs private interfaces: the interface is the contract</li>
+<li>Part 2: argument order dependency: fewer dependencies is always better</li>
+<li>Part 3: the self keyword: to thine own self be true</li>
+<li>Part 4: classical inheritance: hierarchies are good</li>
+<li>Part 5: object composition: but composites are better, or so some say</li>
+<li>Part 6: oo terminology: review the words that change your thoughts</li>
+</ul>
 
-<p>11:07pm &ndash; Depart</p>
+
+<p><strong>12:30pm &ndash; Lunch break &amp; Yoga</strong></p>
+
+<p>Afternoon session:
+We are introduced to basic application development using the object oriented programming paradigm. Because this is my first time using this approach, it&rsquo;s taking my mind some time to switch from thinking about how to solve the problem procedurally. OO definitely makes more sense for a ton of things so having the exposure now will only help me in the long run.</p>
+
+<h3>an object has both state and behavior</h3>
+
+<p>We dive into building/modeling an interface for a hospital. Users interact with the system via the terminal. Different levels of access for different employees (one example: doctors can add to patient records, but receptionists can not).</p>
+
+<p>Authenticate via user passwords which are stored in the program in a private method whose values are returned to a public method that calls it.</p>
+
+<p><strong>10:30pm &ndash; Depart</strong> &ndash; feels good to head home at a &ldquo;decent&rdquo; time!</p>
+
+<blockquote><p>A change in perspective is worth 80 IQ points.<br/>
+-Alan Kay</p></blockquote>
 ]]></content>
   </entry>
   
@@ -33,13 +176,64 @@
     <link href="http://trekkie4life.github.io/blog/2014/02/03/phase-1-week-2-day-1-advanced-ruby/"/>
     <updated>2014-02-03T22:30:31-08:00</updated>
     <id>http://trekkie4life.github.io/blog/2014/02/03/phase-1-week-2-day-1-advanced-ruby</id>
-    <content type="html"><![CDATA[<p>8:00am &ndash; Arrive</p>
+    <content type="html"><![CDATA[<h2>&ldquo;Something old, something new&rdquo;</h2>
 
-<p>&ldquo;Something old, something new&rdquo;</p>
+<p><strong>8:00am &ndash; Arrive</strong></p>
 
-<p>revisiting Fibonacci &ndash; benchmarking to see whether having the program run iteratively or recursively was quicker</p>
+<p> we had 9 challenges today.  I def had a favorite&hellip;</p>
 
-<p>11:07pm &ndash; Depart</p>
+<h4>&ldquo;revisiting Fibonacci&rdquo;</h4>
+
+<p>Instead of merely checking to see if a number is a Fibonacci number, we take an input, say 27, which then returns the 27th Fibonacci number.  Then we do some benchmarking to see whether having the program run iteratively or recursively was quicker! First intro to benchmarking &ndash; sweeeeet.</p>
+
+<p>Here&rsquo;s our iterative code</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">fib_iterative</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">fibonacci</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">current_fib_num</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">fibonacci</span> <span class="o">&lt;&lt;</span> <span class="n">fibonacci</span><span class="o">[-</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">fibonacci</span><span class="o">.</span><span class="n">last</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here&rsquo;s our recursive code</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">fibonacci_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prev_fib</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">current_fib</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">prev_fib</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="n">fibonacci</span> <span class="o">=</span> <span class="n">prev_fib</span> <span class="o">+</span> <span class="n">current_fib</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">fibonacci_recursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prev_fib</span> <span class="o">=</span> <span class="n">current_fib</span><span class="p">,</span> <span class="n">current_fib</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So, which one is faster? What do <strong><em>you</em></strong> think?  Benchmark it and see if you&rsquo;re right!</p>
+
+<p><strong>11:07pm &ndash; Depart</strong></p>
+
+<blockquote><p>The best way to predict the future is to invent it.<br/>
+&ndash; Alan Kay</p></blockquote>
 ]]></content>
   </entry>
   
@@ -48,22 +242,31 @@
     <link href="http://trekkie4life.github.io/blog/2014/02/02/superbowl-sunday-funday/"/>
     <updated>2014-02-02T22:36:29-08:00</updated>
     <id>http://trekkie4life.github.io/blog/2014/02/02/superbowl-sunday-funday</id>
-    <content type="html"><![CDATA[<p>11:30am arrival</p>
+    <content type="html"><![CDATA[<p>I&rsquo;ve heard many times from many different people that the main thing to do after a vigorous week is to relax for a little bit and let the mind recoup from the vigors of the week. So today was errand day, stocked up on some groceries then headed into DBC.</p>
 
-<p>I&rsquo;ve heard many times from many different people that the main thing to do after a vigorous week is to relax for a little bit and let the mind recoup from the vigors of the week. So today was errand day, stocked up on some groceries then headed into DBC to review stuff from Week 1 and to do some reading.</p>
+<p><strong>11:30am &ndash; Arrival</strong></p>
+
+<p>Review, Review, Review and Reading!</p>
+
+<p><strong>3:30pm &ndash; Depart</strong></p>
 
 <p>After that &ndash; it was pizza, beer, and Superbowl time.</p>
 
 <p>Hard to believe week 2 starts tomorrow. One week down, eight to go!</p>
+
+<blockquote><p>Testing can only prove the presence of bugs, not their absence.<br/>
+&ndash; Edsger Dijkstra</p></blockquote>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Phase 1: Week 1: Day 5 - Sudoku]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/01/31/day-five/"/>
+    <link href="http://trekkie4life.github.io/blog/2014/01/31/phase-1-week-1-day-5-sudoku/"/>
     <updated>2014-01-31T23:30:49-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/01/31/day-five</id>
-    <content type="html"><![CDATA[<p>AM &ndash; check-in with new small groups (3 from our cohort, 3 from the cohort ahead of us). We each get 2 min to talk about anything and not be interrupted. The goal of this exercise is open up, take what’s on your mind and in your heart and talk about it. It may or may not be related to the happenings of DBC.</p>
+    <id>http://trekkie4life.github.io/blog/2014/01/31/phase-1-week-1-day-5-sudoku</id>
+    <content type="html"><![CDATA[<p><strong>8:00am &ndash; Arrive</strong></p>
+
+<p>AM &ndash; check-in with new small groups (3 from our cohort, 3 from the cohort ahead of us). We each get 2 min to talk about anything and not be interrupted. The goal of this exercise is open up, take what’s on your mind and in your heart and talk about it. It may or may not be related to the happenings of DBC.</p>
 
 <p>After pairing up with my coding partner for the day, we dive into how to solve soduku. First step &ndash; let’s solve a puzzle on paper and see how we each (as humans) solve it.</p>
 
@@ -81,20 +284,27 @@ ELSE we move onto the next spot &ndash; so on and so forth</p>
 
 <p>Yes, we’ll have to go over the board several times in order to fill in all the empty cells.</p>
 
-<p>LUNCH BREAK &ndash; yoga time, harder than Tues or Thurs, but more enjoyable at the same time &ndash; definitely allows me to keep my body and mind centered.</p>
+<p><strong>12:30pm &ndash; lunch and yoga</strong> &ndash; harder than Tues or Thurs, but more enjoyable at the same time &ndash; definitely allows me to keep my body and mind centered.</p>
 
 <p>PM &ndash; finishing up the challenge</p>
+
+<p><strong>11:00pm &ndash; Depart</strong></p>
+
+<blockquote><p>Email is a wonderful thing for people whose role in life is to be on top of things. But not for me; my role is to be on the bottom of things. What I do takes long hours of studying and uninterruptible concentration.<br/>
+&ndash; Donald Knuth</p></blockquote>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Phase 1: Week 1: Day 4]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/01/31/day-four/"/>
+    <link href="http://trekkie4life.github.io/blog/2014/01/31/phase-1-week-1-day-4/"/>
     <updated>2014-01-31T02:00:49-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/01/31/day-four</id>
+    <id>http://trekkie4life.github.io/blog/2014/01/31/phase-1-week-1-day-4</id>
     <content type="html"><![CDATA[<p><img src="https://github-camo.global.ssl.fastly.net/263edda0ba67654c5e68725c981d6701c0f4b8eb/68747470733a2f2f736f6372617465732e646576626f6f7463616d702e636f6d2f6173736574732f747265655f636f6d69632e6a7067" alt="communication" /></p>
 
 <p>How can you not love the above picture &ndash; it&rsquo;s correct on so many levels!</p>
+
+<p><strong>8:00am &ndash; Arrive</strong></p>
 
 <p>Diving into games! Scary and fun at the same time.</p>
 
@@ -190,15 +400,20 @@ object within an object within an object &ndash; on and on until the end of the 
 </span><span class='line'><span class="n">a</span><span class="o">||</span> <span class="n">a</span><span class="o">=</span><span class="mi">3</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p><strong>11:35pm &ndash; Depart</strong></p>
+
+<blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
+&ndash; Eric S. Raymond</p></blockquote>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Phase 1: Week 1: Day 3]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/01/29/day-three/"/>
+    <link href="http://trekkie4life.github.io/blog/2014/01/29/phase-1-week-1-day-3/"/>
     <updated>2014-01-29T23:35:49-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/01/29/day-three</id>
-    <content type="html"><![CDATA[<p>8:15am &ndash; arrive</p>
+    <id>http://trekkie4life.github.io/blog/2014/01/29/phase-1-week-1-day-3</id>
+    <content type="html"><![CDATA[<p><strong>8:15am &ndash; Arrive</strong></p>
 
 <p>Solo (optional) day</p>
 
@@ -216,16 +431,19 @@ object within an object within an object &ndash; on and on until the end of the 
 
 <p>Some coaches had a very nice indepth teaching session on Git. I entered feeling like I had a basic idea of what was going on, I walked out feeling very confident I have a solid high-level understanding of how to correctly use Git moving forward.</p>
 
-<p>12:30am &ndash; left</p>
+<p><strong>12:30am &ndash; Depart</strong></p>
+
+<blockquote><p>Simplicity is prerequisite for reliability.<br/>
+&ndash; Edsger Dijkstra</p></blockquote>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Phase 1: Week 1: Day 2]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/01/28/day-two/"/>
+    <link href="http://trekkie4life.github.io/blog/2014/01/28/phase-1-week-1-day-2/"/>
     <updated>2014-01-28T23:30:29-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/01/28/day-two</id>
-    <content type="html"><![CDATA[<p>8:06am &ndash; arrive</p>
+    <id>http://trekkie4life.github.io/blog/2014/01/28/phase-1-week-1-day-2</id>
+    <content type="html"><![CDATA[<p><strong>8:06am &ndash; Arrive</strong></p>
 
 <p>coding challenges &ndash; roman numerals &ndash; encoding and decoding them. After doing the first two parts, it was great fun to look at the case studies (collection of 29 examples of student code) and see where they differ and are similar. You start to be able to recognize how efficient/clean/easy to read different methods and approaches are. Then we use what we learned there to re-write our roman-numeral encoding method from scratch.</p>
 
@@ -242,81 +460,48 @@ object within an object within an object &ndash; on and on until the end of the 
 <h4>Quicksort</h4>
 
 <p>you select a random piece of data, that&rsquo;s your pivot point. You remove that from the array you want to sort, now you separate the remaining data into 2 groups (let&rsquo;s call them): Left, Right. A piece of data goes into left if it&rsquo;s value is less than the pivot point. If it&rsquo;s greater than the pivot point, it goes into Right. You then run quicksort again on the two new sets of data Left, and Right.  Wait &ndash; is that recursion? NICE!</p>
+
+<p><strong>11:00pm &ndash; Depart</strong></p>
+
+<blockquote><p>Simplicity is prerequisite for reliability.<br/>
+&ndash; Edsger Dijkstra</p></blockquote>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Day 1]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/01/27/day-one/"/>
+    <link href="http://trekkie4life.github.io/blog/2014/01/27/phase-1-week-1-day-1/"/>
     <updated>2014-01-27T23:00:29-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/01/27/day-one</id>
-    <content type="html"><![CDATA[<p>It&rsquo;s been over 12 weeks of official prep work &ndash; and something that I got accepted for in May of 2013.  Hard to believe it&rsquo;s finally here. Not having a programming background I am definitely nervous.</p>
+    <id>http://trekkie4life.github.io/blog/2014/01/27/phase-1-week-1-day-1</id>
+    <content type="html"><![CDATA[<p><strong>8:30am &ndash; Arrive</strong></p>
 
-<pre><code>- Be open with your ignorance
-- Don't be afraid to ask questions
-- Teach if you understand something
-- Be kind
-- Critically ride the wave of curiosity
-- Sleep
-- Step away from the bubble
-</code></pre>
+<p>It&rsquo;s been over 12 weeks of official prep work &ndash; and something that I got accepted for in May of 2013.  Hard to believe it&rsquo;s finally here. Not having a programming background I am definitely nervous.</p>
+
+<p>doors open promptly at 9am on the first day&hellip; what&rsquo;s it like? Well you&rsquo;ll just have to be there to experience it. Suffice to say, any new boots will love it!</p>
+
+<h3>First day lessons:</h3>
+
+<ul>
+<li>Be open with your ignorance</li>
+<li>Don&rsquo;t be afraid to ask questions</li>
+<li>Teach if you understand something</li>
+<li>Be kind</li>
+<li>Critically ride the wave of curiosity</li>
+<li>Sleep</li>
+<li>Step away from the bubble</li>
+</ul>
+
 
 <p>The first half of the morning was getting to know our fellow cohorts and the DBC family, the resources available to us, and what to expect.</p>
 
 <p>Lunch followed and then afterward we were coding in the afternoon. We paired 3 times in 3 hours. Taking what we learned/applied/how we approached to each subsequent pairing session. It was much more useful than I initially thought it would be. I gained a lot of insight from pairing several times on the SAME challenge.</p>
 
 <p>A final note &ndash; I made the right decision to come and attend. No doubt about it :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The problem with Pingdom]]></title>
-    <link href="http://trekkie4life.github.io/blog/2012/07/22/the-problem-with-pingdom/"/>
-    <updated>2012-07-22T19:13:00-07:00</updated>
-    <id>http://trekkie4life.github.io/blog/2012/07/22/the-problem-with-pingdom</id>
-    <content type="html"><![CDATA[
 
-<figure class='code'><figcaption><span>Time to be Awesome - awesome.rb </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Awesome!&quot;</span> <span class="k">unless</span> <span class="n">lame</span>
-</span></code></pre></td></tr></table></div></figure>
+<p><strong>10:45pm &ndash; Depart</strong></p>
 
-
-<p><a href="http://www.pingdom.com%20Pingdom">The problem with pingdom.</a></p>
-
-<p>My money&rsquo;s in that office, right? If she start giving me some bullshit about it ain&rsquo;t there, and we got to go someplace else and get it, I&rsquo;m gonna shoot you in the head then and there. Then I&rsquo;m gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I&rsquo;m talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?</p>
-
-<blockquote><p>Blockquote is what goes
-inside this block here
-would you believe that
-bullshit?</p></blockquote>
-
-<p>Well, the way they make shows is, they make one show. That show&rsquo;s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they&rsquo;re going to make more shows. Some pilots get picked and become television programs. Some don&rsquo;t, become nothing. She starred in one of the ones that became nothing.</p>
-
-<p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother&rsquo;s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</p>
-
-<p>Your bones don&rsquo;t break, mine do. That&rsquo;s clear. Your cells react to bacteria and viruses differently than mine. You don&rsquo;t get sick, I do. That&rsquo;s also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We&rsquo;re on the same curve, just on opposite ends.</p>
-
-<p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that&rsquo;s what you see at a toy store. And you must think you&rsquo;re in a toy store, because you&rsquo;re here shopping for an infant named Jeb.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Intro]]></title>
-    <link href="http://trekkie4life.github.io/blog/2012/07/22/intro/"/>
-    <updated>2012-07-22T08:23:00-07:00</updated>
-    <id>http://trekkie4life.github.io/blog/2012/07/22/intro</id>
-    <content type="html"><![CDATA[<p>Testing!</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin, massa eu vestibulum laoreet, nibh ante vulputate lorem, ac lobortis ante tellus eu mi. Duis sem nisi, luctus at feugiat eget, fringilla ut tellus. Nam a molestie justo. Sed pulvinar est vitae tellus semper tincidunt. Fusce euismod luctus lacus nec placerat. Mauris rutrum scelerisque nulla ut tempor. Nunc porttitor posuere mi, aliquet vehicula lorem feugiat in. Ut ut fermentum risus. Aliquam tincidunt ultricies ante sit amet bibendum. Cras nec sapien odio. Duis posuere congue sem, at congue massa faucibus at.</p>
-
-<p>Integer ut sapien eget nisl auctor faucibus ut fermentum arcu. Nunc rutrum urna non risus congue et tristique felis eleifend. Maecenas blandit est eu mauris aliquam aliquet. Quisque porttitor enim eget risus blandit in mollis orci eleifend. Nam malesuada nulla sed lacus elementum placerat accumsan arcu rhoncus. Phasellus feugiat cursus turpis nec facilisis. Duis eget metus arcu, eget commodo velit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer cursus vulputate enim, vel gravida velit faucibus et. Ut a urna vitae tellus cursus rhoncus. Maecenas at odio eget quam cursus elementum. Aliquam vitae eros quis tellus laoreet accumsan sed id lorem. Suspendisse et rutrum leo. Integer scelerisque vestibulum adipiscing. In posuere, libero ac accumsan suscipit, nulla ligula gravida erat, ut tempor odio erat nec sem. Quisque justo ipsum, adipiscing volutpat varius vitae, blandit eget nisi.</p>
-
-<p>Nullam adipiscing neque ac lacus commodo vitae imperdiet dui sollicitudin. Ut ac nunc augue. Nam at sem ut quam commodo aliquet vitae vitae dui. Vivamus scelerisque felis eget dolor cursus feugiat. Phasellus at dui sed lectus scelerisque pretium. Etiam nec massa ut justo vestibulum fringilla ac vitae urna. Morbi tortor erat, tempus sed consectetur at, elementum nec eros. Vivamus mattis arcu a sapien semper non lacinia eros pretium.</p>
-
-<p>Proin ut hendrerit arcu. Maecenas ullamcorper tristique magna vel mattis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam tincidunt euismod viverra. In sit amet neque turpis. Suspendisse ac sapien mi, id blandit purus. Ut tortor turpis, rutrum ac tempor at, accumsan sit amet erat. Etiam ultricies eleifend dolor, eget tempus justo tristique vitae. In hac habitasse platea dictumst. Aliquam eu enim neque.</p>
-
-<p>Morbi massa lorem, viverra non dictum at, malesuada vel nibh. Nam fermentum lobortis varius. Sed a nulla lacus, quis posuere risus. Nunc id urna libero, quis rutrum mi. In gravida felis urna. Praesent nec dolor ac urna tempor fermentum. Curabitur rutrum arcu et lorem volutpat viverra.</p>
+<blockquote><p>Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.<br/>
+&ndash; Brian Kernighan</p></blockquote>
 ]]></content>
   </entry>
   
