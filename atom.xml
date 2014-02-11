@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-10T22:06:49-08:00</updated>
+  <updated>2014-02-10T22:09:23-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -20,7 +20,7 @@
     <id>http://trekkie4life.github.io/blog/2014/02/10/phase-1-week-3-day-1-databases</id>
     <content type="html"><![CDATA[<p><strong>8:00am &ndash; Arrive</strong></p>
 
-<h3>&ldquo;What excites you about programming?&rdquo;</h3>
+<h2>&ldquo;What excites you about programming?&rdquo;</h2>
 
 <p>The ability to create and reach 39 (and growing) percent of the world&rsquo;s population.</p>
 
