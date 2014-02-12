@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="8:00am &ndash; Arrive &ldquo;What excites you about programming?&rdquo; The ability to create and reach 39 (and growing) percent of the world&rsquo;s &hellip;">
+  <meta name="description" content="7:40am &ndash; Arrive Get out of your comfort zone. It&rsquo;s important in a situation where you want to grow, learn and evolve as a human being, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,96 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/02/11/phase-1-week-3-day-2-orm/">Phase 1: Week 3: Day 2 - ORM</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-11T07:51:04-08:00" pubdate data-updated="true">Feb 11<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>7:40am &ndash; Arrive</strong></p>
+
+<p>Get out of your comfort zone. It&rsquo;s important in a situation where you want to grow, learn and evolve as a human being, regardless of age. That holds true for programming as well.</p>
+
+<p><img src="http://i.imgur.com/hu32GdW.jpg" alt="Where the magic happens, it's true, give it a try" /></p>
+
+<p><strong>The Law of Demeter</strong> &ndash; a set of coding rules (strong suggestion, emphasis on strong) that results in the creation of loosely coupled objects. A unit/object (class or method) should have only limited knowledge about other units, those others being only units &ldquo;closely&rdquo; related to the current unit/object.</p>
+
+<p>Basically, try to make your classes single responsibility and your methods as well. That doesn&rsquo;t mean only one method to a class, but rather you want to be sure your class is highly cohesive&hellip; that everything in it is related to its central purpose.</p>
+
+<h2>Object Relational Mapper (ORM)</h2>
+
+<p>Build our own ORM that mimics some common features of ActiveRecord. Why not just learn to use RSpec right off the bat? Because we should understand that RSpec is just Ruby, written in a certain way to have its own dsl (domain specific language). RSpec is not magic, we <strong><em>CAN</em></strong> and <strong><em>SHOULD</em></strong> know what&rsquo;s going on under the hood when we take a peak. It&rsquo;s important as n00bs to develop proper habits now rather than having to unlearn bad ones and re-learn good ones.</p>
+
+<hr />
+
+<p>If we run some code in Ruby&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">Database</span><span class="p">:</span><span class="ss">:Model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;PRAGMA table_info(students)&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&hellip; that returns meta-data on a database table&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="p">{</span><span class="s2">&quot;cid&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;INTEGER&quot;</span><span class="p">,</span> <span class="s2">&quot;notnull&quot;</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dflt_value&quot;</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;pk&quot;</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">},</span>
+</span><span class='line'> <span class="p">{</span><span class="s2">&quot;cid&quot;</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;cohort_id&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span> <span class="s2">&quot;notnull&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;dflt_value&quot;</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;pk&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">},</span>
+</span><span class='line'> <span class="p">{</span><span class="s2">&quot;cid&quot;</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;varchar(255)&quot;</span><span class="p">,</span> <span class="s2">&quot;notnull&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;dflt_value&quot;</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;pk&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">},</span>
+</span><span class='line'> <span class="p">{</span><span class="s2">&quot;cid&quot;</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;last_name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;varchar(255)&quot;</span><span class="p">,</span> <span class="s2">&quot;notnull&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;dflt_value&quot;</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;pk&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">},</span>
+</span><span class='line'><span class="o">.</span>
+</span><span class='line'><span class="o">.</span>
+</span><span class='line'><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&hellip; which is an array of hashes where each hash corresponds to a field in the database, and we want only the values of each hash&rsquo;s &ldquo;name&rdquo; key, we&rsquo;d want to iterate over the array of hashes using #map like so&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vi">@attribute_names</span> <span class="o">=</span> <span class="n">pragma</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">col_hash</span><span class="o">|</span> <span class="n">col_hash</span><span class="o">[</span><span class="s2">&quot;name&quot;</span><span class="o">].</span><span class="n">to_sym</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Remember: TEST BEHAVIOR, NOT IMPLEMENTATION</h3>
+
+<p><strong>10:45pm &ndash; Depart</strong></p>
+
+<blockquote><p>You don&rsquo;t understand anything until you learn it more than one way.<br/>
+&ndash; Marvin Minsky</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/02/10/phase-1-week-3-day-1-databases/">Phase 1: Week 3: Day 1 - Databases</a></h1>
     
     
@@ -99,6 +189,8 @@
 <h2>&ldquo;What excites you about programming?&rdquo;</h2>
 
 <p>The ability to create and reach 39 (and growing) percent of the world&rsquo;s population.</p>
+
+<p>Below the vertical axis is percentage of world&rsquo;s population, horizontal axis is years.</p>
 
 <p><img src="http://upload.wikimedia.org/wikipedia/commons/2/29/Internet_users_per_100_inhabitants_ITU.svg" alt="world internet usage graph" /></p>
 
@@ -265,7 +357,7 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/02/08/dbc-hackathon/">DBC-Hackathon</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/02/08/dbc-hackathon/">DBC - Hackathon</a></h1>
     
     
       <p class="meta">
@@ -575,6 +667,8 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h3>Remember: coding in a procedural style defeats the purpose of object orientation</h3>
+
 <p><strong>10:40pm &ndash; Depart</strong></p>
 
 <blockquote><p>The question of whether Machines Can Think&hellip; is about as relevant as the question of whether Submarines Can Swim.<br/>
@@ -792,69 +886,6 @@ We are introduced to basic application development using the object oriented pro
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/31/phase-1-week-1-day-5-sudoku/">Phase 1: Week 1: Day 5 - Sudoku</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-31T23:30:49-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
-
-<p>AM &ndash; check-in with new small groups (3 from our cohort, 3 from the cohort ahead of us). We each get 2 min to talk about anything and not be interrupted. The goal of this exercise is open up, take what’s on your mind and in your heart and talk about it. It may or may not be related to the happenings of DBC.</p>
-
-<p>After pairing up with my coding partner for the day, we dive into how to solve soduku. First step &ndash; let’s solve a puzzle on paper and see how we each (as humans) solve it.</p>
-
-<p>How do you choose where to start?
-Did you adopt the same notation/board markings while playing Sudoku? Why? If not, why did you choose differently?
-Why do we do a certain action?
-Are we avoiding any strategies because they’re too tedious or require us to remember too much?</p>
-
-<p>From there we build the logic of how our sudoku solving algorithm (without guessing) will work. We use a high level approach in our Pseudocode and avoid language specific syntax.</p>
-
-<p>Once we find an empty cell, to form a set of possible values for that cell we check what values are already in that row, then in the column, then in the 3x3 sub-box the cell falls within.</p>
-
-<p>IF the number of possible values is just one, we put that value into the grid
-ELSE we move onto the next spot &ndash; so on and so forth</p>
-
-<p>Yes, we’ll have to go over the board several times in order to fill in all the empty cells.</p>
-
-<p><strong>12:30pm &ndash; lunch and yoga</strong> &ndash; harder than Tues or Thurs, but more enjoyable at the same time &ndash; definitely allows me to keep my body and mind centered.</p>
-
-<p>PM &ndash; finishing up the challenge</p>
-
-<p><strong>11:00pm &ndash; Depart</strong></p>
-
-<blockquote><p>Email is a wonderful thing for people whose role in life is to be on top of things. But not for me; my role is to be on the bottom of things. What I do takes long hours of studying and uninterruptible concentration.<br/>
-&ndash; Donald Knuth</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -870,6 +901,10 @@ ELSE we move onto the next spot &ndash; so on and so forth</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/11/phase-1-week-3-day-2-orm/">Phase 1: Week 3: Day 2 - ORM</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/10/phase-1-week-3-day-1-databases/">Phase 1: Week 3: Day 1 - Databases</a>
       </li>
     
@@ -878,15 +913,11 @@ ELSE we move onto the next spot &ndash; so on and so forth</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/08/dbc-hackathon/">DBC-Hackathon</a>
+        <a href="/blog/2014/02/08/dbc-hackathon/">DBC - Hackathon</a>
       </li>
     
       <li class="post">
         <a href="/blog/2014/02/07/phase-1-week-2-day-5-team-projects/">Phase 1: Week 2: Day 5 - Team Projects</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/06/phase-1-week-2-day-4-database-intro/">Phase 1: Week 2: Day 4 - Database Intro</a>
       </li>
     
   </ul>

@@ -16,7 +16,7 @@
         <loc>
             http://trekkie4life.github.io/blog/2014/01/29/phase-1-week-1-day-3-basic-data-structures/
         </loc>
-        <lastmod>2014-02-09T19:43:59-08:00</lastmod>
+        <lastmod>2014-02-11T23:47:13-08:00</lastmod>
     </url>
     <url>
         <loc>http://trekkie4life.github.io/blog/2014/01/31/phase-1-week-1-day-4-games/</loc>
@@ -44,7 +44,7 @@
         <loc>
             http://trekkie4life.github.io/blog/2014/02/05/phase-1-week-2-day-3-building-applications-flashcards-and-todo/
         </loc>
-        <lastmod>2014-02-09T19:34:34-08:00</lastmod>
+        <lastmod>2014-02-11T22:37:39-08:00</lastmod>
     </url>
     <url>
         <loc>
@@ -60,7 +60,7 @@
     </url>
     <url>
         <loc>http://trekkie4life.github.io/blog/2014/02/08/dbc-hackathon/</loc>
-        <lastmod>2014-02-09T21:30:35-08:00</lastmod>
+        <lastmod>2014-02-10T22:44:07-08:00</lastmod>
     </url>
     <url>
         <loc>http://trekkie4life.github.io/blog/2014/02/09/weekend-review/</loc>
@@ -68,7 +68,11 @@
     </url>
     <url>
         <loc>http://trekkie4life.github.io/blog/2014/02/10/phase-1-week-3-day-1-databases/</loc>
-        <lastmod>2014-02-10T22:09:15-08:00</lastmod>
+        <lastmod>2014-02-11T07:54:31-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://trekkie4life.github.io/blog/2014/02/11/phase-1-week-3-day-2-orm/</loc>
+        <lastmod>2014-02-11T23:59:27-08:00</lastmod>
     </url>
     <url>
         <loc>http://trekkie4life.github.io/about/</loc>
@@ -76,11 +80,11 @@
     </url>
     <url>
         <loc>http://trekkie4life.github.io/blog/archives/</loc>
-        <lastmod>2014-02-10T22:09:15-08:00</lastmod>
+        <lastmod>2014-02-11T23:59:27-08:00</lastmod>
     </url>
     <url>
         <loc>http://trekkie4life.github.io/</loc>
-        <lastmod>2014-02-10T22:09:15-08:00</lastmod>
+        <lastmod>2014-02-11T23:59:27-08:00</lastmod>
     </url>
     <url>
         <loc>http://trekkie4life.github.io/robots.txt</loc>
