@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-11T23:59:39-08:00</updated>
+  <updated>2014-02-13T23:59:45-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -12,6 +12,156 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Phase 1: Week 3: Day 4 - Open Source Team Projects]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/13/phase-1-week-3-day-4-open-source-team-projects/"/>
+    <updated>2014-02-13T08:43:16-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/13/phase-1-week-3-day-4-open-source-team-projects</id>
+    <content type="html"><![CDATA[<p>7:55am &ndash; Arrive</p>
+
+<p>teams &ndash; SWEET!</p>
+
+<p>timebox &ndash;
+pitch ideas
+hone them down
+pick one</p>
+
+<p>working agreement</p>
+
+<p>division of labor</p>
+
+<p>attack the problem</p>
+
+<p>12:30pm &ndash; Yoga and a super quick lunch</p>
+
+<p>Phase 1 assessment</p>
+
+<p>finish MVP for group project!</p>
+
+<p>12:05pm &ndash; Depart</p>
+
+<blockquote><p>I think the way to &ldquo;solve&rdquo; the problem of procrastination is to let delight pull you instead of making a to-do list push you. The most dangerous way to lose time is not to spend it having fun, but to spend it doing fake work.<br/>
+&ndash; Paul Graham</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Phase 1: Week 3: Day 3 - Intro to Active Record]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/12/phase-1-week-3-day-3-intro-to-active-record/"/>
+    <updated>2014-02-12T08:36:09-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/12/phase-1-week-3-day-3-intro-to-active-record</id>
+    <content type="html"><![CDATA[<p><strong>8:15am &ndash; Arrive</strong></p>
+
+<p>I was freakishly tired early last night, so slept in a bit this morning &ndash; it was exactly what I needed.</p>
+
+<p><strong>Active Record</strong> &ndash; Active Record is essentialy a layer of Ruby code that runs between your database and your logic code.  When you want to make changes to the database, you write some Ruby, then migrate &ndash; the migrations make the actual changes what database you&rsquo;re using, then you only have to change a couple of lines of code. Now <em>that</em> is slick.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="n">migrate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>The Database:</h2>
+
+<p>Since Active Record interacts with the database, it&rsquo;s the M in MVC.</p>
+
+<p>The syntax for ActiveRecord Migrations is as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateStudents</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span> <span class="c1"># each migration is a class</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:students</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span> <span class="c1"># create a table &#39;students&#39; in the db with the below columns</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:first_name</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:last_name</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:gender</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">date</span>   <span class="ss">:birthday</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:email</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:phone</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span> <span class="c1"># this automatically gives us created_at &amp; updated_at columns</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You may have noticed that there isn&rsquo;t an <code>id</code> column &ndash; that&rsquo;s because Active Record adds the unique primary key <code>id</code> to table <em>automatically</em>.</p>
+
+<p>What&rsquo;s an even cooler thing that the migration class does? It is semi like git (version control), you can roll back and undo some changes.  How you might ask?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="n">rollback</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>REMEMBER: migrations don&rsquo;t happen automagically when you create a new model, you have to <em>MANUALLY</em> run them.</p>
+
+<p>When we create a <code>Student</code> model, a file is created in <code>app/models/student.rb</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Student</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'><span class="o">.</span>
+</span><span class='line'><span class="o">.</span>
+</span><span class='line'><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Adding validations</h2>
+
+<p>Why validate? Validations are hugely important in any web app, it&rsquo;s here that we check to ensure the data we want to put into the database is clean &amp; correct.</p>
+
+<p><strong>Remember &ndash; validations created in our model class(es) don&rsquo;t actually change the database!</strong></p>
+
+<p>The <code>validates</code> method sets up all our validations, first we pass which field(s) we want to validate, then we pass it a hash with the validation properties.  There are a ton of pre-made validation helpers or we can even make our own.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Student</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">validate</span> <span class="ss">:minimum_legal_student_age</span>
+</span><span class='line'>  <span class="n">validate</span> <span class="ss">:standard_phone_number</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="p">{</span> <span class="ss">with</span><span class="p">:</span> <span class="sr">/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i</span><span class="p">,</span> <span class="ss">message</span><span class="p">:</span> <span class="s2">&quot;email format is incorrect&quot;</span><span class="p">}</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">uniqueness</span><span class="p">:</span> <span class="kp">true</span> <span class="c1"># validates the email is unique in the database in the email column</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">standard_phone_number</span>
+</span><span class='line'>    <span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="ss">:bad_phone</span><span class="p">,</span> <span class="s2">&quot;must be at least 10 numerals&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">self</span><span class="o">.</span><span class="n">phone</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[^0-9]/</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">10</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>validate</code> (NOT validate<strong>s</strong>) calls the method <code>standard_phone_number</code> to verify the phone # meets requirements, otherwise an error is given and the test fails.</p>
+
+<h2>Associations</h2>
+
+<p>For more detailed information, hit up the <a href="http://guides.rubyonrails.org/migrations.html#supported-types">docs</a></p>
+
+<p><strong>10:40pm &ndash; Depart</strong></p>
+
+<blockquote><p>If you want to improve, be content to be thought foolish and stupid<br/>
+-Epictetus</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Phase 1: Week 3: Day 2 - ORM]]></title>
@@ -235,7 +385,7 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
 
 <p>Use JS to build a 9 x 9 board of cells. Randomly generate  (horizontal/vertical)unions between the cells.</p>
 
-<p>Make a Dynamic Connectivity algorithm to see if there is a path that will connect two points, A and B on the board.</p>
+<p>Make a Dynamic Connectivity algorithm to see if there is a path that will connect two points, A and B on the board.  We were kind of stuck on the algorithm until a fellow Banana Slug, Quentin (my brother from another mother), came by and gave a great explanation on it.</p>
 
 <p>Animate the algorithm, so we can see it make a path as it goes through various possiblities until it finally reaches the destination cell OR runs out of possible options.</p>
 

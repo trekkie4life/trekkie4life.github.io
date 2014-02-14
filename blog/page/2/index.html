@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="8:00am &ndash; Arrive AM &ndash; check-in with new small groups (3 from our cohort, 3 from the cohort ahead of us). We each get 2 min to talk about &hellip;">
+  <meta name="description" content="&ldquo;Something old, something new&rdquo; 8:00am &ndash; Arrive we had 9 challenges today. I def had a favorite&hellip; &ldquo;revisiting Fibonacci& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,148 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/03/phase-1-week-2-day-1-advanced-ruby/">Phase 1: Week 2: Day 1 - Advanced Ruby</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-03T22:30:31-08:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>&ldquo;Something old, something new&rdquo;</h2>
+
+<p><strong>8:00am &ndash; Arrive</strong></p>
+
+<p> we had 9 challenges today.  I def had a favorite&hellip;</p>
+
+<h4>&ldquo;revisiting Fibonacci&rdquo;</h4>
+
+<p>Instead of merely checking to see if a number is a Fibonacci number, we take an input, say 27, which then returns the 27th Fibonacci number.  Then we do some benchmarking to see whether having the program run iteratively or recursively was quicker! First intro to benchmarking &ndash; sweeeeet.</p>
+
+<p>Here&rsquo;s our iterative code</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">fib_iterative</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">fibonacci</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">current_fib_num</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">fibonacci</span> <span class="o">&lt;&lt;</span> <span class="n">fibonacci</span><span class="o">[-</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">fibonacci</span><span class="o">.</span><span class="n">last</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here&rsquo;s our recursive code</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">fibonacci_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prev_fib</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">current_fib</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">prev_fib</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="n">fibonacci</span> <span class="o">=</span> <span class="n">prev_fib</span> <span class="o">+</span> <span class="n">current_fib</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">fibonacci_recursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prev_fib</span> <span class="o">=</span> <span class="n">current_fib</span><span class="p">,</span> <span class="n">current_fib</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So, which one is faster? What do <strong><em>you</em></strong> think?  Benchmark it and see if you&rsquo;re right!</p>
+
+<p><strong>11:07pm &ndash; Depart</strong></p>
+
+<blockquote><p>The best way to predict the future is to invent it.<br/>
+&ndash; Alan Kay</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/02/superbowl-sunday-funday/">Superbowl Sunday-Funday</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-02T22:36:29-08:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve heard many times from many different people that the main thing to do after a vigorous week is to relax for a little bit and let the mind recoup from the vigors of the week. So today was errand day, stocked up on some groceries then headed into DBC.</p>
+
+<p><strong>11:30am &ndash; Arrival</strong></p>
+
+<p>Review, Review, Review and Reading!</p>
+
+<p><strong>3:30pm &ndash; Depart</strong></p>
+
+<p>After that &ndash; it was pizza, beer, and Superbowl time.</p>
+
+<p>Hard to believe week 2 starts tomorrow. One week down, eight to go!</p>
+
+<blockquote><p>Testing can only prove the presence of bugs, not their absence.<br/>
+&ndash; Edsger Dijkstra</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -465,6 +607,14 @@ object within an object within an object &ndash; on and on until the end of the 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/13/phase-1-week-3-day-4-open-source-team-projects/">Phase 1: Week 3: Day 4 - Open Source Team Projects</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/12/phase-1-week-3-day-3-intro-to-active-record/">Phase 1: Week 3: Day 3 - Intro to Active Record</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/11/phase-1-week-3-day-2-orm/">Phase 1: Week 3: Day 2 - ORM</a>
       </li>
     
@@ -474,14 +624,6 @@ object within an object within an object &ndash; on and on until the end of the 
     
       <li class="post">
         <a href="/blog/2014/02/09/weekend-review/">Weekend Review</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/08/dbc-hackathon/">DBC - Hackathon</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/07/phase-1-week-2-day-5-team-projects/">Phase 1: Week 2: Day 5 - Team Projects</a>
       </li>
     
   </ul>
