@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-15T10:47:27-08:00</updated>
+  <updated>2014-02-15T10:51:16-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Phase 2 - Prep Work]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/15/phase-2-prep-work/"/>
+    <updated>2014-02-15T10:48:48-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/15/phase-2-prep-work</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Phase 1: Week 3: Day 5 - Team Projects and Ruby Gem Published]]></title>
@@ -107,7 +116,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>High fives and hugs to everyone on the team: Quentin Devauchelle, Jamie McKenzie, Nicholas Cu, and myself!</p>
+<p>High fives and hugs to everyone on team Más Awesomos: Quentin Devauchelle, Jamie McKenzie, Nicholas Cu, and myself!</p>
 
 <p>Presentations of Phase 2 one-day group projects from the Sea Lions, followed by Phase 1 two-day group projects from the Banana Slugs (that&rsquo;s us!), then some alums came in and showed their Phase 3 group projects. It was great fun and cool to see what we types of things we would be learning about and how some people implemented those technologies. I was impressed with everyone&rsquo;s stuff!</p>
 
