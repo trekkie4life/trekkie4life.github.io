@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-15T10:51:16-08:00</updated>
+  <updated>2014-02-15T14:48:21-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -58,7 +58,7 @@
 </span><span class='line'>  <span class="ss">batman</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Batman&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruce Wayne&quot;</span><span class="p">,</span> <span class="s2">&quot;Joker&quot;</span><span class="p">,</span> <span class="s2">&quot;Two-Face&quot;</span><span class="p">,</span> <span class="s2">&quot;Riddler&quot;</span><span class="p">,</span> <span class="s2">&quot;Poison Ivy&quot;</span><span class="p">,</span> <span class="s2">&quot;Rachel Dawes&quot;</span><span class="p">,</span> <span class="s2">&quot;Harvey Dent&quot;</span><span class="p">,</span> <span class="s2">&quot;Lt. James Gordon&quot;</span><span class="p">,</span> <span class="s2">&quot;Alfred&quot;</span><span class="p">,</span> <span class="s2">&quot;Scarecrow&quot;</span><span class="p">,</span> <span class="s2">&quot;Lucius Fox&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruce Wayne&quot;</span><span class="p">,</span> <span class="s2">&quot;Joker&#39;s henchman&quot;</span><span class="p">,</span> <span class="s2">&quot;Engel&quot;</span><span class="p">,</span> <span class="s2">&quot;Mayor of Gotham&quot;</span><span class="p">,</span> <span class="s2">&quot;Lau&quot;</span><span class="p">,</span> <span class="s2">&quot;Wuertz&quot;</span><span class="p">,</span> <span class="s2">&quot;Salvatore Maroni&quot;</span><span class="p">,</span> <span class="s2">&quot;Barbara Gordon&quot;</span><span class="p">,</span> <span class="s2">&quot;Chechen&quot;</span><span class="p">,</span> <span class="s2">&quot;Stephen&quot;</span><span class="p">,</span> <span class="s2">&quot;Loeb&quot;</span><span class="o">]</span>
 </span><span class='line'>  <span class="ss">startrek</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Captain Jean-Luc Picard&quot;</span><span class="p">,</span> <span class="c1">#...</span>
 </span><span class='line'>
-</span><span class='line'><span class="ss">quotes</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Traditionalists are pessimists about the future&quot;</span><span class="p">,</span> <span class="s2">&quot; #...</span>
+</span><span class='line'><span class="ss">quotes</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Traditionalists are pessimists about the future&quot;</span><span class="p">,</span> <span class="c1">#...</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
