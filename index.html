@@ -9,10 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="7:55am &ndash; Arrive teams &ndash; SWEET! timebox &ndash;
-pitch ideas
-hone them down
-pick one working agreement division of labor attack the problem &hellip;">
+  <meta name="description" content="8:30am &ndash; Arrive Quick check-in to refresh our brains and make sure everyone is up to speed and to plan our attack for the morning and day. No &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +71,140 @@ pick one working agreement division of labor attack the problem &hellip;">
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/02/14/phase-1-week-3-day-5-team-projects-and-ruby-gem-published/">Phase 1: Week 3: Day 5 - Team Projects and Ruby Gem Published</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-14T20:04:23-08:00" pubdate data-updated="true">Feb 14<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>8:30am &ndash; Arrive</p>
+
+<p>Quick check-in to refresh our brains and make sure everyone is up to speed and to plan our attack for the morning and day.</p>
+
+<p>No one pushed to master, we made new branches based on the feature, when we had a feature working, we pushed to GitHub and then submitted a Pull Request. Someone else on the team would review it then merge it. We had a really good workflow going.</p>
+
+<p>So, our project? Make a &ldquo;cool faker&rdquo; gem to generate fake data for testing &ndash; eerily similar to &ldquo;Faker&rdquo; but instead of random names, we will use famous movie and tv show characters to populate the data.  What are we calling it? <strong>Cool Faker</strong> what else?!</p>
+
+<p>Other than using Faker, we didn&rsquo;t know how it got or made the data, so we dove into the source code.  It was cool to see how much of it we could follow. Also, we saw that the Faker gem is self contained, all you have to do is download it because the gem comes bundled with all the people/company/etc data it uses.</p>
+
+<p>We followed their example and then had to find a way to gather all the movie/tv characters we wanted without manually typing them in&hellip; because we are programming after all, let&rsquo;s use our brains and make the computer do it.</p>
+
+<h2>API use to gather data</h2>
+
+<p>We looked at using IMDB&rsquo;s API (Application Programming Interface), but the data you get from it is not clean at all, and since we were on a schedule, our first job was to look for clean data.  Luckily TheMovieDatabase (TMDB) had exactly what we needed and someone even made a Ruby gem that used their API.</p>
+
+<p>After playing around with it, we got the a massive amount of data per movie, but the data was very well organized. Unfortunately there was no way using their API to return <em>just</em> character names. The information we got inluded everything, literally everything about the requested movie.  We tried several methods to parse the character names from the data object the API returned, and then wisely decided to just check what kind of object that data was, turns out it&rsquo;s a <code>PatchedOpenStruct</code> (a data structure similar to a Hash), from there some quick Googling and we learned a little bit about it and how to remove the nugget of character name data we wanted.  Easier than it sounds because the data was clean/well organized, but still an enjoyable little problem that makes you feel good when playing with an API for the first time.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">names</span><span class="p">:</span>
+</span><span class='line'>  <span class="ss">friends</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Rachel Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Monica Geller&quot;</span><span class="p">,</span> <span class="s2">&quot;Phoebe Buffay&quot;</span><span class="p">,</span> <span class="s2">&quot;Joey Francis Tribbiani&quot;</span><span class="p">,</span> <span class="s2">&quot;Chandler Bing&quot;</span><span class="p">,</span> <span class="s2">&quot;Ross Geller&quot;</span><span class="o">]</span>
+</span><span class='line'>  <span class="ss">entourage</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Eric Murphy&quot;</span><span class="p">,</span> <span class="s2">&quot;Vincent Chase&quot;</span><span class="p">,</span> <span class="s2">&quot;Johnny &#39;Drama&#39; Chase&quot;</span><span class="p">,</span> <span class="s2">&quot;Turtle&quot;</span><span class="p">,</span> <span class="s2">&quot;Ari Gold&quot;</span><span class="p">,</span> <span class="s2">&quot;Lloyd&quot;</span><span class="o">]</span>
+</span><span class='line'>  <span class="ss">batman</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Batman&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruce Wayne&quot;</span><span class="p">,</span> <span class="s2">&quot;Joker&quot;</span><span class="p">,</span> <span class="s2">&quot;Two-Face&quot;</span><span class="p">,</span> <span class="s2">&quot;Riddler&quot;</span><span class="p">,</span> <span class="s2">&quot;Poison Ivy&quot;</span><span class="p">,</span> <span class="s2">&quot;Rachel Dawes&quot;</span><span class="p">,</span> <span class="s2">&quot;Harvey Dent&quot;</span><span class="p">,</span> <span class="s2">&quot;Lt. James Gordon&quot;</span><span class="p">,</span> <span class="s2">&quot;Alfred&quot;</span><span class="p">,</span> <span class="s2">&quot;Scarecrow&quot;</span><span class="p">,</span> <span class="s2">&quot;Lucius Fox&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruce Wayne&quot;</span><span class="p">,</span> <span class="s2">&quot;Joker&#39;s henchman&quot;</span><span class="p">,</span> <span class="s2">&quot;Engel&quot;</span><span class="p">,</span> <span class="s2">&quot;Mayor of Gotham&quot;</span><span class="p">,</span> <span class="s2">&quot;Lau&quot;</span><span class="p">,</span> <span class="s2">&quot;Wuertz&quot;</span><span class="p">,</span> <span class="s2">&quot;Salvatore Maroni&quot;</span><span class="p">,</span> <span class="s2">&quot;Barbara Gordon&quot;</span><span class="p">,</span> <span class="s2">&quot;Chechen&quot;</span><span class="p">,</span> <span class="s2">&quot;Stephen&quot;</span><span class="p">,</span> <span class="s2">&quot;Loeb&quot;</span><span class="o">]</span>
+</span><span class='line'>  <span class="ss">startrek</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Captain Jean-Luc Picard&quot;</span><span class="p">,</span> <span class="c1">#...</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">quotes</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Traditionalists are pessimists about the future&quot;</span><span class="p">,</span> <span class="s2">&quot; #...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>On the other side, Jamie and I were getting our gem file structure down by breaking down Faker&rsquo;s and understanding how each file used another.</p>
+
+<p>Quentin was did the vast majority of tests, I paired up with him for a bit on it to get my feet wet with RSpec. The syntax is great because it almost reads like normal english.</p>
+
+<p>We decided in our whiteboarding and discussions that our MVP would be a gem that worked by plucking random character names. In order to test it, we used a tourny bracket (think, March Madness) application that used Cool Faker to populate the teams and then we modified the application to pick a random winner per matchup.  IT WORKED!!  High-fives went all around.</p>
+
+<p>Our final version can throw up quotes from various sources and come up with team-names (or company names, whatever you [the user] desire).  For the names, you can even specify if you only want characters from a specific movie.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">require_relative</span> <span class="s2">&quot;cool_faker&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">module</span> <span class="nn">CoolFaker</span>
+</span><span class='line'>  <span class="k">class</span> <span class="nc">Character</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="vi">@data</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">dir</span> <span class="o">+</span> <span class="s1">&#39;/cool_faker/data.yml&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">name</span> <span class="c1"># random character from random movie</span>
+</span><span class='line'>      <span class="vi">@data</span><span class="o">[</span><span class="s1">&#39;names&#39;</span><span class="o">][</span><span class="vi">@data</span><span class="o">[</span><span class="s1">&#39;names&#39;</span><span class="o">].</span><span class="n">keys</span><span class="o">.</span><span class="n">sample</span><span class="o">].</span><span class="n">sample</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">name_from</span><span class="p">(</span><span class="n">movie</span><span class="p">)</span>  <span class="c1"># only characters from a specified movie/tv show</span>
+</span><span class='line'>      <span class="vi">@data</span><span class="o">[</span><span class="s1">&#39;names&#39;</span><span class="o">][</span><span class="n">movie</span><span class="o">].</span><span class="n">sample</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to see the source code, head over to <a href="https://github.com/Qt-dev/cool-faker">GitHub</a></p>
+
+<p>If you care to download it yourself, all you need is Ruby installed and a connection to the interwebs.  Because it&rsquo;s officially published on <a href="https://rubygems.org/gems/cool_faker">RubyGems</a>!! Woo hoo!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">cool_faker</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>High fives and hugs to everyone on the team: Quentin Devauchelle, Jamie McKenzie, Nicholas Cu, and myself!</p>
+
+<p>Presentations of Phase 2 one-day group projects from the Sea Lions, followed by Phase 1 two-day group projects from the Banana Slugs (that&rsquo;s us!), then some alums came in and showed their Phase 3 group projects. It was great fun and cool to see what we types of things we would be learning about and how some people implemented those technologies. I was impressed with everyone&rsquo;s stuff!</p>
+
+<p>Post-presentations, it&rsquo;s group kareoke time at DBC to celebrate the ending of a phase. A couple people in each cohort are repeating the phase because they want to solidify their knowledge before moving on. It&rsquo;s what works best for them, it&rsquo;s never an easy decision, and it&rsquo;s definitely not failure by any means.  So it takes 12 weeks to become a junior developer, not 9. Is anyone seriously going to shake their head in shame at that? I don&rsquo;t think so. Good luck to all phases and cohorts moving forward!</p>
+
+<p>10:15pm &ndash; Depart</p>
+
+<blockquote><p>Education is what remains after one has forgotten what one has learned in school.<br/>
+&ndash; Albert Einstein</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/02/13/phase-1-week-3-day-4-open-source-team-projects/">Phase 1: Week 3: Day 4 - Open Source Team Projects</a></h1>
     
     
@@ -99,24 +230,24 @@ pick one working agreement division of labor attack the problem &hellip;">
 
   <div class="entry-content"><p>7:55am &ndash; Arrive</p>
 
-<p>teams &ndash; SWEET!</p>
+<p>Our instructors split us into teams, and I&rsquo;m paired with my brother from another mother, Quentin &ndash; and</p>
 
-<p>timebox &ndash;
-pitch ideas
-hone them down
-pick one</p>
+<p>Immediately we are out the door implementing the Agile methodology. We timebox, pitch ideas, hone them down, pick one.</p>
 
-<p>working agreement</p>
+<ul>
+<li>working agreement</li>
+<li>division of labor</li>
+<li>attack the problem</li>
+</ul>
 
-<p>division of labor</p>
-
-<p>attack the problem</p>
 
 <p>12:30pm &ndash; Yoga and a super quick lunch</p>
 
-<p>Phase 1 assessment</p>
+<p>Phase 1 assessment &ndash; definitely was nervous, and I know they are basically taking a 5 second clip from a movie and trying to base their judgement on the entire movie from that clip&hellip; but they are clearly interested in the context, are you soaking in the big ideas and understanding them, can you communicate clearly, etc. Nervous and yet a good experience. DBC, you win again!</p>
 
-<p>finish MVP for group project!</p>
+<p>Even with 3 out of 4 team members having assessments today (as opposed to yesterday) and other appointments today, we were still able to finish bare-bones MVP (Minimum Viable Product) for group project!</p>
+
+<p>So what&rsquo;s our project? I&rsquo;ll describe it more in tomorrow&rsquo;s blog because I&rsquo;m a wee bit tired at the moment ;)</p>
 
 <p>12:05pm &ndash; Depart</p>
 
@@ -256,9 +387,13 @@ pick one</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p></p>
+
 <p><code>validate</code> (NOT validate<strong>s</strong>) calls the method <code>standard_phone_number</code> to verify the phone # meets requirements, otherwise an error is given and the test fails.</p>
 
 <h2>Associations</h2>
+
+<p><a href="http://guides.rubyonrails.org/association_basics.html">Associations</a> are how Active Record handles multiple tables</p>
 
 <p>For more detailed information, hit up the <a href="http://guides.rubyonrails.org/migrations.html#supported-types">docs</a></p>
 
@@ -887,70 +1022,6 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/04/phase-1-week-2-day-2-OOP/">Phase 1: Week 2: Day 2 - Object Oriented Programming</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-04T22:30:31-08:00" pubdate data-updated="true">Feb 4<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
-
-<h3>Morning session:</h3>
-
-<ul>
-<li>Part 1: public vs private interfaces: the interface is the contract</li>
-<li>Part 2: argument order dependency: fewer dependencies is always better</li>
-<li>Part 3: the self keyword: to thine own self be true</li>
-<li>Part 4: classical inheritance: hierarchies are good</li>
-<li>Part 5: object composition: but composites are better, or so some say</li>
-<li>Part 6: oo terminology: review the words that change your thoughts</li>
-</ul>
-
-
-<p><strong>12:30pm &ndash; Lunch break &amp; Yoga</strong></p>
-
-<p>Afternoon session:
-We are introduced to basic application development using the object oriented programming paradigm. Because this is my first time using this approach, it&rsquo;s taking my mind some time to switch from thinking about how to solve the problem procedurally. OO definitely makes more sense for a ton of things so having the exposure now will only help me in the long run.</p>
-
-<h3>an object has both state and behavior</h3>
-
-<p>We dive into building/modeling an interface for a hospital. Users interact with the system via the terminal. Different levels of access for different employees (one example: doctors can add to patient records, but receptionists can not).</p>
-
-<p>Authenticate via user passwords which are stored in the program in a private method whose values are returned to a public method that calls it.</p>
-
-<p><strong>10:30pm &ndash; Depart</strong> &ndash; feels good to head home at a &ldquo;decent&rdquo; time!</p>
-
-<blockquote><p>A change in perspective is worth 80 IQ points.<br/>
-&ndash; Alan Kay</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -966,6 +1037,10 @@ We are introduced to basic application development using the object oriented pro
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/14/phase-1-week-3-day-5-team-projects-and-ruby-gem-published/">Phase 1: Week 3: Day 5 - Team Projects and Ruby Gem Published</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/13/phase-1-week-3-day-4-open-source-team-projects/">Phase 1: Week 3: Day 4 - Open Source Team Projects</a>
       </li>
     
@@ -979,10 +1054,6 @@ We are introduced to basic application development using the object oriented pro
     
       <li class="post">
         <a href="/blog/2014/02/10/phase-1-week-3-day-1-databases/">Phase 1: Week 3: Day 1 - Databases</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/09/weekend-review/">Weekend Review</a>
       </li>
     
   </ul>
