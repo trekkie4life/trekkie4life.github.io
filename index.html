@@ -9,8 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="Chores around the house and some reading then it was time to head out to DBC 1:45pm &ndash; Arrive Git version control 1
-$ git rebase -i git rebase - &hellip;">
+  <meta name="description" content="12:00pm &ndash; Arrive MVC Sinatra write server side code conventions baked into Sinatra, if you follow them, stuff will happen automatically Views &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +71,60 @@ $ git rebase -i git rebase - &hellip;">
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/02/16/pre-phase-2-coachs-corner/">Pre-Phase 2 - Coach&#8217;s Corner</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-16T14:06:02-08:00" pubdate data-updated="true">Feb 16<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>12:00pm &ndash; Arrive</strong></p>
+
+<p>MVC</p>
+
+<p>Sinatra</p>
+
+<p>write server side code</p>
+
+<p>conventions baked into Sinatra, if you follow them, stuff will happen automatically</p>
+
+<p>Views in view folder, controllers in controller folder, etc</p>
+
+<p>Web Requests</p>
+
+<p>(HTTP)</p>
+
+<p><strong>9:30pm &ndash; Depart</strong></p>
+
+<blockquote></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/02/15/phase-2-prep-work/">Phase 2 - Prep Work</a></h1>
     
     
@@ -106,29 +159,93 @@ $ git rebase -i git rebase - &hellip;">
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>git rebase -i</code> allows you to:</p>
-
-<ul>
-<li>rewrite commits</li>
-<li>remove commits</li>
-<li>combine commits</li>
-<li>reorder commits</li>
-</ul>
 
 
-<p>The benefit is almost immediately obvious &ndash; you can write short/sweet commits locally to keep your work flow going smoothly, then use <code>git rebase -i</code> <em>before</em> pushing the commits anywhere to rewrite those commits into a unified and cohesive story that we can then share with our team, future self, and anyone else who comes along.</p>
+<figure class='code'><figcaption><span>git rebase -i&#8220;` allows you to:  </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="p">*</span> <span class="n">rewrite</span> <span class="n">commits</span>
+</span><span class='line'><span class="p">*</span> <span class="n">remove</span> <span class="n">commits</span>
+</span><span class='line'><span class="p">*</span> <span class="n">combine</span> <span class="n">commits</span>
+</span><span class='line'><span class="p">*</span> <span class="n">reorder</span> <span class="n">commits</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">The</span> <span class="n">benefit</span> <span class="n">is</span> <span class="n">almost</span> <span class="n">immediately</span> <span class="n">obvious</span> <span class="p">-</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span> <span class="n">short</span><span class="p">/</span><span class="n">sweet</span> <span class="n">commits</span> <span class="n">locally</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">your</span> <span class="n">work</span> <span class="n">flow</span> <span class="n">going</span> <span class="n">smoothly</span><span class="p">,</span> <span class="n">then</span> <span class="n">use</span> <span class="p">```</span><span class="n">powershell</span> <span class="n">git</span> <span class="n">rebase</span> <span class="n">-i</span><span class="p">```</span> <span class="p">*</span><span class="n">before</span><span class="p">*</span> <span class="n">pushing</span> <span class="n">the</span> <span class="n">commits</span> <span class="n">anywhere</span> <span class="n">to</span> <span class="n">rewrite</span> <span class="n">those</span> <span class="n">commits</span> <span class="n">into</span> <span class="n">a</span> <span class="n">unified</span> <span class="n">and</span> <span class="n">cohesive</span> <span class="n">story</span> <span class="n">that</span> <span class="n">we</span> <span class="n">can</span> <span class="n">then</span> <span class="n">share</span> <span class="n">with</span> <span class="n">our</span> <span class="n">team</span><span class="p">,</span> <span class="n">future</span> <span class="n">self</span><span class="p">,</span> <span class="n">and</span> <span class="n">anyone</span> <span class="k">else</span> <span class="n">who</span> <span class="n">comes</span> <span class="n">along</span><span class="p">.</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">First</span><span class="err">:</span> <span class="n">use</span> <span class="p">```</span><span class="n">bash</span> <span class="n">git</span> <span class="n">log</span><span class="p">```</span> <span class="n">to</span> <span class="n">find</span> <span class="n">the</span> <span class="n">commit</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">change</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Next</span><span class="err">:</span> <span class="n">run</span> <span class="p">```</span><span class="n">bash</span> <span class="n">git</span> <span class="n">rebase</span> <span class="n">-i</span> <span class="p">[</span><span class="n">the</span> <span class="n">commit</span><span class="s1">&#39;s hash]```</span>
+</span><span class='line'>
+</span><span class='line'><span class="s1">###a quick break for San Fran&#39;</span><span class="n">s</span> <span class="n">Chinese</span> <span class="n">New</span> <span class="n">Year</span> <span class="n">parade</span>
+</span><span class='line'><span class="n">Marching</span> <span class="n">bands</span><span class="p">,</span> <span class="n">drum</span> <span class="n">lines</span> <span class="n">and</span> <span class="n">dragons</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">##JavaScript intro</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Programming</span> <span class="k">in</span> <span class="n">a</span> <span class="n">new</span> <span class="n">syntax</span> <span class="p">-</span> <span class="n">utilizing</span> <span class="n">the</span> <span class="n">skills</span><span class="p">/</span><span class="n">knowledge</span> <span class="n">and</span> <span class="n">applying</span> <span class="n">it</span> <span class="n">to</span> <span class="n">a</span> <span class="n">new</span> <span class="n">language</span><span class="p">.</span> <span class="n">The</span> <span class="n">beauty</span> <span class="n">of</span> <span class="n">logic</span><span class="p">.</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">**</span><span class="k">For</span> <span class="n">loop</span><span class="p">**</span> <span class="n">syntax</span><span class="err">:</span> <span class="p">```</span><span class="n">powershell</span> <span class="n">var</span> <span class="n">i</span> <span class="p">=</span> <span class="n">1</span><span class="err">;</span><span class="p">```</span> <span class="n">is</span> <span class="n">the</span> <span class="n">counting</span> <span class="n">variable</span> <span class="n">and</span> <span class="n">the</span> <span class="n">starting</span> <span class="n">value</span> <span class="n">of</span> <span class="n">that</span> <span class="n">variable</span><span class="p">.</span> <span class="p">```</span><span class="n">powershell</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">11</span><span class="err">;</span><span class="p">```</span> <span class="k">do</span> <span class="n">the</span> <span class="n">loop</span> <span class="k">until</span> <span class="n">this</span> <span class="n">condition</span> <span class="n">is</span> <span class="n">met</span><span class="p">.</span> <span class="p">```</span><span class="n">powershell</span> <span class="n">i</span><span class="p">++```</span> <span class="n">the</span> <span class="n">counter</span><span class="p">.</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>First: use <code>git log</code> to find the commit you want to change</p>
 
-<p>Next: run <code>git rebase -i [the commit's hash]</code></p>
+<p>javascript<br/>
+for (var i = 1; i &lt; 11; i++) {
+  console.log(i);
+}</p>
 
-<h3>a quick break for San Fran&rsquo;s Chinese New Year parade</h3>
+<figure class='code'><figcaption><span>git rebase -i&#8220;` allows you to:  </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">Here</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">another</span> <span class="n">example</span> <span class="n">on</span> <span class="n">printing</span> <span class="n">strings</span> <span class="n">from</span> <span class="n">an</span> <span class="n">array</span><span class="err">:</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>Marching bands, drum lines and dragons</p>
 
-<h2>JavaScript intro</h2>
+<p>javascript
+var cities = [&ldquo;NYC&rdquo;, &ldquo;SF&rdquo;, &ldquo;ATX&rdquo;, &ldquo;Maui&rdquo;];</p>
 
-<p>Programming in a new syntax &ndash; utilizing the skills/knowledge and applying it to a new language. The beauty of logic.</p>
+<p>for (var i = 0; i &lt; cities.length; i++) {
+  console.log(cities[i]);
+}</p>
+
+<figure class='code'><figcaption><span>git rebase -i&#8220;` allows you to:  </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="p">**</span><span class="k">While</span> <span class="n">loop</span><span class="p">**</span> <span class="n">syntax</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>while (condition) {
+  //do something
+}</p>
+
+<p>//an example</p>
+
+<p>count = 0;</p>
+
+<p>var loop = function() {
+  while (count &lt; 3) {</p>
+
+<pre><code>console.log("I'm looping");
+count += 1;
+</code></pre>
+
+<p>  }
+};</p>
+
+<p>loop();
+&#8220;`</p>
 
 <p><strong>10:35pm- Depart</strong></p>
 
@@ -801,7 +918,7 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
 
   <div class="entry-content"><p>First off, let me say, this was a priceless experience. If you have the choice to do some challenges or go to a DBC Hackathon as a boot&hellip; GO TO THE HACKATHON! You will be able to participate and contribute and you&rsquo;ll be exposed to so many things. I just finished Phase 1 &ndash; Week 2, and I was still able to make a substantial amount of meaningful input. I loved it.</p>
 
-<h4><strong>8:45am &ndash; Arrive</strong></h4>
+<p><strong>8:45am &ndash; Arrive</strong></p>
 
 <p>After app pitches, we pick which one interests us and converge.  Our team? 5 people: 2 DBC alums and 3 (that includes myself) Phase 1 students.</p>
 
@@ -979,53 +1096,6 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/06/phase-1-week-2-day-4-database-intro/">Phase 1: Week 2: Day 4 - Database Intro</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-06T23:46:23-08:00" pubdate data-updated="true">Feb 6<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>7:15am &ndash; Arrive</p>
-
-<p>After going through how to design the schema for the different database types [One to One; One to Many; Many to Many] our challenge was to get aquainted with PostgreSQL.</p>
-
-<p>My thoughts &ndash; it&rsquo;s one ugly but powerful duckling. After getting our feet wet we were supposed to use Ruby to create a database and then the faker gem to populate the tables with some fake data, but we wanted to get a little dirtier so we went into Terminal and loaded up psql &ndash; created a database, some tables and columns and populated the fields ourselves. It was good to know what to expect from Postgres when we entered things correctly and incorrectly.  After that we went ahead and did it the way we were supposed to using Ruby.</p>
-
-<p>Tonight I took a small break in the evening to meet some good friends of mine who were visiting from overseas. A nice luxury to unwind for 90 minutes before heading back to DBC to spend some more time trying to hog-tie PostGres</p>
-
-<p>00:30am &ndash; Depart</p>
-
-<blockquote><p>Science is the belief in the ignorance of experts. The first principle is that you must not fool yourself — and you are the easiest person to fool.<br/>
--Richard Feynman</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1041,6 +1111,10 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/16/pre-phase-2-coachs-corner/">Pre-Phase 2 - Coach&#8217;s Corner</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/15/phase-2-prep-work/">Phase 2 - Prep Work</a>
       </li>
     
@@ -1054,10 +1128,6 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
     
       <li class="post">
         <a href="/blog/2014/02/12/phase-1-week-3-day-3-intro-to-active-record/">Phase 1: Week 3: Day 3 - Intro to Active Record</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/11/phase-1-week-3-day-2-orm/">Phase 1: Week 3: Day 2 - ORM</a>
       </li>
     
   </ul>
