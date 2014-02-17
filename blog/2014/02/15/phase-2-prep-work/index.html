@@ -103,9 +103,62 @@ $ git rebase -i git rebase - &hellip;">
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p><code>git rebase -i</code> allows you to:</p>
+
+<ul>
+<li>rewrite commits</li>
+<li>remove commits</li>
+<li>combine commits</li>
+<li>reorder commits</li>
+</ul>
 
 
-<figure class='code'><figcaption><span>git rebase -i&#8220;` allows you to:  </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>The benefit is almost immediately obvious &ndash; you can write short/sweet commits locally to keep your work flow going smoothly, then use <code>git rebase -i</code> <em>before</em> pushing the commits anywhere to rewrite those commits into a unified and cohesive story that we can then share with our team, future self, and anyone else who comes along.</p>
+
+<p>First: use <code>git log</code> to find the commit you want to change</p>
+
+<p>Next: run <code>git rebase -i [the commit's hash]</code></p>
+
+<h3>a quick break for San Fran&rsquo;s Chinese New Year parade</h3>
+
+<p>Marching bands, drum lines and dragons</p>
+
+<h2>JavaScript intro</h2>
+
+<p>Programming in a new syntax &ndash; utilizing the skills/knowledge and applying it to a new language. The beauty of logic.</p>
+
+<p><strong>For loop</strong> syntax:<br/>
+<code>var i = 1;</code> is the counting variable and the starting value of that variable.<br/>
+<code>i &lt; 11;</code> do the loop until this condition is met.<br/>
+<code>i++</code> the counter.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here&rsquo;s another example on printing strings from an array:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NYC&quot;</span><span class="p">,</span> <span class="s2">&quot;SF&quot;</span><span class="p">,</span> <span class="s2">&quot;ATX&quot;</span><span class="p">,</span> <span class="s2">&quot;Maui&quot;</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>While loop</strong> syntax</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -120,76 +173,23 @@ $ git rebase -i git rebase - &hellip;">
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="p">*</span> <span class="n">rewrite</span> <span class="n">commits</span>
-</span><span class='line'><span class="p">*</span> <span class="n">remove</span> <span class="n">commits</span>
-</span><span class='line'><span class="p">*</span> <span class="n">combine</span> <span class="n">commits</span>
-</span><span class='line'><span class="p">*</span> <span class="n">reorder</span> <span class="n">commits</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">while</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">//do something</span>
+</span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">The</span> <span class="n">benefit</span> <span class="n">is</span> <span class="n">almost</span> <span class="n">immediately</span> <span class="n">obvious</span> <span class="p">-</span> <span class="n">you</span> <span class="n">can</span> <span class="n">write</span> <span class="n">short</span><span class="p">/</span><span class="n">sweet</span> <span class="n">commits</span> <span class="n">locally</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">your</span> <span class="n">work</span> <span class="n">flow</span> <span class="n">going</span> <span class="n">smoothly</span><span class="p">,</span> <span class="n">then</span> <span class="n">use</span> <span class="p">```</span><span class="n">powershell</span> <span class="n">git</span> <span class="n">rebase</span> <span class="n">-i</span><span class="p">```</span> <span class="p">*</span><span class="n">before</span><span class="p">*</span> <span class="n">pushing</span> <span class="n">the</span> <span class="n">commits</span> <span class="n">anywhere</span> <span class="n">to</span> <span class="n">rewrite</span> <span class="n">those</span> <span class="n">commits</span> <span class="n">into</span> <span class="n">a</span> <span class="n">unified</span> <span class="n">and</span> <span class="n">cohesive</span> <span class="n">story</span> <span class="n">that</span> <span class="n">we</span> <span class="n">can</span> <span class="n">then</span> <span class="n">share</span> <span class="n">with</span> <span class="n">our</span> <span class="n">team</span><span class="p">,</span> <span class="n">future</span> <span class="n">self</span><span class="p">,</span> <span class="n">and</span> <span class="n">anyone</span> <span class="k">else</span> <span class="n">who</span> <span class="n">comes</span> <span class="n">along</span><span class="p">.</span>
+</span><span class='line'><span class="c1">//an example of a while loop</span>
+</span><span class='line'><span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">First</span><span class="err">:</span> <span class="n">use</span> <span class="p">```</span><span class="n">bash</span> <span class="n">git</span> <span class="n">log</span><span class="p">```</span> <span class="n">to</span> <span class="n">find</span> <span class="n">the</span> <span class="n">commit</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">change</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">loop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">while</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;I&#39;m looping&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">Next</span><span class="err">:</span> <span class="n">run</span> <span class="p">```</span><span class="n">bash</span> <span class="n">git</span> <span class="n">rebase</span> <span class="n">-i</span> <span class="p">[</span><span class="n">the</span> <span class="n">commit</span><span class="s1">&#39;s hash]```</span>
-</span><span class='line'>
-</span><span class='line'><span class="s1">###a quick break for San Fran&#39;</span><span class="n">s</span> <span class="n">Chinese</span> <span class="n">New</span> <span class="n">Year</span> <span class="n">parade</span>
-</span><span class='line'><span class="n">Marching</span> <span class="n">bands</span><span class="p">,</span> <span class="n">drum</span> <span class="n">lines</span> <span class="n">and</span> <span class="n">dragons</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">##JavaScript intro</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">Programming</span> <span class="k">in</span> <span class="n">a</span> <span class="n">new</span> <span class="n">syntax</span> <span class="p">-</span> <span class="n">utilizing</span> <span class="n">the</span> <span class="n">skills</span><span class="p">/</span><span class="n">knowledge</span> <span class="n">and</span> <span class="n">applying</span> <span class="n">it</span> <span class="n">to</span> <span class="n">a</span> <span class="n">new</span> <span class="n">language</span><span class="p">.</span> <span class="n">The</span> <span class="n">beauty</span> <span class="n">of</span> <span class="n">logic</span><span class="p">.</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">**</span><span class="k">For</span> <span class="n">loop</span><span class="p">**</span> <span class="n">syntax</span><span class="err">:</span> <span class="p">```</span><span class="n">powershell</span> <span class="n">var</span> <span class="n">i</span> <span class="p">=</span> <span class="n">1</span><span class="err">;</span><span class="p">```</span> <span class="n">is</span> <span class="n">the</span> <span class="n">counting</span> <span class="n">variable</span> <span class="n">and</span> <span class="n">the</span> <span class="n">starting</span> <span class="n">value</span> <span class="n">of</span> <span class="n">that</span> <span class="n">variable</span><span class="p">.</span> <span class="p">```</span><span class="n">powershell</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">11</span><span class="err">;</span><span class="p">```</span> <span class="k">do</span> <span class="n">the</span> <span class="n">loop</span> <span class="k">until</span> <span class="n">this</span> <span class="n">condition</span> <span class="n">is</span> <span class="n">met</span><span class="p">.</span> <span class="p">```</span><span class="n">powershell</span> <span class="n">i</span><span class="p">++```</span> <span class="n">the</span> <span class="n">counter</span><span class="p">.</span>
-</span><span class='line'>
+</span><span class='line'><span class="nx">loop</span><span class="p">();</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>javascript<br/>
-for (var i = 1; i &lt; 11; i++) {
-  console.log(i);
-}</p>
-
-<figure class='code'><figcaption><span>git rebase -i&#8220;` allows you to:  </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="n">Here</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">another</span> <span class="n">example</span> <span class="n">on</span> <span class="n">printing</span> <span class="n">strings</span> <span class="n">from</span> <span class="n">an</span> <span class="n">array</span><span class="err">:</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>javascript
-var cities = [&ldquo;NYC&rdquo;, &ldquo;SF&rdquo;, &ldquo;ATX&rdquo;, &ldquo;Maui&rdquo;];</p>
-
-<p>for (var i = 0; i &lt; cities.length; i++) {
-  console.log(cities[i]);
-}</p>
-
-<figure class='code'><figcaption><span>git rebase -i&#8220;` allows you to:  </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='powershell'><span class='line'><span class="p">**</span><span class="k">While</span> <span class="n">loop</span><span class="p">**</span> <span class="n">syntax</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>while (condition) {
-  //do something
-}</p>
-
-<p>//an example</p>
-
-<p>count = 0;</p>
-
-<p>var loop = function() {
-  while (count &lt; 3) {</p>
-
-<pre><code>console.log("I'm looping");
-count += 1;
-</code></pre>
-
-<p>  }
-};</p>
-
-<p>loop();
-&#8220;`</p>
 
 <p><strong>10:35pm- Depart</strong></p>
 
