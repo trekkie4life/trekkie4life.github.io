@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="12:00pm &ndash; Arrive MVC Sinatra write server side code conventions baked into Sinatra, if you follow them, stuff will happen automatically Views &hellip;">
+  <meta name="description" content="12:00pm &ndash; Arrive A couple of coach&rsquo;s came in today to give a Sinatra intro class. Sinatra is not a framework, but rather a domain- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -96,23 +96,152 @@
 
   <div class="entry-content"><p><strong>12:00pm &ndash; Arrive</strong></p>
 
-<p>MVC</p>
+<p>A couple of coach&rsquo;s came in today to give a Sinatra intro class. Sinatra is not a framework, but rather a domain-specific language for building websites, web services, and web ap- plications in Ruby.</p>
 
-<p>Sinatra</p>
+<p>It&rsquo;s recommend that we implement MVC since we will probably be using it until something better comes along.</p>
 
-<p>write server side code</p>
+<p><code>M</code>: Model &ndash; only one that talks to the database via Active Record<br/>
+<code>V</code>: View &ndash; changes the data to HTML<br/>
+<code>C</code>: Controller &ndash; it delegates to others, it does NOT care about the the data itself</p>
 
-<p>conventions baked into Sinatra, if you follow them, stuff will happen automatically</p>
+<p><img src="http://24.media.tumblr.com/c58e571c5ef307b5eb9905a01d6e5fc8/tumblr_n147l3s77F1t30egqo1_r2_1280.jpg" alt="MVC" /></p>
 
-<p>Views in view folder, controllers in controller folder, etc</p>
+<p>Your browser sends a GET request and it&rsquo;s parsed similar to how an address is by the post office.</p>
 
-<p>Web Requests</p>
+<p>The Controller finds <code>WHO</code>.</p>
 
-<p>(HTTP)</p>
+<p><img src="http://31.media.tumblr.com/a6f9bbb0818a569f6a4349213ad45a30/tumblr_n147gqY2ec1t30egqo1_1280.jpg" alt="address" /></p>
 
-<p><strong>9:30pm &ndash; Depart</strong></p>
+<h2>SINATRA</h2>
 
-<blockquote></blockquote>
+<p>Practice with the MVC design pattern. <code>app.rb</code> is our Controller.  Views are in the view folder, controllers in the controller folder. It&rsquo;s almost too simple. ;)</p>
+
+<p><img src="http://i.minus.com/i8wVvvWs5PreW.png" alt="file structure" /></p>
+
+<h3>Routes</h3>
+
+<p>Routes are matched in the order they are defined. The first route that matches the request gets fired off.</p>
+
+<p>Route patterns may include named parameters, accessible via the params hash:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">get</span> <span class="s1">&#39;/hello/:name&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="c1"># matches &quot;GET /hello/foo&quot; and &quot;GET /hello/bar&quot;</span>
+</span><span class='line'>  <span class="c1"># params[:name] is &#39;foo&#39; or &#39;bar&#39;</span>
+</span><span class='line'>  <span class="s2">&quot;Hello </span><span class="si">#{</span><span class="n">params</span><span class="o">[</span><span class="ss">:name</span><span class="o">]</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># is the same as...</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">get</span> <span class="s1">&#39;/hello/:name&#39;</span> <span class="k">do</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1"># n stores params[:name]</span>
+</span><span class='line'>  <span class="s2">&quot;Hello </span><span class="si">#{</span><span class="n">n</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When an <code>.erb</code> file has <code>&lt;%    %&gt;</code> it just means the stuff inside is Ruby code, in this case it&rsquo;s just logic code and it will NOT be displayed.</p>
+
+<p>The <code>.erb</code> equivalent of <code>puts</code> is <code>&lt;%=   %&gt;</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">DBC</span> <span class="no">Coaches</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;a href=&quot;/</span><span class="n">coaches</span><span class="o">/</span><span class="kp">new</span><span class="s2">&quot;&gt;Create new coach&lt;/a&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&lt;ul&gt;</span>
+</span><span class='line'><span class="s2">&lt;% @coaches.each do |coach| %&gt;</span>
+</span><span class='line'><span class="s2">  &lt;li&gt;&lt;%= coach %&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="s2">&lt;% end %&gt;</span>
+</span><span class='line'><span class="s2">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the case of this example, if we want to add a new coach we&rsquo;d go to <code>localhost:4567/coaches/new</code>, and our controller calls <code>new.erb</code> (as can be seen from the code below)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;sinatra&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;./models/coach&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@coaches</span> <span class="o">=</span> <span class="no">Coach</span><span class="o">.</span><span class="n">all</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">erb</span> <span class="ss">:index</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">get</span> <span class="s1">&#39;/coaches/new&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">erb</span> <span class="ss">:new</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">post</span> <span class="s1">&#39;/coaches&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">params</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="no">Coach</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">redirect</span> <span class="s1">&#39;/&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>new.erb</code> is seen below</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/coaches&quot;</span> <span class="nb">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nb">name</span><span class="o">=</span><span class="s2">&quot;coach_name&quot;</span> <span class="n">placeholder</span><span class="o">=</span><span class="s2">&quot;Enter coach name&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/form&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So we arrive at index.erb via the first Get, then from there if we click on <code>Create New</code> we head to <code>new.erb</code> &ndash; Thumbs up!</p>
+
+<p>Overall a great intro session. Thanks, coaches!</p>
+
+<p><strong>10:30pm &ndash; Depart</strong></p>
+
+<blockquote><p>Computer science&hellip; differs from physics in that it is not actually a science. It does not study natural objects. Neither is it, as you might think, mathematics; although it does use mathematical reasoning pretty extensively. Rather, computer science is like engineering; it is all about getting something to do something, rather than just dealing with abstractions.<br/>
+-Richard Feynman</p></blockquote>
 </div>
   
   
@@ -244,6 +373,19 @@
 </span><span class='line'><span class="p">};</span>
 </span><span class='line'>
 </span><span class='line'><span class="nx">loop</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p><strong>Do / While loop</strong> syntax</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">do</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">//do something</span>
+</span><span class='line'><span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">loop</span> <span class="nx">condition</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
