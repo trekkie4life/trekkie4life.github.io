@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="7:15am &ndash; Arrive After going through how to design the schema for the different database types [One to One; One to Many; Many to Many] our &hellip;">
+  <meta name="description" content="First off, let me say, this was a priceless experience. If you have the choice to do some challenges or go to a DBC Hackathon as a boot&hellip; GO TO &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,214 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/08/dbc-hackathon/">DBC - Hackathon</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-08T11:53:39-08:00" pubdate data-updated="true">Feb 8<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>First off, let me say, this was a priceless experience. If you have the choice to do some challenges or go to a DBC Hackathon as a boot&hellip; GO TO THE HACKATHON! You will be able to participate and contribute and you&rsquo;ll be exposed to so many things. I just finished Phase 1 &ndash; Week 2, and I was still able to make a substantial amount of meaningful input. I loved it.</p>
+
+<p><strong>8:45am &ndash; Arrive</strong></p>
+
+<p>After app pitches, we pick which one interests us and converge.  Our team? 5 people: 2 DBC alums and 3 (that includes myself) Phase 1 students.</p>
+
+<h4>Our goal?</h4>
+
+<p>I should preface this by saying the Phase 1 students have no JavaScript experience, vanilla or otherwise.</p>
+
+<p>Use JS to build a 9 x 9 board of cells. Randomly generate  (horizontal/vertical)unions between the cells.</p>
+
+<p>Make a Dynamic Connectivity algorithm to see if there is a path that will connect two points, A and B on the board.  We were kind of stuck on the algorithm until a fellow Banana Slug, Quentin (my brother from another mother), came by and gave a great explanation on it.</p>
+
+<p>Animate the algorithm, so we can see it make a path as it goes through various possiblities until it finally reaches the destination cell OR runs out of possible options.</p>
+
+<p><img src="http://i.minus.com/ihuIdgNySiXPd.JPG" alt="Recursion" /></p>
+
+<h4>Execution</h4>
+
+<p>Javascript &ndash; closures!! You can wrap a group of functions together such that the variables in the &ldquo;wrapper&rdquo; can be used by functions contained in the wrapper but not by those outside of it. In other words &hellip; Whenever you see the function keyword within another function, the inner function has access to variables in the outer function. It&rsquo;s all about the scope!!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">Board</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">board</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">saveState</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">makeSomeCells</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">81</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">cell</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cell</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">board</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">cell</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">connectCells</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">81</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">findNeighbors</span><span class="p">();</span>
+</span><span class='line'>        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">makeConnections</span><span class="p">(</span><span class="nx">board</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Two things went wrong:</p>
+
+<p>1) Animation debacle! Unfortunately tried as we might, we couldn&rsquo;t get it working in time by the end of the Hackathon. The animation was the fresh coat of paint on the whole project.  At least we do know through thorough testing that our algorithm works as it should.</p>
+
+<p>2) Because the unions are randomly generated, there isn&rsquo;t always a path from A to B.</p>
+
+<h4><strong>10:00pm &ndash; &ldquo;Pencils down&rdquo;</strong></h4>
+
+<p>Our team takes a huddle to discuss how we&rsquo;re going to present, points to concentrate on, things we took away, etc.</p>
+
+<h4><strong>10:20pm &ndash; Judging</strong></h4>
+
+<p>There were some amazing apps, only two teams had Phase 1 boots, and one of them won!  It wasn&rsquo;t us, but I was still really proud of everyone in my cohort that participated!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/07/phase-1-week-2-day-5-team-projects/">Phase 1: Week 2: Day 5 - Team Projects</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-07T21:59:01-08:00" pubdate data-updated="true">Feb 7<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>7:30am &ndash; Arrive</strong></p>
+
+<p>TEAM PROJECTS!  Holy crap &ndash; nervous and excited (but this seems to be the norm for my DBC experience thus far). NO RULES! NO RULES?!</p>
+
+<p>Well, maybe one &ndash; push ourselves but don&rsquo;t bite off more than we can chew for our first project.</p>
+
+<p>Our main goal &ndash; LEARN</p>
+
+<p><img src="https://github-camo.global.ssl.fastly.net/555fcf42315d33424e6ed0c9f0a9568f6b4fbbfb/687474703a2f2f662e636c2e6c792f6974656d732f32473170305530473133327231463335323034352f53637265656e25323053686f74253230323031332d31302d31382532306174253230332e33382e3237253230504d2e706e67" alt="Agile" /></p>
+
+<h3>The 4 main goals of Agile:</h3>
+
+<ul>
+<li>individuals and interactions &mdash; are more worthy of our attention than &mdash; processes and tools</li>
+<li>working software &mdash; is more worthy of our attention than &mdash; comprehensive documentation</li>
+<li>customer collaboration &mdash; is more worthy of our attention than &mdash; contract negotiation</li>
+<li>responding to change &mdash; is more worthy of our attention than &mdash; following a plan</li>
+</ul>
+
+
+<p>you want some clarification on that do you?</p>
+
+<ul>
+<li>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.</li>
+<li>Welcome changing requirements, even late in development. Agile processes harness change for the customer&rsquo;s competitive advantage.</li>
+<li>Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.</li>
+<li>Client-side personnel and developers must work together daily throughout the project.</li>
+<li>Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.</li>
+<li>The most efficient and effective method ofconveying information to and within a development team is face-to-face conversation.</li>
+<li>Working software is the primary measure of progress.</li>
+<li>Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.</li>
+<li>Continuous attention to technical excellence and good design enhances agility.</li>
+<li>Simplicity&mdash;the art of maximizing the amount of work not done&mdash;is essential.</li>
+<li>The best architectures, requirements, and designs emerge from self-organizing teams.</li>
+<li>At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.</li>
+</ul>
+
+
+<h3>Working Agreements</h3>
+
+<p>Once you&rsquo;ve decided to work with other human beings, things tend to get a little complicated.</p>
+
+<p>The idea is that, once you&rsquo;re part of a team, it&rsquo;s impossible to operate independently without considering other members of your tribe. You have to spend time (basically overhead) to work out how to interact with each other in a meaningful way.</p>
+
+<p>For example, imagine a project has just started on Friday and your team is supposed to work through the weekend. does everyone agree on that plan? What if someone on the team had other plans for the weekend? When will everyone else find out? Not on Saturday morning, I hope.</p>
+
+<ul>
+<li>who is part of the team (by naming individuals)?</li>
+<li>what roles do they play (although generic roles are ok, specific roles are better)?</li>
+<li>how do people stay in touch (cell phones, email, etc)?</li>
+<li>when will the team work together vs apart?</li>
+<li>what are the working hours?</li>
+<li>what absences are expected?</li>
+<li>what are your goals as a team?</li>
+<li>what are your shared values as a team?</li>
+</ul>
+
+
+<p>Dinner was pizza with some of the cohort and then back to DBC for some coding!</p>
+
+<p><strong>11:30pm &ndash; Depart</strong></p>
+
+<blockquote><p>Science is what we understand well enough to explain to a computer. Art is everything else we do.<br/>
+&ndash; Donald Knuth</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -657,128 +865,9 @@ object within an object within an object &ndash; on and on until the end of the 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/28/phase-1-week-1-day-2-data-loops-flows/">Phase 1: Week 1: Day 2 - Data, Decisions, Loops & Flows</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-28T23:30:29-08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>8:06am &ndash; Arrive</strong></p>
-
-<p>coding challenges &ndash; roman numerals &ndash; encoding and decoding them. After doing the first two parts, it was great fun to look at the case studies (collection of 29 examples of student code) and see where they differ and are similar. You start to be able to recognize how efficient/clean/easy to read different methods and approaches are. Then we use what we learned there to re-write our roman-numeral encoding method from scratch.</p>
-
-<p>Engineering Empathy training session with Karim Bishay &ndash; eye opening for sure. This kind of training will apply well to all areas of my life. We did an exercise where we confront out superego. Some people were crying afterward, who can blame them though. Luckily DBC is a very safe space to expose vulnerabilities and insecurities  Very intense. It&rsquo;s no wonder they planned that right before our first yoga session.  The yoga for those that are wondering is very meditative and relaxing, you won&rsquo;t be sweating afterwards, more getting in tune with your body and re-centering your mind. I promised my girlfriend I&rsquo;d be going at least 3 times a week for the duration of the course. It is mandatory Tues &amp; Thur for Phase 1.</p>
-
-<p>PM coding challenges &ndash; learning about different kinds of sorting and their Big O notation.</p>
-
-<p><img src="https://github-camo.global.ssl.fastly.net/e409d816ec89b91ff74fbfd728b2f4f8f4d9867d/687474703a2f2f636c2e6c792f696d6167652f316f333834343354313930312f53637265656e25323053686f74253230323031342d30312d32382532306174253230322e34342e3032253230504d2e706e67" alt="Big O Complexity" /></p>
-
-<h4>Bubblesort</h4>
-
-<p>is not very impressive and takes a LOOOONG time</p>
-
-<h4>Quicksort</h4>
-
-<p>you select a random piece of data, that&rsquo;s your pivot point. You remove that from the array you want to sort, now you separate the remaining data into 2 groups (let&rsquo;s call them): Left, Right. A piece of data goes into left if it&rsquo;s value is less than the pivot point. If it&rsquo;s greater than the pivot point, it goes into Right. You then run quicksort again on the two new sets of data Left, and Right.  Wait &ndash; is that recursion? NICE!</p>
-
-<p><strong>11:00pm &ndash; Depart</strong></p>
-
-<blockquote><p>Simplicity is prerequisite for reliability.<br/>
-&ndash; Edsger Dijkstra</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/27/phase-1-week-1-day-1-encoding-decoding/">Phase 1: Week 1: Day 1 - Encoding, Decoding</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-27T23:00:29-08:00" pubdate data-updated="true">Jan 27<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>8:30am &ndash; Arrive</strong></p>
-
-<p>It&rsquo;s been over 12 weeks of official prep work &ndash; and something that I got accepted for in May of 2013.  Hard to believe it&rsquo;s finally here. Not having a programming background I am definitely nervous.</p>
-
-<p>doors open promptly at 9am on the first day&hellip; what&rsquo;s it like? Well you&rsquo;ll just have to be there to experience it. Suffice to say, any new boots will love it!</p>
-
-<h3>First day lessons:</h3>
-
-<ul>
-<li>Be open with your ignorance</li>
-<li>Don&rsquo;t be afraid to ask questions</li>
-<li>Teach if you understand something</li>
-<li>Be kind</li>
-<li>Critically ride the wave of curiosity</li>
-<li>Sleep</li>
-<li>Step away from the bubble</li>
-</ul>
-
-
-<p>The first half of the morning was getting to know our fellow cohorts and the DBC family, the resources available to us, and what to expect.</p>
-
-<p>Lunch followed and then afterward we were coding in the afternoon. We paired 3 times in 3 hours. Taking what we learned/applied/how we approached to each subsequent pairing session. It was much more useful than I initially thought it would be. I gained a lot of insight from pairing several times on the SAME challenge.</p>
-
-<p>A final note &ndash; I made the right decision to come and attend. No doubt about it :)</p>
-
-<p><strong>10:45pm &ndash; Depart</strong></p>
-
-<blockquote><p>Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.<br/>
-&ndash; Brian Kernighan</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -793,6 +882,14 @@ object within an object within an object &ndash; on and on until the end of the 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/18/phase-2-week-1-day-2-request-and-respononse/">Phase 2: Week 1: Day 2 - Request &amp; Respononse</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/17/phase-2-week-1-day-1-aloha-sinatra/">Phase 2: Week 1: Day 1 - Aloha Sinatra</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/16/pre-phase-2-coachs-corner/">Pre-Phase 2 - Coach&#8217;s Corner</a>
       </li>
     
@@ -802,14 +899,6 @@ object within an object within an object &ndash; on and on until the end of the 
     
       <li class="post">
         <a href="/blog/2014/02/14/phase-1-week-3-day-5-team-projects-and-ruby-gem-published/">Phase 1: Week 3: Day 5 - Team Projects and Ruby Gem Published</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/13/phase-1-week-3-day-4-open-source-team-projects/">Phase 1: Week 3: Day 4 - Open Source Team Projects</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/12/phase-1-week-3-day-3-intro-to-active-record/">Phase 1: Week 3: Day 3 - Intro to Active Record</a>
       </li>
     
   </ul>
