@@ -9,7 +9,8 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="8:00am &ndash; Arrive Depart ">
+  <meta name="description" content="
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +72,42 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/">Phase 2: Week 1: Day 3 - More Sinatra and Active Record</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-19T08:16:59-08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/02/18/phase-2-week-1-day-2-request-and-respononse/">Phase 2: Week 1: Day 2 - Request &amp; Respononse</a></h1>
     
     
@@ -96,10 +133,28 @@
 
   <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
 
+<p>12:30pm &ndash; Lunch followed by power half-hour gym</p>
+
+<p>Lightening talks &ndash; short 5 minute presentations by people in the cohort (everyone has one every week).</p>
+
+<p>Portfolio projects unleashed (4 per week) &ndash; due by 11:59pm Sunday.</p>
+
+<p>Git workflow &ndash; how to deal with Merge Conflicts</p>
+
+<p>Once you are committed locally</p>
+
 <ul>
-<li>Depart</li>
+<li><code>$ git co master</code></li>
+<li><code>$ git pull</code></li>
+<li><code>$ git co (my_branch)</code></li>
+<li><code>$ git rebase master</code></li>
+<li><code>$ git push origin (my_branch)</code></li>
 </ul>
 
+
+<p>And that&rsquo;s how you make sure you&rsquo;re up todate and won&rsquo;t have merge conflicts!</p>
+
+<p><strong>10:35pm &ndash; Depart</strong></p>
 
 <blockquote></blockquote>
 </div>
@@ -1164,87 +1219,6 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/09/weekend-review/">Weekend Review</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-09T20:12:55-08:00" pubdate data-updated="true">Feb 9<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Sunday morning errands to get some food for the first couple days</p>
-
-<p>11:00am &ndash; Arrive</p>
-
-<p>OOP (Object Oriented Programming)</p>
-
-<p>Reading Practical Object Oriented Design for Ruby &ndash; affectionately referred to as &ldquo;POODR&rdquo; (pooh-der).</p>
-
-<p>One problem we had was trying to keep the code DRY (Don&rsquo;t Repeat Yourself) in regards to our Fruit class and the classes that inherited from it. We wanted to have different fruits (Apples, Oranges, Pears) be initialized with different diameters. For awhile we couldn&rsquo;t figure out how to do that without repeating the code containing the diameter instance variable, until&hellip;</p>
-
-<p>Solution: passing an argument into <strong>super</strong> so the Superclass receives it.  I didn&rsquo;t know super was capable of that. Ruby, you are so nifty and great.</p>
-
-<p>Brain, grow more neurons to retain this nugget.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Initializes a new fruit with diameter +diameter+</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">Fruit</span>
-</span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:diameter</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">diameter</span><span class="p">)</span>  <span class="c1"># initialize takes an argument from super</span>
-</span><span class='line'>    <span class="vi">@diameter</span> <span class="o">=</span> <span class="n">diameter</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Initializes a new Orange with diameter +diameter+ (of random size)</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">Orange</span> <span class="o">&lt;</span> <span class="no">Fruit</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span>
-</span><span class='line'>    <span class="k">super</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># super takes an argument - </span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>9:30pm &ndash; Depart</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1260,6 +1234,10 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/">Phase 2: Week 1: Day 3 - More Sinatra and Active Record</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/18/phase-2-week-1-day-2-request-and-respononse/">Phase 2: Week 1: Day 2 - Request &amp; Respononse</a>
       </li>
     
@@ -1273,10 +1251,6 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
     
       <li class="post">
         <a href="/blog/2014/02/15/phase-2-prep-work/">Phase 2 - Prep Work</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/14/phase-1-week-3-day-5-team-projects-and-ruby-gem-published/">Phase 1: Week 3: Day 5 - Team Projects and Ruby Gem Published</a>
       </li>
     
   </ul>

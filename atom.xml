@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-18T08:24:04-08:00</updated>
+  <updated>2014-02-19T08:41:13-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -14,16 +14,43 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Phase 2: Week 1: Day 3 - More Sinatra and Active Record]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/"/>
+    <updated>2014-02-19T08:16:59-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Phase 2: Week 1: Day 2 - Request &amp; Respononse]]></title>
     <link href="http://trekkie4life.github.io/blog/2014/02/18/phase-2-week-1-day-2-request-and-respononse/"/>
     <updated>2014-02-18T08:15:51-08:00</updated>
     <id>http://trekkie4life.github.io/blog/2014/02/18/phase-2-week-1-day-2-request-and-respononse</id>
     <content type="html"><![CDATA[<p><strong>8:00am &ndash; Arrive</strong></p>
 
+<p>12:30pm &ndash; Lunch followed by power half-hour gym</p>
+
+<p>Lightening talks &ndash; short 5 minute presentations by people in the cohort (everyone has one every week).</p>
+
+<p>Portfolio projects unleashed (4 per week) &ndash; due by 11:59pm Sunday.</p>
+
+<p>Git workflow &ndash; how to deal with Merge Conflicts</p>
+
+<p>Once you are committed locally</p>
+
 <ul>
-<li>Depart</li>
+<li><code>$ git co master</code></li>
+<li><code>$ git pull</code></li>
+<li><code>$ git co (my_branch)</code></li>
+<li><code>$ git rebase master</code></li>
+<li><code>$ git push origin (my_branch)</code></li>
 </ul>
 
+
+<p>And that&rsquo;s how you make sure you&rsquo;re up todate and won&rsquo;t have merge conflicts!</p>
+
+<p><strong>10:35pm &ndash; Depart</strong></p>
 
 <blockquote></blockquote>
 ]]></content>
@@ -1409,42 +1436,6 @@ object within an object within an object &ndash; on and on until the end of the 
 
 
 <p><strong>11:35pm &ndash; Depart</strong></p>
-
-<blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
-&ndash; Eric S. Raymond</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Phase 1: Week 1: Day 3 - Basic Data Structures]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/01/29/phase-1-week-1-day-3-basic-data-structures/"/>
-    <updated>2014-01-29T23:35:49-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/01/29/phase-1-week-1-day-3-basic-data-structures</id>
-    <content type="html"><![CDATA[<p><strong>8:15am &ndash; Arrive</strong></p>
-
-<p>Solo (optional) day</p>
-
-<p>Didn’t go solo, had the pleasure of pairing with Quentin &ndash; my brother from another mother.  Happy to say he&rsquo;s a friend of mine thanks to our pairing sessions in Phase 0. He helped me grasp a lot of concepts that were foreign to me in the prep work. One hell of a guy.</p>
-
-<p>AM coding &ndash; Basic Data Structures</p>
-
-<p>Hawaiian BBQ for lunch &ndash; highly recommend it for fellow protein loving boots.</p>
-
-<p>Shadi gives us a nice tutorial on Test Driven Development (TDD). Quentin and I decided to approach the afternoon’s challenges utilizing this new and powerful tool by utilitizing asserts to test as opposed to “puts” statements.</p>
-
-<p>We wrote a bunch of tests and then started putting it together, locating the error in the stack, debugging that particular error, saving and retesting.</p>
-
-<p>PM coding &ndash; Abstract Data Structures (ADT)</p>
-
-<p>Some coaches had a very nice indepth teaching session on Git. I entered feeling like I had a basic idea of what was going on, I walked out feeling very confident I have a solid high-level understanding of how to correctly use Git moving forward.</p>
-
-<h2>Shuhari</h2>
-
-<p><img src="http://upload.wikimedia.org/wikipedia/commons/e/e2/ShuHaRi.png" alt="shuhari" /></p>
-
-<p>Our goals each week at DBC are broken down into 3 stages of &lsquo;mastery&rsquo; using the Japanese concept of &lsquo;Shuhari&rsquo; (しゅはり), which roughly translates to: &ldquo;first learn, then detach, and finally transcend&rdquo;</p>
-
-<p><strong>12:30am &ndash; Depart</strong></p>
 
 <blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
 &ndash; Eric S. Raymond</p></blockquote>
