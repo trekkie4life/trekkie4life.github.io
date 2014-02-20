@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-19T08:41:13-08:00</updated>
+  <updated>2014-02-19T22:55:45-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -18,7 +18,101 @@
     <link href="http://trekkie4life.github.io/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/"/>
     <updated>2014-02-19T08:16:59-08:00</updated>
     <id>http://trekkie4life.github.io/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p><strong>7:05am &ndash; Arrive</strong></p>
+
+<h2>REST</h2>
+
+<p>Relational State Transfer</p>
+
+<p>HTTP Verbs (what makes the &lsquo;net go round) + Paths &ndash;> Action</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Actions        </th>
+<th align="center"> HTTP Verb          </th>
+<th align="right">   Path  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> index      </td>
+<td align="center"> GET </td>
+<td align="right"> puppies/    |</td>
+</tr>
+<tr>
+<td></td>
+<td> show      </td>
+<td align="center"> GET      </td>
+<td align="right">   puppies/:id    |</td>
+</tr>
+<tr>
+<td></td>
+<td> update </td>
+<td align="center"> POST      </td>
+<td align="right">    puppies/:id    |</td>
+</tr>
+<tr>
+<td></td>
+<td> create </td>
+<td align="center"> POST      </td>
+<td align="right">    puppies/    |</td>
+</tr>
+<tr>
+<td></td>
+<td> delete </td>
+<td align="center"> DEL      </td>
+<td align="right">    puppies/:id    |</td>
+</tr>
+<tr>
+<td></td>
+<td> edit (then points to update) </td>
+<td align="center"> GET      </td>
+<td align="right">    puppies/:id/edit    |</td>
+</tr>
+<tr>
+<td></td>
+<td> new (then point to create) </td>
+<td align="center"> GET      </td>
+<td align="right">    puppies/new    |</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>(edit) GET displays form for updating &ndash;> POST is the HTTP verb used to consume that action</p>
+
+<h2>Models</h2>
+
+<p>Don&rsquo;t forget to create models after creating DB</p>
+
+<p><code>$ rake generate:model NAME="[name in singular]"</code></p>
+
+<p>You can include join table in model file with</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">has_many</span> <span class="ss">:XYZ</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>HEROKU</h2>
+
+<p><code>$ heroku create</code><br/>
+<code>$ heroku remote local-branch:[git-remote-branch.git]</code></p>
+
+<p>Remember: Heroku doesn&rsquo;t like nested directories &ndash; only the main directory app and its corresponding folders are in.</p>
+
+<p>You can migrate and seed a database on Heroku from the Terminal!</p>
+
+<p><code>$ heroku run rake db:migrate</code><br/>
+<code>$ heroku run rake db:seed</code></p>
+
+<p><strong>10:45pm &ndash; Depart</strong></p>
+
+<blockquote><p>The opposite of a correct statement is a false statement. But the opposite of a profound truth may well be another profound truth.<br/>
+&ndash; Niels Bohr</p></blockquote>
 ]]></content>
   </entry>
   
@@ -52,7 +146,8 @@
 
 <p><strong>10:35pm &ndash; Depart</strong></p>
 
-<blockquote></blockquote>
+<blockquote><p>It is not the strongest of the species that survive, nor the most intelligent, but the one most responsive to change.<br/>
+&ndash; Sir Francis Darwin</p></blockquote>
 ]]></content>
   </entry>
   
@@ -117,20 +212,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Controller</h2>
-
-<figure class='code'><figcaption><span>/app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">get</span> <span class="s1">&#39;/:word&#39;</span> <span class="k">do</span>
-</span><span class='line'>  <span class="vi">@word</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:word</span><span class="o">]</span>
-</span><span class='line'>  <span class="vi">@my_word</span> <span class="o">=</span> <span class="no">Word</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">text</span><span class="p">:</span> <span class="vi">@word</span><span class="p">,</span> <span class="ss">sorted</span><span class="p">:</span> <span class="vi">@word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span> <span class="c1">#something like this</span>
-</span><span class='line'>  <span class="n">erb</span> <span class="ss">:index</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p>Remember, the model is what interacts with the database</p>
 
 <h2>Model</h2>
 
@@ -171,6 +253,23 @@
 </span><span class='line'>    <span class="n">actual_ana</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And our controller takes in commands and passes them to both the database and the view</p>
+
+<h2>Controller</h2>
+
+<figure class='code'><figcaption><span>/app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">get</span> <span class="s1">&#39;/:word&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@word</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:word</span><span class="o">]</span>
+</span><span class='line'>  <span class="vi">@my_word</span> <span class="o">=</span> <span class="no">Word</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">text</span><span class="p">:</span> <span class="vi">@word</span><span class="p">,</span> <span class="ss">sorted</span><span class="p">:</span> <span class="vi">@word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span> <span class="c1">#something like this</span>
+</span><span class='line'>  <span class="n">erb</span> <span class="ss">:index</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
