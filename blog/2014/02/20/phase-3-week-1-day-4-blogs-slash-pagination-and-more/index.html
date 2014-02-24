@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>about - Captain's Log</title>
+  <title>Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; more - Captain's Log</title>
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="About Jul 24th, 2012 Sample! Recent Posts Phase 2: Week 1 - Sunday Funday @ DBC Phase 2: Week 1 - Weekend Warrior Phase 2: Week 1: Day 5 - Flash &hellip;">
+  <meta name="description" content="7:30am &ndash; Arrive Recall that HTTP is statless, so &ldquo;sessions&rdquo; were invented. A session keeps state during HTTP requests, and a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://trekkie4life.github.io/about">
+  <link rel="canonical" href="http://trekkie4life.github.io/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Captain's Log" type="application/atom+xml">
@@ -64,11 +64,15 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">About</h1>
-    <p class="meta">
+    
+      <h1 class="entry-title">Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; More</h1>
+    
+    
+      <p class="meta">
+        
 
 
 
@@ -80,12 +84,96 @@
   
 
 
-<time datetime="2012-07-24T03:16:00-07:00" pubdate data-updated="true">Jul 24<span>th</span>, 2012</time></p>
+<time datetime="2014-02-20T21:11:08-08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+        
+      </p>
+    
   </header>
+
+
+<div class="entry-content"><p><strong>7:30am &ndash; Arrive</strong></p>
+
+<p>Recall that HTTP is statless, so &ldquo;sessions&rdquo; were invented.  A session keeps state during HTTP requests, and a session actually stores all data in a cookie.</p>
+
+<p>In Sinatra, the session data in this cookie is &lsquo;signed&rsquo; with a session secret, it&rsquo;s the default AND it&rsquo;s randomly generated every time you start Sinatra, though you can set it to a non-changing value.</p>
+
+<p>A client makes an HTTP request to the server. The server responds to the client and drops a cookie on/in the client&rsquo;s browser. Once the cookie is dropped, every subsequent request from the client has the cookie.</p>
+
+<p>Yes, there are exceptions that can be made and you can always manually clear cookies</p>
+
+<p>A session in not a hash, but it is treated like a hash in syntax. <code>session[:color]</code></p>
+
+<p>In Sinatra, you must enable sessions with a simple&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">enable</span> <span class="ss">:sessions</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>12:30pm &ndash; Yoga and lunch</p>
+
+<h2>Debugging</h2>
+
+<p>2 major types:</p>
+
+<p>1) Binary Search, whose efficiency in narrowing down the problem is <code>n log n</code></p>
+
+<p>2) Find &ldquo;seams&rdquo; between layers</p>
+
+<h2>Portfolio Challenge 1</h2>
+
+<h3>I&rsquo;d like to have more detailed blog posts, but phase 2 is crammed with work and it won&rsquo;t slow down anytime soon.</h3>
+
+<p><strong>1:00am &ndash; Depart</strong></p>
+
+<blockquote><p>Chance favors the prepared mind.<br/>
+-Louis Pasteur</p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <p>Sample!</p>
+
+<span class="byline author vcard">Posted by <span class="fn">Armando Reed</span></span>
+
+      
+
+
+
+
+
+
+
 
   
+
+
+<time datetime="2014-02-20T21:11:08-08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://trekkie4life.github.io/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more/" data-via="" data-counturl="http://trekkie4life.github.io/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/" title="Previous Post: Phase 2: Week 1: Day 3 - More Sinatra and Active Record">&laquo; Phase 2: Week 1: Day 3 - More Sinatra and Active Record</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/02/21/phase-2-week-1-day-5-flash-card-web-app/" title="Next Post: Phase 2: Week 1: Day 5 - Flash Card web-app">Phase 2: Week 1: Day 5 - Flash Card web-app &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
 

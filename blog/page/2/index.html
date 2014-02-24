@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="Sunday morning errands to get some food for the first couple days 11:00am &ndash; Arrive OOP (Object Oriented Programming) Reading Practical Object &hellip;">
+  <meta name="description" content="7:55am &ndash; Arrive Our instructors split us into teams, and I&rsquo;m paired with my brother from another mother, Quentin &ndash; and Immediately &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,419 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/13/phase-1-week-3-day-4-open-source-team-projects/">Phase 1: Week 3: Day 4 - Open Source Team Projects</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-13T08:43:16-08:00" pubdate data-updated="true">Feb 13<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>7:55am &ndash; Arrive</p>
+
+<p>Our instructors split us into teams, and I&rsquo;m paired with my brother from another mother, Quentin &ndash; and</p>
+
+<p>Immediately we are out the door implementing the Agile methodology. We timebox, pitch ideas, hone them down, pick one.</p>
+
+<ul>
+<li>working agreement</li>
+<li>division of labor</li>
+<li>attack the problem</li>
+</ul>
+
+
+<p>12:30pm &ndash; Yoga and a super quick lunch</p>
+
+<p>Phase 1 assessment &ndash; definitely was nervous, and I know they are basically taking a 5 second clip from a movie and trying to base their judgement on the entire movie from that clip&hellip; but they are clearly interested in the context, are you soaking in the big ideas and understanding them, can you communicate clearly, etc. Nervous and yet a good experience. DBC, you win again!</p>
+
+<p>Even with 3 out of 4 team members having assessments today (as opposed to yesterday) and other appointments today, we were still able to finish bare-bones MVP (Minimum Viable Product) for group project!</p>
+
+<p>So what&rsquo;s our project? I&rsquo;ll describe it more in tomorrow&rsquo;s blog because I&rsquo;m a wee bit tired at the moment ;)</p>
+
+<p>12:05pm &ndash; Depart</p>
+
+<blockquote><p>I think the way to &ldquo;solve&rdquo; the problem of procrastination is to let delight pull you instead of making a to-do list push you. The most dangerous way to lose time is not to spend it having fun, but to spend it doing fake work.<br/>
+&ndash; Paul Graham</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/12/phase-1-week-3-day-3-intro-to-active-record/">Phase 1: Week 3: Day 3 - Intro to Active Record</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-12T08:36:09-08:00" pubdate data-updated="true">Feb 12<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:15am &ndash; Arrive</strong></p>
+
+<p>I was freakishly tired early last night, so slept in a bit this morning &ndash; it was exactly what I needed.</p>
+
+<p><strong>Active Record</strong> &ndash; Active Record is essentialy a layer of Ruby code that runs between your database and your logic code.  When you want to make changes to the database, you write some Ruby, then migrate &ndash; the migrations make the actual changes what database you&rsquo;re using, then you only have to change a couple of lines of code. Now <em>that</em> is slick.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="n">migrate</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>The Database:</h2>
+
+<p>Since Active Record interacts with the database, it&rsquo;s the M in MVC.</p>
+
+<p>The syntax for ActiveRecord Migrations is as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateStudents</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span> <span class="c1"># each migration is a class</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:students</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span> <span class="c1"># create a table &#39;students&#39; in the db with the below columns</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:first_name</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:last_name</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:gender</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">date</span>   <span class="ss">:birthday</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:email</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:phone</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span> <span class="c1"># this automatically gives us created_at &amp; updated_at columns</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You may have noticed that there isn&rsquo;t an <code>id</code> column &ndash; that&rsquo;s because Active Record adds the unique primary key <code>id</code> to table <em>automatically</em>.</p>
+
+<p>What&rsquo;s an even cooler thing that the migration class does? It is semi like git (version control), you can roll back and undo some changes.  How you might ask?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="n">rollback</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>REMEMBER: migrations don&rsquo;t happen automagically when you create a new model, you have to <em>MANUALLY</em> run them.</p>
+
+<p>When we create a <code>Student</code> model, a file is created in <code>app/models/student.rb</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Student</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'><span class="o">.</span>
+</span><span class='line'><span class="o">.</span>
+</span><span class='line'><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Adding validations</h2>
+
+<p>Why validate? Validations are hugely important in any web app, it&rsquo;s here that we check to ensure the data we want to put into the database is clean &amp; correct.</p>
+
+<p><strong>Remember &ndash; validations created in our model class(es) don&rsquo;t actually change the database!</strong></p>
+
+<p>The <code>validates</code> method sets up all our validations, first we pass which field(s) we want to validate, then we pass it a hash with the validation properties.  There are a ton of pre-made validation helpers or we can even make our own.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Student</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">validate</span> <span class="ss">:minimum_legal_student_age</span>
+</span><span class='line'>  <span class="n">validate</span> <span class="ss">:standard_phone_number</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="p">{</span> <span class="ss">with</span><span class="p">:</span> <span class="sr">/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i</span><span class="p">,</span> <span class="ss">message</span><span class="p">:</span> <span class="s2">&quot;email format is incorrect&quot;</span><span class="p">}</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">uniqueness</span><span class="p">:</span> <span class="kp">true</span> <span class="c1"># validates the email is unique in the database in the email column</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">standard_phone_number</span>
+</span><span class='line'>    <span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="ss">:bad_phone</span><span class="p">,</span> <span class="s2">&quot;must be at least 10 numerals&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">self</span><span class="o">.</span><span class="n">phone</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[^0-9]/</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">10</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p><code>validate</code> (NOT validate<strong>s</strong>) calls the method <code>standard_phone_number</code> to verify the phone # meets requirements, otherwise an error is given and the test fails.</p>
+
+<h2>Associations</h2>
+
+<p><a href="http://guides.rubyonrails.org/association_basics.html">Associations</a> are how Active Record handles multiple tables</p>
+
+<p>For more detailed information, hit up the <a href="http://guides.rubyonrails.org/migrations.html#supported-types">docs</a></p>
+
+<p><strong>10:40pm &ndash; Depart</strong></p>
+
+<blockquote><p>If you want to improve, be content to be thought foolish and stupid<br/>
+-Epictetus</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/11/phase-1-week-3-day-2-orm/">Phase 1: Week 3: Day 2 - ORM</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-11T07:51:04-08:00" pubdate data-updated="true">Feb 11<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>7:40am &ndash; Arrive</strong></p>
+
+<p>Get out of your comfort zone. It&rsquo;s important in a situation where you want to grow, learn and evolve as a human being, regardless of age. That holds true for programming as well.</p>
+
+<p><img src="http://i.imgur.com/hu32GdW.jpg" alt="Where the magic happens, it's true, give it a try" /></p>
+
+<p><strong>The Law of Demeter</strong> &ndash; a set of coding rules (strong suggestion, emphasis on strong) that results in the creation of loosely coupled objects. A unit/object (class or method) should have only limited knowledge about other units, those others being only units &ldquo;closely&rdquo; related to the current unit/object.</p>
+
+<p>Basically, try to make your classes single responsibility and your methods as well. That doesn&rsquo;t mean only one method to a class, but rather you want to be sure your class is highly cohesive&hellip; that everything in it is related to its central purpose.</p>
+
+<h2>Object Relational Mapper (ORM)</h2>
+
+<p>Build our own ORM that mimics some common features of ActiveRecord. Why not just learn to use RSpec right off the bat? Because we should understand that RSpec is just Ruby, written in a certain way to have its own dsl (domain specific language). RSpec is not magic, we <strong><em>CAN</em></strong> and <strong><em>SHOULD</em></strong> know what&rsquo;s going on under the hood when we take a peak. It&rsquo;s important as n00bs to develop proper habits now rather than having to unlearn bad ones and re-learn good ones.</p>
+
+<hr />
+
+<p>If we run some code in Ruby&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">Database</span><span class="p">:</span><span class="ss">:Model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;PRAGMA table_info(students)&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&hellip; that returns meta-data on a database table&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="p">{</span><span class="s2">&quot;cid&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;INTEGER&quot;</span><span class="p">,</span> <span class="s2">&quot;notnull&quot;</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dflt_value&quot;</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;pk&quot;</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">},</span>
+</span><span class='line'> <span class="p">{</span><span class="s2">&quot;cid&quot;</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;cohort_id&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;integer&quot;</span><span class="p">,</span> <span class="s2">&quot;notnull&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;dflt_value&quot;</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;pk&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">},</span>
+</span><span class='line'> <span class="p">{</span><span class="s2">&quot;cid&quot;</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;first_name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;varchar(255)&quot;</span><span class="p">,</span> <span class="s2">&quot;notnull&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;dflt_value&quot;</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;pk&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">},</span>
+</span><span class='line'> <span class="p">{</span><span class="s2">&quot;cid&quot;</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;last_name&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;varchar(255)&quot;</span><span class="p">,</span> <span class="s2">&quot;notnull&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;dflt_value&quot;</span><span class="o">=&gt;</span><span class="kp">nil</span><span class="p">,</span> <span class="s2">&quot;pk&quot;</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">},</span>
+</span><span class='line'><span class="o">.</span>
+</span><span class='line'><span class="o">.</span>
+</span><span class='line'><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&hellip; which is an array of hashes where each hash corresponds to a field in the database, and we want only the values of each hash&rsquo;s &ldquo;name&rdquo; key, we&rsquo;d want to iterate over the array of hashes using #map like so&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vi">@attribute_names</span> <span class="o">=</span> <span class="n">pragma</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">col_hash</span><span class="o">|</span> <span class="n">col_hash</span><span class="o">[</span><span class="s2">&quot;name&quot;</span><span class="o">].</span><span class="n">to_sym</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Remember: TEST BEHAVIOR, NOT IMPLEMENTATION</h3>
+
+<p><strong>10:45pm &ndash; Depart</strong></p>
+
+<blockquote><p>You don&rsquo;t understand anything until you learn it more than one way.<br/>
+&ndash; Marvin Minsky</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/10/phase-1-week-3-day-1-databases/">Phase 1: Week 3: Day 1 - Databases</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-10T23:15:10-08:00" pubdate data-updated="true">Feb 10<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
+
+<h2>&ldquo;What excites you about programming?&rdquo;</h2>
+
+<p>The ability to create and reach 39 (and growing) percent of the world&rsquo;s population.</p>
+
+<p>Below the vertical axis is percentage of world&rsquo;s population, horizontal axis is years.</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/2/29/Internet_users_per_100_inhabitants_ITU.svg" alt="world internet usage graph" /></p>
+
+<p>It&rsquo;s time to think about programming in this way:</p>
+
+<h3>I have a need. I want to express it. How do I do it in this/that language?</h3>
+
+<h2>Database Schema and PostgreSQL</h2>
+
+<p>A self join is when a foreign key and the primary key it points to are in the same table.  In the pic below you&rsquo;ll notice we are showing that a user comment can be a reply to an earlier user comment.  We use a self join to make it a reality.  It&rsquo;s nice to find the beauty in simple things.</p>
+
+<p><img src="http://i2.minus.com/iJUPUs3sj1qYx.jpg" alt="Always whiteboard your schema. Always. No exceptions." /></p>
+
+<p>Rule one of databases &ndash; always illustrate your tables and how they relate to one another. Don&rsquo;t try juggling that stuff in your head. If it&rsquo;s a few tables, it might be ok. If it&rsquo;s hundreds of tables, not such a good idea. Build good habits now.</p>
+
+<p>Soon it was time to implement some databases in PostgreSQL via Ruby.</p>
+
+<p>Step 1 &ndash; remember to require postgres</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;pg&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>Step 2 &ndash; don&rsquo;t be afraid of using a hash as an input parameter</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Student</span>
+</span><span class='line'>
+</span><span class='line'><span class="vg">$db</span> <span class="o">=</span> <span class="no">PG</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span> <span class="ss">dbname</span><span class="p">:</span> <span class="s1">&#39;students&#39;</span> <span class="p">)</span> <span class="c1"># allows us to save time when accessing the db</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">args</span> <span class="o">=</span> <span class="p">{})</span>
+</span><span class='line'>    <span class="vi">@first_name</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:first_name</span><span class="o">]</span>
+</span><span class='line'>    <span class="vi">@last_name</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:last_name</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+Step 3 &ndash; use binding variables to protect against <a href="http://en.wikipedia.org/wiki/SQL_injection">SQL injection</a>. In SQLite it&rsquo;s a &lsquo;?&rsquo; instead of &lsquo;$1&rsquo; or &lsquo;$2&rsquo; (and so on). $1 refers to the element at index 0, $2 refers to the element at index 1 (etc, etc) of the array the variable is bound to.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">save</span>
+</span><span class='line'>    <span class="vg">$db</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;INSERT INTO students (first_name, last_name, created_at, updated_at)</span>
+</span><span class='line'><span class="s2">        VALUES ( $1, $2, DATE(&#39;now&#39;), DATE(&#39;now&#39;))&quot;</span><span class="p">,</span> <span class="o">[</span><span class="vi">@first_name</span><span class="p">,</span> <span class="vi">@last_name</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">student</span> <span class="o">=</span> <span class="no">Student</span><span class="o">.</span><span class="n">new</span> <span class="p">({</span><span class="n">first_name</span><span class="p">:</span> <span class="s1">&#39;Armando&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="s1">&#39;Reed&#39;</span><span class="p">})</span>  <span class="c1"># notice the hash we pass in</span>
+</span><span class='line'><span class="n">student</span><span class="o">.</span><span class="n">save</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The second mission for today is to learn more about testing so when we tackle ActiveRecord and RSpec we won&rsquo;t think it&rsquo;s magic but that we&rsquo;ll understand what it&rsquo;s doing.</p>
+
+<p><strong>10:40pm &ndash; Depart</strong></p>
+
+<blockquote><p>The good thing about reinventing the wheel is that you can get a round one.<br/>
+&ndash; Douglas Crockford</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -541,348 +954,6 @@ We are introduced to basic application development using the object oriented pro
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/03/phase-1-week-2-day-1-advanced-ruby/">Phase 1: Week 2: Day 1 - Advanced Ruby</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-03T22:30:31-08:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>&ldquo;Something old, something new&rdquo;</h2>
-
-<p><strong>8:00am &ndash; Arrive</strong></p>
-
-<p> we had 9 challenges today.  I def had a favorite&hellip;</p>
-
-<h4>&ldquo;revisiting Fibonacci&rdquo;</h4>
-
-<p>Instead of merely checking to see if a number is a Fibonacci number, we take an input, say 27, which then returns the 27th Fibonacci number.  Then we do some benchmarking to see whether having the program run iteratively or recursively was quicker! First intro to benchmarking &ndash; sweeeeet.</p>
-
-<p>Here&rsquo;s our iterative code</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">fib_iterative</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">fibonacci</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span>
-</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
-</span><span class='line'>  <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">current_fib_num</span><span class="o">|</span>
-</span><span class='line'>    <span class="n">fibonacci</span> <span class="o">&lt;&lt;</span> <span class="n">fibonacci</span><span class="o">[-</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="k">return</span> <span class="n">fibonacci</span><span class="o">.</span><span class="n">last</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Here&rsquo;s our recursive code</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">fibonacci_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prev_fib</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">current_fib</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">return</span> <span class="n">prev_fib</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
-</span><span class='line'>  <span class="n">fibonacci</span> <span class="o">=</span> <span class="n">prev_fib</span> <span class="o">+</span> <span class="n">current_fib</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">fibonacci_recursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prev_fib</span> <span class="o">=</span> <span class="n">current_fib</span><span class="p">,</span> <span class="n">current_fib</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>So, which one is faster? What do <strong><em>you</em></strong> think?  Benchmark it and see if you&rsquo;re right!</p>
-
-<p><strong>11:07pm &ndash; Depart</strong></p>
-
-<blockquote><p>The best way to predict the future is to invent it.<br/>
-&ndash; Alan Kay</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/02/superbowl-sunday-funday/">Superbowl Sunday-Funday</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-02T22:36:29-08:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I&rsquo;ve heard many times from many different people that the main thing to do after a vigorous week is to relax for a little bit and let the mind recoup from the vigors of the week. So today was errand day, stocked up on some groceries then headed into DBC.</p>
-
-<p><strong>11:30am &ndash; Arrival</strong></p>
-
-<p>Review, Review, Review and Reading!</p>
-
-<p><strong>3:30pm &ndash; Depart</strong></p>
-
-<p>After that &ndash; it was pizza, beer, and Superbowl time.</p>
-
-<p>Hard to believe week 2 starts tomorrow. One week down, eight to go!</p>
-
-<blockquote><p>Testing can only prove the presence of bugs, not their absence.<br/>
-&ndash; Edsger Dijkstra</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/31/phase-1-week-1-day-5-sudoku/">Phase 1: Week 1: Day 5 - Sudoku</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-31T23:30:49-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
-
-<p>AM &ndash; check-in with new small groups (3 from our cohort, 3 from the cohort ahead of us). We each get 2 min to talk about anything and not be interrupted. The goal of this exercise is open up, take what’s on your mind and in your heart and talk about it. It may or may not be related to the happenings of DBC.</p>
-
-<p>After pairing up with my coding partner for the day, we dive into how to solve soduku. First step &ndash; let’s solve a puzzle on paper and see how we each (as humans) solve it.</p>
-
-<p>How do you choose where to start?
-Did you adopt the same notation/board markings while playing Sudoku? Why? If not, why did you choose differently?
-Why do we do a certain action?
-Are we avoiding any strategies because they’re too tedious or require us to remember too much?</p>
-
-<p>From there we build the logic of how our sudoku solving algorithm (without guessing) will work. We use a high level approach in our Pseudocode and avoid language specific syntax.</p>
-
-<p>Once we find an empty cell, to form a set of possible values for that cell we check what values are already in that row, then in the column, then in the 3x3 sub-box the cell falls within.</p>
-
-<p>IF the number of possible values is just one, we put that value into the grid
-ELSE we move onto the next spot &ndash; so on and so forth</p>
-
-<p>Yes, we’ll have to go over the board several times in order to fill in all the empty cells.</p>
-
-<p><strong>12:30pm &ndash; lunch and yoga</strong> &ndash; harder than Tues or Thurs, but more enjoyable at the same time &ndash; definitely allows me to keep my body and mind centered.</p>
-
-<p>PM &ndash; finishing up the challenge</p>
-
-<p><strong>11:00pm &ndash; Depart</strong></p>
-
-<blockquote><p>Email is a wonderful thing for people whose role in life is to be on top of things. But not for me; my role is to be on the bottom of things. What I do takes long hours of studying and uninterruptible concentration.<br/>
-&ndash; Donald Knuth</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/31/phase-1-week-1-day-4-games/">Phase 1: Week 1: Day 4 - Games</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-31T02:00:49-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="https://github-camo.global.ssl.fastly.net/263edda0ba67654c5e68725c981d6701c0f4b8eb/68747470733a2f2f736f6372617465732e646576626f6f7463616d702e636f6d2f6173736574732f747265655f636f6d69632e6a7067" alt="communication" /></p>
-
-<p>How can you not love the above picture &ndash; it&rsquo;s correct on so many levels!</p>
-
-<p><strong>8:00am &ndash; Arrive</strong></p>
-
-<p>Diving into games! Scary and fun at the same time.</p>
-
-<p>First up: Pig Latin</p>
-
-<p>take an input string</p>
-
-<p>IF the string starts with a vowel, return the word (unchanged)
-ELSE set the consonants at the of the word and add the suffix &ldquo;ay&rdquo;
-PRINT the pig-latin-ified word
-The best way in my mind would be to use RegEx, and that&rsquo;s exactly what happened.</p>
-
-<p>For the first example.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">normal_word</span> <span class="o">=~</span> <span class="sr">/\A[aeiyou]/</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">normal_word</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>=~ \A  means the search MUST start at the beginning of the string.</p>
-
-<p>[aeiyou] the square brackets mean that a positive match will occur if the first letter (in this case) is one of the characters in the brackets &ndash; like “a” or “e” or “i” or “y” or “o” or “u” is the first letter, then <em>BING</em> we have a match</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">else</span>
-</span><span class='line'>    <span class="nb">p</span> <span class="n">normal_word</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="sr">/(^[^aeiyou]*)(.+)/</span><span class="p">,</span> <span class="err">”</span><span class="p">\</span><span class="mi">2</span><span class="o">-</span><span class="p">\</span><span class="mi">1</span><span class="n">ay</span><span class="err">”</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You’ll notice 2 pairs of paranthesis.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="sr">/(^[^aeiyou]*)(.+)/</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>the first hat ^ acts the same as \A</p>
-
-<p>inside the [ ] the ^ acts as “NOT”</p>
-
-<p>* after the right bracket ] means to end that search there</p>
-
-<p>the second pair of brackets assigns the result of that search to a second group.</p>
-
-<p>the period means to match any character, the + means “one or more”</p>
-
-<p>#gsub!(this is what we are searching for, replace it with this)</p>
-
-<p>will destructively match and replace the match. There’s a special syntax when you use those captured groups</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">“</span><span class="p">\</span><span class="mi">2</span><span class="o">-</span><span class="p">\</span><span class="mi">1</span><span class="n">ay</span><span class="err">”</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>When the group is inside double quotes, we have to have \ preceding the group number. \2 refers to group two, \1 refers to group one.</p>
-
-<p>So here, we’d have group two followed by a dash, then group one, followed by “ay” with no white-spaces separating them.</p>
-
-<p>DBC Yoga &ndash; especially good</p>
-
-<p>AHA Moments!</p>
-
-<p>Linked Lists:</p>
-
-<p>the pointer points to the entire object, not just the value
-object within an object within an object &ndash; on and on until the end of the list</p>
-
-<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/CPT-LinkedLists-deletingnode.svg/380px-CPT-LinkedLists-deletingnode.svg.png" alt="Linked Lists" /></p>
-
-<h4>Assignment Operators</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">||=</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>tests left argument for truthiness, if nil or false will overwrite it with right argument.  In the example below, if a is nil or false, it is assigned the value 3</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span><span class="o">||=</span><span class="mi">3</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">a</span><span class="o">||</span> <span class="n">a</span><span class="o">=</span><span class="mi">3</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>11:35pm &ndash; Depart</strong></p>
-
-<blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
-&ndash; Eric S. Raymond</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -900,23 +971,23 @@ object within an object within an object &ndash; on and on until the end of the 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/23/phase-2-week-1-weekend-warrior/">Phase 2: Week 1 - Weekend Warrior</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/21/phase-2-week-1-day-5-flash-card-web-app/">Phase 2: Week 1: Day 5 - Flash Card web-app</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more/">Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; more</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/">Phase 2: Week 1: Day 3 - More Sinatra and Active Record</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/18/phase-2-week-1-day-2-request-and-respononse/">Phase 2: Week 1: Day 2 - Request &amp; Respononse</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/17/phase-2-week-1-day-1-aloha-sinatra/">Phase 2: Week 1: Day 1 - Aloha Sinatra</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/16/pre-phase-2-coachs-corner/">Pre-Phase 2 - Coach&#8217;s Corner</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/15/phase-2-prep-work/">Phase 2 - Prep Work</a>
       </li>
     
   </ul>

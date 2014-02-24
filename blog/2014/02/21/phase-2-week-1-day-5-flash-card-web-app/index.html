@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Phase 2: Week 1: Day 5 - Flash Card web-app - Captain's Log</title>
+  <meta name="author" content="Armando Reed">
+
+  
+  <meta name="description" content="8:15am &ndash; Arrive Group projects &ndash; Flashcards Web App 12:30pm &ndash; Yoga, Lunch Lightening talk &ndash; 5 minute &ldquo;lectures&rdquo; &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://trekkie4life.github.io/blog/2014/02/21/phase-2-week-1-day-5-flash-card-web-app">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Captain's Log" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Captain's Log</a></h1>
+  
+    <h2>one boot's journey through dev bootcamp</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:trekkie4life.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Phase 2: Week 1: Day 5 - Flash Card Web-app</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-21T21:19:06-08:00" pubdate data-updated="true">Feb 21<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><strong>8:15am &ndash; Arrive</strong></p>
+
+<p>Group projects &ndash; Flashcards Web App</p>
+
+<p>12:30pm &ndash; Yoga, Lunch</p>
+
+<p>Lightening talk &ndash; 5 minute &ldquo;lectures&rdquo; on a topic, we all have to do one once a week. Mine was today &ndash; my topic, Semantic Markup.</p>
+
+<p>Present MVP</p>
+
+<p>What did we learn?</p>
+
+<p>since HTTP requests only all <code>GET</code> and <code>POST</code> it takes a little duct tape to get <code>DELETE</code> or <code>PATCH</code> to work.</p>
+
+<p>Here&rsquo;s the duct tape in action&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;bottom_buttons&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">form</span> <span class="nb">name</span><span class="o">=</span><span class="s2">&quot;delete&quot;</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/notes/&lt;%= @note.id %&gt;/delete&quot;</span> <span class="nb">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="o">&gt;</span> <span class="c1"># the psuedo post method</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="n">input</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="nb">name</span><span class="o">=</span><span class="s2">&quot;_method&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;delete&quot;</span><span class="o">&gt;</span>  <span class="c1"># here the magic happens w/the REAL method value</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="n">input</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;input-rounded-button&quot;</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;Delete&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="sr">/form&gt;</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>notice how in the controller, how <code>delete</code> is used instead of <code>post</code> so it works with the value of the hidden method from the view!</p>
+
+<figure class='code'><figcaption><span>app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">get</span> <span class="s1">&#39;/notes/:id/delete&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@note</span> <span class="o">=</span> <span class="no">Note</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">erb</span> <span class="ss">:confirm_delete</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">delete</span> <span class="s1">&#39;/notes/:id/delete&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@note</span> <span class="o">=</span> <span class="no">Note</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@note</span><span class="o">.</span><span class="n">destroy</span>
+</span><span class='line'>  <span class="n">redirect</span> <span class="s1">&#39;/notes&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Got a few questions answered from Stephen and Quentin &ndash; hat tip to them for helping me make some good neural connections.</p>
+
+<p>RSpec test for a note object to make sure it contains a non-nil title and body.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;spec_helper&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">describe</span> <span class="no">Note</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">validate_presence_of</span> <span class="ss">:title</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">validate_presence_of</span> <span class="ss">:body</span> <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It does this by checking to make sure the Note model validates those.</p>
+
+<figure class='code'><figcaption><span>app/models/note.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Note</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">validates_presence_of</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Finished Portfolio Challenge 1 &ndash; woo hoo! In the morning I&rsquo;ll tackle number 2!</p>
+
+<p>Finally going to get some serious sleep to prepare for a very busy weekend with DBC work.</p>
+
+<p><strong>12:30am &ndash; Depart</strong></p>
+
+<blockquote><p>At the source of every error which is blamed on the computer you will find at least two human errors, including the error of blaming it on the computer.<br/>
+&ndash; Anonymous</p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Armando Reed</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-21T21:19:06-08:00" pubdate data-updated="true">Feb 21<span>st</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://trekkie4life.github.io/blog/2014/02/21/phase-2-week-1-day-5-flash-card-web-app/" data-via="" data-counturl="http://trekkie4life.github.io/blog/2014/02/21/phase-2-week-1-day-5-flash-card-web-app/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more/" title="Previous Post: Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; more">&laquo; Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; more</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/02/23/phase-2-week-1-weekend-warrior/" title="Next Post: Phase 2: Week 1 - Weekend Warrior">Phase 2: Week 1 - Weekend Warrior &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/23/phase-2-week-1-weekend-warrior/">Phase 2: Week 1 - Weekend Warrior</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/21/phase-2-week-1-day-5-flash-card-web-app/">Phase 2: Week 1: Day 5 - Flash Card web-app</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more/">Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; more</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/">Phase 2: Week 1: Day 3 - More Sinatra and Active Record</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Armando Reed -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
