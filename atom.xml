@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-24T13:44:33-08:00</updated>
+  <updated>2014-02-24T13:50:23-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -20,7 +20,17 @@
     <id>http://trekkie4life.github.io/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc</id>
     <content type="html"><![CDATA[<p><strong>11:00am &ndash; Arrive</strong></p>
 
-<p>Ahhh, the wonder of CSS.</p>
+<p>The CSS challenge: Editing only the CSS file, can we make a webpage identical to a given screenshot.</p>
+
+<p>The answer: Yes, we can.</p>
+
+<p>Moral of the story: CSS can be your best friend but one who likes to punch you in the face when you least expect it.</p>
+
+<p><code>float</code> can mess some things up, use it sparingly.</p>
+
+<p>Use Chrome Developer Tools, they are your best friend.</p>
+
+<p>Ahhh, the beauty of CSS.</p>
 
 <p><img src="http://4.bp.blogspot.com/-121N0L5IdA4/UJq-3XHuuAI/AAAAAAAAAwM/o1jA-2Zy0-g/s1600/css_is_awesome.gif" alt="CSS is awesome" /></p>
 
