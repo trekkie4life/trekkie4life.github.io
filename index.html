@@ -297,6 +297,93 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p>we use a <code>get</code> request for the login.erb page and then collect our user info</p>
+
+<figure class='code'><figcaption><span>app/views/login.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Awesome</span> <span class="no">Authentication</span> <span class="no">Authorization</span> <span class="no">App</span> <span class="o">-</span> <span class="no">Login</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">  &lt;div class=&quot;login_screen&quot;&gt;</span>
+</span><span class='line'><span class="sr">    &lt;form action=&quot;/use</span><span class="n">rs</span><span class="o">/</span><span class="n">login</span><span class="s2">&quot; method=&quot;</span><span class="n">post</span><span class="s2">&quot;&gt;</span>
+</span><span class='line'><span class="s2">      &lt;input type=&quot;</span><span class="n">text</span><span class="s2">&quot; name=&quot;</span><span class="n">email</span><span class="s2">&quot; placeholder=&quot;</span><span class="n">enter</span> <span class="n">email</span><span class="s2">&quot;&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="s2">      &lt;input type=&quot;</span><span class="n">password</span><span class="s2">&quot; name=&quot;</span><span class="n">password</span><span class="s2">&quot; placeholder=&quot;</span><span class="n">enter</span> <span class="n">password</span><span class="s2">&quot;&gt;</span>
+</span><span class='line'><span class="s2">      &lt;input class=&quot;</span><span class="n">input</span><span class="o">-</span><span class="n">rounded</span><span class="o">-</span><span class="n">button</span><span class="s2">&quot; type=&quot;</span><span class="n">submit</span><span class="s2">&quot; value=&quot;</span><span class="n">login</span><span class="s2">&quot;&gt;</span>
+</span><span class='line'><span class="s2">   &lt;/form&gt;</span>
+</span><span class='line'><span class="s2">  &lt;/div&gt;</span>
+</span><span class='line'><span class="s2">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You&rsquo;ll notice in the view, that the form method is a <code>post</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>  <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="no">Awesome</span> <span class="no">Authentication</span> <span class="no">Authorization</span> <span class="no">App</span> <span class="o">-</span> <span class="no">Login</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">  &lt;div class=&quot;login_screen&quot;&gt;</span>
+</span><span class='line'><span class="sr">    &lt;form action=&quot;/use</span><span class="n">rs</span><span class="o">/</span><span class="n">login</span><span class="s2">&quot; method=&quot;</span><span class="n">post</span><span class="s2">&quot;&gt; # right here, the action and the method!</span>
+</span><span class='line'><span class="s2">      &lt;input type=&quot;</span><span class="n">text</span><span class="s2">&quot; name=&quot;</span><span class="n">email</span><span class="s2">&quot; placeholder=&quot;</span><span class="n">enter</span> <span class="n">email</span><span class="s2">&quot;&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="s2">      &lt;input type=&quot;</span><span class="n">password</span><span class="s2">&quot; name=&quot;</span><span class="n">password</span><span class="s2">&quot; placeholder=&quot;</span><span class="n">enter</span> <span class="n">password</span><span class="s2">&quot;&gt;</span>
+</span><span class='line'><span class="s2">      &lt;input class=&quot;</span><span class="n">input</span><span class="o">-</span><span class="n">rounded</span><span class="o">-</span><span class="n">button</span><span class="s2">&quot; type=&quot;</span><span class="n">submit</span><span class="s2">&quot; value=&quot;</span><span class="n">login</span><span class="s2">&quot;&gt;</span>
+</span><span class='line'><span class="s2">   &lt;/form&gt;</span>
+</span><span class='line'><span class="s2">  &lt;/div&gt;</span>
+</span><span class='line'><span class="s2">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And in the <code>post</code> route is our controller and the logic used to login.</p>
+
+<figure class='code'><figcaption><span>app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">post</span> <span class="s1">&#39;/users/login/?&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by_email</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="vi">@user</span><span class="o">.</span><span class="n">password</span> <span class="o">==</span> <span class="n">params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span>
+</span><span class='line'>    <span class="n">session</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span> <span class="o">=</span> <span class="vi">@user</span><span class="o">.</span><span class="n">id</span>
+</span><span class='line'>    <span class="n">redirect</span> <span class="s2">&quot;/users/</span><span class="si">#{</span><span class="n">session</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="n">redirect</span> <span class="s1">&#39;/&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>the <code>#password ==</code> is actually a method in BCrypt that decrypts the hashed password and then compares it to the stuff on the right of the redefined <code>==</code> method.</p>
+
+<p>It took A LONG time for us to figure out what was going on with implementing BCrypt.</p>
+
+<p>So long in fact, that I had to call it quits at 1:40am and then finish it tomorrow. Sometimes your brain needs to reboot.</p>
+
 <p><strong>1:40am &ndash; Depart</strong></p>
 
 <blockquote><p>Programs must be written for people to read, and only incidentally for machines to execute.<br/>
