@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-25T21:38:49-08:00</updated>
+  <updated>2014-02-25T22:22:43-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -184,6 +184,21 @@
 </span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">anotherObject</span><span class="p">));</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h2>Name spacing</h2>
+
+<p>Take a look at these 2 methods, <code>.sin()</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Trig</span><span class="p">.</span><span class="nx">sin</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Morality</span><span class="p">.</span><span class="nx">sin</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Even without knowing anything about what they do, you can probably surmise that they do <em>very</em> different things. <strong>Name spacing</strong> allows us and the computer to organize things accordingly.</p>
 
 <p><strong>10:45pm &ndash; Depart</strong></p>
 
