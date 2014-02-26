@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="&ldquo;Something old, something new&rdquo; 8:00am &ndash; Arrive we had 9 challenges today. I def had a favorite&hellip; &ldquo;revisiting Fibonacci& &hellip;">
+  <meta name="description" content="7:30am &ndash; Arrive Todo list! Today one of the challenges was&hellip; build a todo list! We want to be able to interact with the user via the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,145 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/05/phase-1-week-2-day-3-building-applications-flashcards-and-todo/">Phase 1: Week 2: Day 3 - Building Applications (Flashcards &amp; ToDo)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-05T22:52:00-08:00" pubdate data-updated="true">Feb 5<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>7:30am &ndash; Arrive</strong></p>
+
+<p>Todo list!  Today one of the challenges was&hellip; build a todo list!</p>
+
+<p>We want to be able to interact with the user via the terminal&hellip; passing in commands to read and write to an external file.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">add</span> <span class="no">Bake</span> <span class="n">a</span> <span class="n">delicious</span> <span class="n">blueberry</span><span class="o">-</span><span class="n">glazed</span> <span class="n">cheesecake</span>
+</span><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">list</span>
+</span><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">delete</span> <span class="o">&lt;</span><span class="n">task_id</span><span class="o">&gt;</span>
+</span><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">complete</span> <span class="o">&lt;</span><span class="n">task_id</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We had to build the program using the MVC (Model-View-Controller) design method.</p>
+
+<p>The general consensus is that in Ruby the lines are semi-fuzzy between the Model and the Controller.  Apparently this fuzziness clears up dramaticaly in Rails, but since we&rsquo;re not yet using Rails, my partner and I had a discussion and mini-whiteboard session to see if we preferred one way over the other.  Ultimately we decided to have our Model hold not only the data but also the methods for manipulating the data, where our Controller essentially acted as the interpreter for what the View was saying.</p>
+
+<p>One of the early problems we encountered was how to have our program add to the external todo list (txt file) without overwriting what was already in it.  The solution was to use &lsquo;a+&rsquo; with File.open</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">add_task</span><span class="p">(</span><span class="n">task_to_add</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@your_todo</span> <span class="o">&lt;&lt;</span> <span class="n">task_to_add</span>
+</span><span class='line'>  <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;todo_practice.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">#{</span><span class="n">task_to_add</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Remember: coding in a procedural style defeats the purpose of object orientation</h3>
+
+<p><strong>10:40pm &ndash; Depart</strong></p>
+
+<blockquote><p>The question of whether Machines Can Think&hellip; is about as relevant as the question of whether Submarines Can Swim.<br/>
+&ndash; Edsger W. Dijkstra</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/04/phase-1-week-2-day-2-OOP/">Phase 1: Week 2: Day 2 - Object Oriented Programming</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-04T22:30:31-08:00" pubdate data-updated="true">Feb 4<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
+
+<h3>Morning session:</h3>
+
+<ul>
+<li>Part 1: public vs private interfaces: the interface is the contract</li>
+<li>Part 2: argument order dependency: fewer dependencies is always better</li>
+<li>Part 3: the self keyword: to thine own self be true</li>
+<li>Part 4: classical inheritance: hierarchies are good</li>
+<li>Part 5: object composition: but composites are better, or so some say</li>
+<li>Part 6: oo terminology: review the words that change your thoughts</li>
+</ul>
+
+
+<p><strong>12:30pm &ndash; Lunch break &amp; Yoga</strong></p>
+
+<p>Afternoon session:
+We are introduced to basic application development using the object oriented programming paradigm. Because this is my first time using this approach, it&rsquo;s taking my mind some time to switch from thinking about how to solve the problem procedurally. OO definitely makes more sense for a ton of things so having the exposure now will only help me in the long run.</p>
+
+<h3>an object has both state and behavior</h3>
+
+<p>We dive into building/modeling an interface for a hospital. Users interact with the system via the terminal. Different levels of access for different employees (one example: doctors can add to patient records, but receptionists can not).</p>
+
+<p>Authenticate via user passwords which are stored in the program in a private method whose values are returned to a public method that calls it.</p>
+
+<p><strong>10:30pm &ndash; Depart</strong> &ndash; feels good to head home at a &ldquo;decent&rdquo; time!</p>
+
+<blockquote><p>A change in perspective is worth 80 IQ points.<br/>
+&ndash; Alan Kay</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -607,23 +746,23 @@ object within an object within an object &ndash; on and on until the end of the 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/">Phase 2: Week 2: Day 2 - JavaScript Racer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/25/phase-2-week-2-day-1-javascript/">Phase 2: Week 2: Day 1 - JavaScript</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/23/phase-2-week-1-weekend-warrior/">Phase 2: Week 1 - Weekend Warrior</a>
+        <a href="/blog/2014/02/23/phase-2-week-1-saturday-warrior/">Phase 2: Week 1 - Weekend Warrior</a>
       </li>
     
       <li class="post">
         <a href="/blog/2014/02/21/phase-2-week-1-day-5-flash-card-web-app/">Phase 2: Week 1: Day 5 - Flash Card web-app</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more/">Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; more</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/">Phase 2: Week 1: Day 3 - More Sinatra and Active Record</a>
       </li>
     
   </ul>

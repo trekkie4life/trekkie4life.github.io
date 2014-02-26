@@ -120,7 +120,7 @@
     </url>
     <url>
         <loc>
-            http://trekkie4life.github.io/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more/
+            http://trekkie4life.github.io/blog/2014/02/20/phase-2-week-1-day-4-blogs-slash-pagination-and-more/
         </loc>
         <lastmod>2014-02-21T21:19:32-08:00</lastmod>
     </url>
@@ -131,8 +131,8 @@
         <lastmod>2014-02-22T00:29:47-08:00</lastmod>
     </url>
     <url>
-        <loc>http://trekkie4life.github.io/blog/2014/02/23/phase-2-week-1-weekend-warrior/</loc>
-        <lastmod>2014-02-24T13:44:22-08:00</lastmod>
+        <loc>http://trekkie4life.github.io/blog/2014/02/23/phase-2-week-1-saturday-warrior/</loc>
+        <lastmod>2014-02-23T23:11:00-08:00</lastmod>
     </url>
     <url>
         <loc>
@@ -141,16 +141,26 @@
         <lastmod>2014-02-24T13:50:16-08:00</lastmod>
     </url>
     <url>
+        <loc>http://trekkie4life.github.io/blog/2014/02/25/phase-2-week-2-day-1-javascript/</loc>
+        <lastmod>2014-02-25T21:30:26-08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://trekkie4life.github.io/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/
+        </loc>
+        <lastmod>2014-02-25T16:49:45-08:00</lastmod>
+    </url>
+    <url>
         <loc>http://trekkie4life.github.io/about/</loc>
         <lastmod>2014-02-16T19:31:00-08:00</lastmod>
     </url>
     <url>
         <loc>http://trekkie4life.github.io/blog/archives/</loc>
-        <lastmod>2014-02-24T13:50:16-08:00</lastmod>
+        <lastmod>2014-02-25T21:30:26-08:00</lastmod>
     </url>
     <url>
         <loc>http://trekkie4life.github.io/</loc>
-        <lastmod>2014-02-24T13:50:16-08:00</lastmod>
+        <lastmod>2014-02-25T21:30:26-08:00</lastmod>
     </url>
     <url>
         <loc>http://trekkie4life.github.io/robots.txt</loc>

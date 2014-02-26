@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="11:00am &ndash; Arrive The CSS challenge: Editing only the CSS file, can we make a webpage identical to a given screenshot. The answer: Yes, we can. &hellip;">
+  <meta name="description" content="8:00 &ndash; Arrive Ruby JavaScript Racer JavaScript Racer &ndash; MVC 11:00pm &ndash; Depart I, myself, have had many failures and I&rsquo;ve &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,239 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/">Phase 2: Week 2: Day 2 - JavaScript Racer</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-25T13:28:49-08:00" pubdate data-updated="true">Feb 25<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:00 &ndash; Arrive</strong></p>
+
+<h2><del>Ruby</del> JavaScript Racer</h2>
+
+<h2>JavaScript Racer &ndash; MVC</h2>
+
+<p><strong>11:00pm &ndash; Depart</strong></p>
+
+<blockquote><p>I, myself, have had many failures and I&rsquo;ve learned that if you are not failing a lot, you are probably not being as creative as you could be &ndash; you aren&rsquo;t stretching your imagination.<br/>
+&ndash; J. Backus</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/25/phase-2-week-2-day-1-javascript/">Phase 2: Week 2: Day 1 - JavaScript</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-25T13:24:24-08:00" pubdate data-updated="true">Feb 25<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:00 &ndash; Arrive</strong></p>
+
+<p>A morning lecture on the wonders of jQuery &hellip; and how we are to avoid at all costs crazy long chains of doing things in our code. We want to be thoughtful of the people who will read/edit our code in the future. So what do we do? Clean it up, then wrap it in a descriptive callback method!</p>
+
+<p>jQuery is a JavaScript library that&rsquo;s supposed to simplify client side scripting of HTML. In English (well closer to English) that means it&rsquo;s easy to grab elements in the DOM, create animations and capture events (mouse clicks, keyboard actions, etc) and map those to different actions.  The <a href="http://api.jquery.com/">jQuery documentation</a> is very very thorough, and worth looking at if you want to learn more.</p>
+
+<p>The syntax is kind of funky &ndash; it almost looks like chaining methods in Ruby&hellip; but on steroids.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//when the page is done loading do the function</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>  <span class="c1">//this captures all div tags &amp; has them fade out, 1000 is time in milliseconds</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above action could generically be written out as</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// jQuery &quot;magic&quot;</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So if you wanted to chnage the background color of a class <code>.lead</code>, you&rsquo;d type</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.lead&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Take a nice long look at what is in <code>" "</code>.</p>
+
+<p>Wait, colors are too boring for you? Let&rsquo;s replace some boring images that are already in there</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;http://imgur.com/superamazingimage.jpg&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// if there are a ton of images and you only want to replace the first one</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;img:first&quot;</span><span class="p">)...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ok, bear with me, what if we wanted to select elements from the navbar and use the <code>.on()</code> method to bind an event handler on these elements?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.nav&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;mouseenter&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;#FF0000&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.nav&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;mouseleave&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And that&rsquo;s a micro-intro to jQuery. PSA: if you are actually a VIP in the insane chaining club for jQuery. Take a step back, remove your sunglasses, rip up that VIP card, and step into the light. Everything will be ok.</p>
+
+<h2>JavaScript (JS)</h2>
+
+<p>you don&rsquo;t always need jQuery though, Steven (one of our instructors and a fellow Longhorn) would argue that you don&rsquo;t ever need it.  And if you don&rsquo;t believe him, you can head on over to <a href="http://youmightnotneedjquery.com">youmightnotneedjquery.com</a>.</p>
+
+<p>Our intro to JS is done in with OO in mind, using Ruby as a basis and taking our knowledge and logic from Ruby and applying it to JS.</p>
+
+<p>What makes a Class a class?</p>
+
+<ul>
+<li>Initializer function</li>
+<li>Attributes</li>
+<li>Methods</li>
+</ul>
+
+
+<p>JavaScript has something akin to &ldquo;Open&rdquo; Classes, we open a class and bolt behavior onto it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">Talker</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// like a class - it&#39;s a Constructor Function</span>
+</span><span class='line'>  <span class="k">this</span><span class="p">.</span><span class="nx">word</span> <span class="o">=</span> <span class="nx">word</span><span class="p">;</span> <span class="c1">// instance method equivalent</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Talker</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// an Anonymous prototype</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">word</span><span class="p">);</span> <span class="c1">// behavior</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">en_espana</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Talker</span><span class="p">(</span><span class="s2">&quot;mundo&quot;</span><span class="p">);</span> <span class="c1">// instance of Talker</span>
+</span><span class='line'><span class="nx">en_espana</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">en_la_france</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Talker</span><span class="p">(</span><span class="s2">&quot;le monde&quot;</span><span class="p">);</span> <span class="c1">// instance of Talker</span>
+</span><span class='line'><span class="nx">en_la_france</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well, that makes some kind of sense now doesn&rsquo;t it!?</p>
+
+<h2>What about initialize methods in a class, Ruby has those, what about JS?</h2>
+
+<p>If we look at tthis line, it is JS equivalent of an initialize method.  An instance of Talker is born with knowledge of #word.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">this</span><span class="p">.</span><span class="nx">word</span> <span class="o">=</span> <span class="nx">word</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Set Attributes</p>
+
+<p>Define methods on the thing&rsquo;s prototype &ndash; this exactly what we did with <code>Talker.prototype.sayHello ...</code></p>
+
+<p>Two ways to define an object in JS, with the object constructor or the literal syntax</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">anObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>  <span class="c1">// constructor</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">anotherObject</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1">// literal</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">anObject</span><span class="p">));</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">anotherObject</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>10:45pm &ndash; Depart</strong></p>
+
+<blockquote><p>The sole justification of teaching, of the school itself, is that the student comes out of it able to do something he could not do before. I say do and not know, because knowledge that doesn&rsquo;t lead to doing something new or doing something better is not knowledge at all.<br/>
+&ndash; J. Barzun</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -128,7 +361,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/02/23/phase-2-week-1-weekend-warrior/">Phase 2: Week 1 - Weekend Warrior</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/02/23/phase-2-week-1-saturday-warrior/">Phase 2: Week 1 - Weekend Warrior</a></h1>
     
     
       <p class="meta">
@@ -539,7 +772,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more/">Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; More</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/02/20/phase-2-week-1-day-4-blogs-slash-pagination-and-more/">Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; More</a></h1>
     
     
       <p class="meta">
@@ -1157,293 +1390,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/15/phase-2-prep-work/">Phase 2 - Prep Work</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-15T10:48:48-08:00" pubdate data-updated="true">Feb 15<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Chores around the house and some reading then it was time to head out to DBC</p>
-
-<p><strong>1:45pm &ndash; Arrive</strong></p>
-
-<h2>Git version control</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">git</span> <span class="n">rebase</span> <span class="o">-</span><span class="n">i</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>git rebase -i</code> allows you to:</p>
-
-<ul>
-<li>rewrite commits</li>
-<li>remove commits</li>
-<li>combine commits</li>
-<li>reorder commits</li>
-</ul>
-
-
-<p>The benefit is almost immediately obvious &ndash; you can write short/sweet commits locally to keep your work flow going smoothly, then use <code>git rebase -i</code> <em>before</em> pushing the commits anywhere to rewrite those commits into a unified and cohesive story that we can then share with our team, future self, and anyone else who comes along.</p>
-
-<p>First: use <code>git log</code> to find the commit you want to change</p>
-
-<p>Next: run <code>git rebase -i [the commit's hash]</code></p>
-
-<h3>a quick break for San Fran&rsquo;s Chinese New Year parade</h3>
-
-<p>Marching bands, drum lines and dragons</p>
-
-<h2>JavaScript intro</h2>
-
-<p>Programming in a new syntax &ndash; utilizing the skills/knowledge and applying it to a new language. The beauty of logic.</p>
-
-<p><strong>For loop</strong> syntax:<br/>
-<code>var i = 1;</code> is the counting variable and the starting value of that variable.<br/>
-<code>i &lt; 11;</code> do the loop until this condition is met.<br/>
-<code>i++</code> the counter.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">11</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Here&rsquo;s another example on printing strings from an array:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NYC&quot;</span><span class="p">,</span> <span class="s2">&quot;SF&quot;</span><span class="p">,</span> <span class="s2">&quot;ATX&quot;</span><span class="p">,</span> <span class="s2">&quot;Maui&quot;</span><span class="p">];</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">cities</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cities</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>While loop</strong> syntax</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">while</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="c1">//do something</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">//an example of a while loop</span>
-</span><span class='line'><span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">loop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">while</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;I&#39;m looping&quot;</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="p">};</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">loop</span><span class="p">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p><strong>Do / While loop</strong> syntax</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">do</span> <span class="p">{</span>
-</span><span class='line'>  <span class="c1">//do something</span>
-</span><span class='line'><span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">loop</span> <span class="nx">condition</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>10:35pm- Depart</strong></p>
-
-<blockquote><p>The only difference between science and screwing around is writing it down.<br/>
-&ndash; Adam Savage</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/14/phase-1-week-3-day-5-team-projects-and-ruby-gem-published/">Phase 1: Week 3: Day 5 - Team Projects and Ruby Gem Published</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-14T20:04:23-08:00" pubdate data-updated="true">Feb 14<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>8:30am &ndash; Arrive</p>
-
-<p>Quick check-in to refresh our brains and make sure everyone is up to speed and to plan our attack for the morning and day.</p>
-
-<p><img src="http://i.minus.com/imADChWNwphdy.jpg" alt="White board session" /></p>
-
-<p>No one pushed to master, we made new branches based on the feature, when we had a feature working, we pushed to GitHub and then submitted a Pull Request. Someone else on the team would review it then merge it. We had a really good workflow going.</p>
-
-<p>So, our project? Make a &ldquo;cool faker&rdquo; gem to generate fake data for testing &ndash; eerily similar to &ldquo;Faker&rdquo; but instead of random names, we will use famous movie and tv show characters to populate the data.  What are we calling it? <strong>Cool Faker</strong> what else?!</p>
-
-<p>Other than using Faker, we didn&rsquo;t know how it got or made the data, so we dove into the source code.  It was cool to see how much of it we could follow. Also, we saw that the Faker gem is self contained, all you have to do is download it because the gem comes bundled with all the people/company/etc data it uses.</p>
-
-<p>We followed their example and then had to find a way to gather all the movie/tv characters we wanted without manually typing them in&hellip; because we are programming after all, let&rsquo;s use our brains and make the computer do it.</p>
-
-<h2>API use to gather data</h2>
-
-<p>We looked at using IMDB&rsquo;s API (Application Programming Interface), but the data you get from it is not clean at all, and since we were on a schedule, our first job was to look for clean data.  Luckily TheMovieDatabase (TMDB) had exactly what we needed and someone even made a Ruby gem that used their API.</p>
-
-<p>After playing around with it, we got the a massive amount of data per movie, but the data was very well organized. Unfortunately there was no way using their API to return <em>just</em> character names. The information we got inluded everything, literally everything about the requested movie.  We tried several methods to parse the character names from the data object the API returned, and then wisely decided to just check what kind of object that data was, turns out it&rsquo;s a <code>PatchedOpenStruct</code> (a data structure similar to a Hash), from there some quick Googling and we learned a little bit about it and how to remove the nugget of character name data we wanted.  Easier than it sounds because the data was clean/well organized, but still an enjoyable little problem that makes you feel good when playing with an API for the first time.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">names</span><span class="p">:</span>
-</span><span class='line'>  <span class="ss">friends</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Rachel Green&quot;</span><span class="p">,</span> <span class="s2">&quot;Monica Geller&quot;</span><span class="p">,</span> <span class="s2">&quot;Phoebe Buffay&quot;</span><span class="p">,</span> <span class="s2">&quot;Joey Francis Tribbiani&quot;</span><span class="p">,</span> <span class="s2">&quot;Chandler Bing&quot;</span><span class="p">,</span> <span class="s2">&quot;Ross Geller&quot;</span><span class="o">]</span>
-</span><span class='line'>  <span class="ss">entourage</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Eric Murphy&quot;</span><span class="p">,</span> <span class="s2">&quot;Vincent Chase&quot;</span><span class="p">,</span> <span class="s2">&quot;Johnny &#39;Drama&#39; Chase&quot;</span><span class="p">,</span> <span class="s2">&quot;Turtle&quot;</span><span class="p">,</span> <span class="s2">&quot;Ari Gold&quot;</span><span class="p">,</span> <span class="s2">&quot;Lloyd&quot;</span><span class="o">]</span>
-</span><span class='line'>  <span class="ss">batman</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Batman&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruce Wayne&quot;</span><span class="p">,</span> <span class="s2">&quot;Joker&quot;</span><span class="p">,</span> <span class="s2">&quot;Two-Face&quot;</span><span class="p">,</span> <span class="s2">&quot;Riddler&quot;</span><span class="p">,</span> <span class="s2">&quot;Poison Ivy&quot;</span><span class="p">,</span> <span class="s2">&quot;Rachel Dawes&quot;</span><span class="p">,</span> <span class="s2">&quot;Harvey Dent&quot;</span><span class="p">,</span> <span class="s2">&quot;Lt. James Gordon&quot;</span><span class="p">,</span> <span class="s2">&quot;Alfred&quot;</span><span class="p">,</span> <span class="s2">&quot;Scarecrow&quot;</span><span class="p">,</span> <span class="s2">&quot;Lucius Fox&quot;</span><span class="p">,</span> <span class="s2">&quot;Bruce Wayne&quot;</span><span class="p">,</span> <span class="s2">&quot;Joker&#39;s henchman&quot;</span><span class="p">,</span> <span class="s2">&quot;Engel&quot;</span><span class="p">,</span> <span class="s2">&quot;Mayor of Gotham&quot;</span><span class="p">,</span> <span class="s2">&quot;Lau&quot;</span><span class="p">,</span> <span class="s2">&quot;Wuertz&quot;</span><span class="p">,</span> <span class="s2">&quot;Salvatore Maroni&quot;</span><span class="p">,</span> <span class="s2">&quot;Barbara Gordon&quot;</span><span class="p">,</span> <span class="s2">&quot;Chechen&quot;</span><span class="p">,</span> <span class="s2">&quot;Stephen&quot;</span><span class="p">,</span> <span class="s2">&quot;Loeb&quot;</span><span class="o">]</span>
-</span><span class='line'>  <span class="ss">startrek</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Captain Jean-Luc Picard&quot;</span><span class="p">,</span> <span class="c1">#...</span>
-</span><span class='line'>
-</span><span class='line'><span class="ss">quotes</span><span class="p">:</span> <span class="o">[</span><span class="s2">&quot;Traditionalists are pessimists about the future&quot;</span><span class="p">,</span> <span class="c1">#...</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>On the other side, Jamie and I were getting our gem file structure down by breaking down Faker&rsquo;s and understanding how each file used another.</p>
-
-<p>Quentin was did the vast majority of tests, I paired up with him for a bit on it to get my feet wet with RSpec. The syntax is great because it almost reads like normal english.</p>
-
-<p>We decided in our whiteboarding and discussions that our MVP would be a gem that worked by plucking random character names. In order to test it, we used a tourny bracket (think, March Madness) application that used Cool Faker to populate the teams and then we modified the application to pick a random winner per matchup.  IT WORKED!!  High-fives went all around.</p>
-
-<p>Our final version can throw up quotes from various sources and come up with team-names (or company names, whatever you [the user] desire).  For the names, you can even specify if you only want characters from a specific movie.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">require_relative</span> <span class="s2">&quot;cool_faker&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">module</span> <span class="nn">CoolFaker</span>
-</span><span class='line'>  <span class="k">class</span> <span class="nc">Character</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="vi">@data</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">dir</span> <span class="o">+</span> <span class="s1">&#39;/cool_faker/data.yml&#39;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">name</span> <span class="c1"># random character from random movie</span>
-</span><span class='line'>      <span class="vi">@data</span><span class="o">[</span><span class="s1">&#39;names&#39;</span><span class="o">][</span><span class="vi">@data</span><span class="o">[</span><span class="s1">&#39;names&#39;</span><span class="o">].</span><span class="n">keys</span><span class="o">.</span><span class="n">sample</span><span class="o">].</span><span class="n">sample</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">name_from</span><span class="p">(</span><span class="n">movie</span><span class="p">)</span>  <span class="c1"># only characters from a specified movie/tv show</span>
-</span><span class='line'>      <span class="vi">@data</span><span class="o">[</span><span class="s1">&#39;names&#39;</span><span class="o">][</span><span class="n">movie</span><span class="o">].</span><span class="n">sample</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you want to see the source code, head over to <a href="https://github.com/Qt-dev/cool-faker">GitHub</a></p>
-
-<p>If you care to download it yourself, all you need is Ruby installed and a connection to the interwebs.  Because it&rsquo;s officially published on <a href="https://rubygems.org/gems/cool_faker">RubyGems</a>!! Woo hoo!</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">cool_faker</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>High fives and hugs to everyone on team Más Awesomos: Quentin Devauchelle, Jamie McKenzie, Nicholas Cu, and myself!</p>
-
-<p>Presentations of Phase 2 one-day group projects from the Sea Lions, followed by Phase 1 two-day group projects from the Banana Slugs (that&rsquo;s us!), then some alums came in and showed their Phase 3 group projects. It was great fun and cool to see what we types of things we would be learning about and how some people implemented those technologies. I was impressed with everyone&rsquo;s stuff!</p>
-
-<p>Post-presentations, it&rsquo;s group kareoke time at DBC to celebrate the ending of a phase. A couple people in each cohort are repeating the phase because they want to solidify their knowledge before moving on. It&rsquo;s what works best for them, it&rsquo;s never an easy decision, and it&rsquo;s definitely not failure by any means.  So it takes 12 weeks to become a junior developer, not 9. Is anyone seriously going to shake their head in shame at that? I don&rsquo;t think so. Good luck to all phases and cohorts moving forward!</p>
-
-<p>10:15pm &ndash; Depart</p>
-
-<blockquote><p>Education is what remains after one has forgotten what one has learned in school.<br/>
-&ndash; Albert Einstein</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1459,23 +1405,23 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/">Phase 2: Week 2: Day 2 - JavaScript Racer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/25/phase-2-week-2-day-1-javascript/">Phase 2: Week 2: Day 1 - JavaScript</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/23/phase-2-week-1-weekend-warrior/">Phase 2: Week 1 - Weekend Warrior</a>
+        <a href="/blog/2014/02/23/phase-2-week-1-saturday-warrior/">Phase 2: Week 1 - Weekend Warrior</a>
       </li>
     
       <li class="post">
         <a href="/blog/2014/02/21/phase-2-week-1-day-5-flash-card-web-app/">Phase 2: Week 1: Day 5 - Flash Card web-app</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more/">Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; more</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/">Phase 2: Week 1: Day 3 - More Sinatra and Active Record</a>
       </li>
     
   </ul>

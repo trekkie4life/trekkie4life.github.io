@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-24T13:50:23-08:00</updated>
+  <updated>2014-02-25T21:38:49-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -12,6 +12,185 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Phase 2: Week 2: Day 2 - JavaScript Racer]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/"/>
+    <updated>2014-02-25T13:28:49-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot</id>
+    <content type="html"><![CDATA[<p><strong>8:00 &ndash; Arrive</strong></p>
+
+<h2><del>Ruby</del> JavaScript Racer</h2>
+
+<h2>JavaScript Racer &ndash; MVC</h2>
+
+<p><strong>11:00pm &ndash; Depart</strong></p>
+
+<blockquote><p>I, myself, have had many failures and I&rsquo;ve learned that if you are not failing a lot, you are probably not being as creative as you could be &ndash; you aren&rsquo;t stretching your imagination.<br/>
+&ndash; J. Backus</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Phase 2: Week 2: Day 1 - JavaScript]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/25/phase-2-week-2-day-1-javascript/"/>
+    <updated>2014-02-25T13:24:24-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/25/phase-2-week-2-day-1-javascript</id>
+    <content type="html"><![CDATA[<p><strong>8:00 &ndash; Arrive</strong></p>
+
+<p>A morning lecture on the wonders of jQuery &hellip; and how we are to avoid at all costs crazy long chains of doing things in our code. We want to be thoughtful of the people who will read/edit our code in the future. So what do we do? Clean it up, then wrap it in a descriptive callback method!</p>
+
+<p>jQuery is a JavaScript library that&rsquo;s supposed to simplify client side scripting of HTML. In English (well closer to English) that means it&rsquo;s easy to grab elements in the DOM, create animations and capture events (mouse clicks, keyboard actions, etc) and map those to different actions.  The <a href="http://api.jquery.com/">jQuery documentation</a> is very very thorough, and worth looking at if you want to learn more.</p>
+
+<p>The syntax is kind of funky &ndash; it almost looks like chaining methods in Ruby&hellip; but on steroids.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//when the page is done loading do the function</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>  <span class="c1">//this captures all div tags &amp; has them fade out, 1000 is time in milliseconds</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above action could generically be written out as</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// jQuery &quot;magic&quot;</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So if you wanted to chnage the background color of a class <code>.lead</code>, you&rsquo;d type</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.lead&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Take a nice long look at what is in <code>" "</code>.</p>
+
+<p>Wait, colors are too boring for you? Let&rsquo;s replace some boring images that are already in there</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;http://imgur.com/superamazingimage.jpg&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// if there are a ton of images and you only want to replace the first one</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;img:first&quot;</span><span class="p">)...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ok, bear with me, what if we wanted to select elements from the navbar and use the <code>.on()</code> method to bind an event handler on these elements?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.nav&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;mouseenter&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;#FF0000&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.nav&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;mouseleave&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And that&rsquo;s a micro-intro to jQuery. PSA: if you are actually a VIP in the insane chaining club for jQuery. Take a step back, remove your sunglasses, rip up that VIP card, and step into the light. Everything will be ok.</p>
+
+<h2>JavaScript (JS)</h2>
+
+<p>you don&rsquo;t always need jQuery though, Steven (one of our instructors and a fellow Longhorn) would argue that you don&rsquo;t ever need it.  And if you don&rsquo;t believe him, you can head on over to <a href="http://youmightnotneedjquery.com">youmightnotneedjquery.com</a>.</p>
+
+<p>Our intro to JS is done in with OO in mind, using Ruby as a basis and taking our knowledge and logic from Ruby and applying it to JS.</p>
+
+<p>What makes a Class a class?</p>
+
+<ul>
+<li>Initializer function</li>
+<li>Attributes</li>
+<li>Methods</li>
+</ul>
+
+
+<p>JavaScript has something akin to &ldquo;Open&rdquo; Classes, we open a class and bolt behavior onto it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">Talker</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// like a class - it&#39;s a Constructor Function</span>
+</span><span class='line'>  <span class="k">this</span><span class="p">.</span><span class="nx">word</span> <span class="o">=</span> <span class="nx">word</span><span class="p">;</span> <span class="c1">// instance method equivalent</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Talker</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// an Anonymous prototype</span>
+</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">word</span><span class="p">);</span> <span class="c1">// behavior</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">var</span> <span class="nx">en_espana</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Talker</span><span class="p">(</span><span class="s2">&quot;mundo&quot;</span><span class="p">);</span> <span class="c1">// instance of Talker</span>
+</span><span class='line'><span class="nx">en_espana</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">();</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">en_la_france</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Talker</span><span class="p">(</span><span class="s2">&quot;le monde&quot;</span><span class="p">);</span> <span class="c1">// instance of Talker</span>
+</span><span class='line'><span class="nx">en_la_france</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well, that makes some kind of sense now doesn&rsquo;t it!?</p>
+
+<h2>What about initialize methods in a class, Ruby has those, what about JS?</h2>
+
+<p>If we look at tthis line, it is JS equivalent of an initialize method.  An instance of Talker is born with knowledge of #word.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">this</span><span class="p">.</span><span class="nx">word</span> <span class="o">=</span> <span class="nx">word</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Set Attributes</p>
+
+<p>Define methods on the thing&rsquo;s prototype &ndash; this exactly what we did with <code>Talker.prototype.sayHello ...</code></p>
+
+<p>Two ways to define an object in JS, with the object constructor or the literal syntax</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">anObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>  <span class="c1">// constructor</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">anotherObject</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1">// literal</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">anObject</span><span class="p">));</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">anotherObject</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>10:45pm &ndash; Depart</strong></p>
+
+<blockquote><p>The sole justification of teaching, of the school itself, is that the student comes out of it able to do something he could not do before. I say do and not know, because knowledge that doesn&rsquo;t lead to doing something new or doing something better is not knowledge at all.<br/>
+&ndash; J. Barzun</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Phase 2: Week 1 - Sunday Funday @ DBC]]></title>
@@ -45,9 +224,9 @@
   
   <entry>
     <title type="html"><![CDATA[Phase 2: Week 1 - Weekend Warrior]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/02/23/phase-2-week-1-weekend-warrior/"/>
+    <link href="http://trekkie4life.github.io/blog/2014/02/23/phase-2-week-1-saturday-warrior/"/>
     <updated>2014-02-23T10:30:26-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/02/23/phase-2-week-1-weekend-warrior</id>
+    <id>http://trekkie4life.github.io/blog/2014/02/23/phase-2-week-1-saturday-warrior</id>
     <content type="html"><![CDATA[<p><strong>11:30am &ndash; Arrive</strong></p>
 
 <p>Working on portfolio challenge 2 and 3 today.</p>
@@ -402,9 +581,9 @@
   
   <entry>
     <title type="html"><![CDATA[Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; more]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more/"/>
+    <link href="http://trekkie4life.github.io/blog/2014/02/20/phase-2-week-1-day-4-blogs-slash-pagination-and-more/"/>
     <updated>2014-02-20T21:11:08-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/02/20/phase-3-week-1-day-4-blogs-slash-pagination-and-more</id>
+    <id>http://trekkie4life.github.io/blog/2014/02/20/phase-2-week-1-day-4-blogs-slash-pagination-and-more</id>
     <content type="html"><![CDATA[<p><strong>7:30am &ndash; Arrive</strong></p>
 
 <p>Recall that HTTP is statless, so &ldquo;sessions&rdquo; were invented.  A session keeps state during HTTP requests, and a session actually stores all data in a cookie.</p>
@@ -1651,91 +1830,6 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
 
 <blockquote><p>Science is the belief in the ignorance of experts. The first principle is that you must not fool yourself — and you are the easiest person to fool.<br/>
 -Richard Feynman</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Phase 1: Week 2: Day 3 - Building Applications (Flashcards &amp; ToDo)]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/02/05/phase-1-week-2-day-3-building-applications-flashcards-and-todo/"/>
-    <updated>2014-02-05T22:52:00-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/02/05/phase-1-week-2-day-3-building-applications-flashcards-and-todo</id>
-    <content type="html"><![CDATA[<p><strong>7:30am &ndash; Arrive</strong></p>
-
-<p>Todo list!  Today one of the challenges was&hellip; build a todo list!</p>
-
-<p>We want to be able to interact with the user via the terminal&hellip; passing in commands to read and write to an external file.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">add</span> <span class="no">Bake</span> <span class="n">a</span> <span class="n">delicious</span> <span class="n">blueberry</span><span class="o">-</span><span class="n">glazed</span> <span class="n">cheesecake</span>
-</span><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">list</span>
-</span><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">delete</span> <span class="o">&lt;</span><span class="n">task_id</span><span class="o">&gt;</span>
-</span><span class='line'><span class="err">$</span> <span class="n">ruby</span> <span class="n">todo</span><span class="o">.</span><span class="n">rb</span> <span class="n">complete</span> <span class="o">&lt;</span><span class="n">task_id</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We had to build the program using the MVC (Model-View-Controller) design method.</p>
-
-<p>The general consensus is that in Ruby the lines are semi-fuzzy between the Model and the Controller.  Apparently this fuzziness clears up dramaticaly in Rails, but since we&rsquo;re not yet using Rails, my partner and I had a discussion and mini-whiteboard session to see if we preferred one way over the other.  Ultimately we decided to have our Model hold not only the data but also the methods for manipulating the data, where our Controller essentially acted as the interpreter for what the View was saying.</p>
-
-<p>One of the early problems we encountered was how to have our program add to the external todo list (txt file) without overwriting what was already in it.  The solution was to use &lsquo;a+&rsquo; with File.open</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">add_task</span><span class="p">(</span><span class="n">task_to_add</span><span class="p">)</span>
-</span><span class='line'>  <span class="vi">@your_todo</span> <span class="o">&lt;&lt;</span> <span class="n">task_to_add</span>
-</span><span class='line'>  <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;todo_practice.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">#{</span><span class="n">task_to_add</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Remember: coding in a procedural style defeats the purpose of object orientation</h3>
-
-<p><strong>10:40pm &ndash; Depart</strong></p>
-
-<blockquote><p>The question of whether Machines Can Think&hellip; is about as relevant as the question of whether Submarines Can Swim.<br/>
-&ndash; Edsger W. Dijkstra</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Phase 1: Week 2: Day 2 - Object Oriented Programming]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/02/04/phase-1-week-2-day-2-OOP/"/>
-    <updated>2014-02-04T22:30:31-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/02/04/phase-1-week-2-day-2-OOP</id>
-    <content type="html"><![CDATA[<p><strong>8:00am &ndash; Arrive</strong></p>
-
-<h3>Morning session:</h3>
-
-<ul>
-<li>Part 1: public vs private interfaces: the interface is the contract</li>
-<li>Part 2: argument order dependency: fewer dependencies is always better</li>
-<li>Part 3: the self keyword: to thine own self be true</li>
-<li>Part 4: classical inheritance: hierarchies are good</li>
-<li>Part 5: object composition: but composites are better, or so some say</li>
-<li>Part 6: oo terminology: review the words that change your thoughts</li>
-</ul>
-
-
-<p><strong>12:30pm &ndash; Lunch break &amp; Yoga</strong></p>
-
-<p>Afternoon session:
-We are introduced to basic application development using the object oriented programming paradigm. Because this is my first time using this approach, it&rsquo;s taking my mind some time to switch from thinking about how to solve the problem procedurally. OO definitely makes more sense for a ton of things so having the exposure now will only help me in the long run.</p>
-
-<h3>an object has both state and behavior</h3>
-
-<p>We dive into building/modeling an interface for a hospital. Users interact with the system via the terminal. Different levels of access for different employees (one example: doctors can add to patient records, but receptionists can not).</p>
-
-<p>Authenticate via user passwords which are stored in the program in a private method whose values are returned to a public method that calls it.</p>
-
-<p><strong>10:30pm &ndash; Depart</strong> &ndash; feels good to head home at a &ldquo;decent&rdquo; time!</p>
-
-<blockquote><p>A change in perspective is worth 80 IQ points.<br/>
-&ndash; Alan Kay</p></blockquote>
 ]]></content>
   </entry>
   
