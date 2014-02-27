@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Phase 2: Week 2: Day 3 - AJAX - Captain's Log</title>
+  <meta name="author" content="Armando Reed">
+
+  
+  <meta name="description" content="7:55am &ndash; Arrive Paired with Matthew today, a good session &ndash; we had steady progress through our AJAX challenges and that made me feel good &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://trekkie4life.github.io/blog/2014/02/26/phase-2-week-2-day-3-ajax">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Captain's Log" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Captain's Log</a></h1>
+  
+    <h2>one boot's journey through dev bootcamp</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:trekkie4life.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Phase 2: Week 2: Day 3 - AJAX</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-26T08:17:39-08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><strong>7:55am &ndash; Arrive</strong></p>
+
+<p>Paired with Matthew today, a good session &ndash; we had steady progress through our AJAX challenges and that made me feel good.</p>
+
+<h2>Portfolio Challenge 5 &ndash; Validations</h2>
+
+<p>Using the ActiveRecord model to validate information meets certain criteria before saving it to the database.</p>
+
+<p>Our mission:</p>
+
+<p>Use ActiveRecord and Sinatra to allow anyone to create an event, so long as it passes validation rules.</p>
+
+<p>Add validations to the Event model and show appropriate messages to the user when the validations fail.</p>
+
+<p>Prevent Events from being saved when:</p>
+
+<ul>
+<li>The events date is empty, in the past, or is not valid.</li>
+<li>The events title is already taken or empty.</li>
+<li>The event organizers name is empty.</li>
+<li>The event organizers email address is invalid.</li>
+</ul>
+
+
+<p>So, let&rsquo;s take a look at the tests I made in the model</p>
+
+<figure class='code'><figcaption><span>app/models/event.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Event</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">uniqueness</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:organizer_name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:organizer_email</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:organizer_email</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="p">{</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="sr">/.+@.+\..+/i</span><span class="p">,</span> <span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;is not valid&quot;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:date</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># here we tell Active Record to check our OWN validation method/test</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">validate</span>  <span class="ss">:valid_date?</span> <span class="c1"># calls the method below</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">valid_date?</span>
+</span><span class='line'>   <span class="k">if</span> <span class="n">date</span> <span class="o">&amp;&amp;</span> <span class="no">Date</span><span class="o">.</span><span class="n">today</span> <span class="o">&gt;</span> <span class="n">date</span>   <span class="c1"># why is it only &#39;date&#39; and not &#39;:date&#39;??</span>
+</span><span class='line'>     <span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="ss">:date</span><span class="p">,</span> <span class="s1">&#39;Must be a valid date, IN THE FUTURE!&#39;</span><span class="p">)</span>
+</span><span class='line'>   <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Look again at line 7</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">validates</span> <span class="ss">:organizer_email</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="p">{</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="sr">/.+@.+\..+/i</span><span class="p">,</span> <span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;is not valid&quot;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There we check to make sure the format of <code>organizer_email</code> matches our <code>:with</code>, and then provide a custom error message as well.</p>
+
+<p>The cool thing with Active Record is that it wraps all our error messages into a hash (in an object) when we fail validation tests upon an attempt to write to the database.</p>
+
+<p>What can we do with these errors?  WE TELL THE USER, so they can correct the information and re-submit it.</p>
+
+<p>Ok, so how do we do all that?</p>
+
+<p>We grab the params we used from the new_event form.</p>
+
+<p>We will try to create a new Event in the database using those params.</p>
+
+<p>If it works, it works! If not, we will have an @event object which now contains a hash of errors from the failed validation tests.</p>
+
+<p>To get to the errors, take a careful look at line <code>4</code>. We get the full_messages which is an array of error message strings.</p>
+
+<figure class='code'><figcaption><span>app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">post</span> <span class="s1">&#39;/events/create&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@params</span> <span class="o">=</span> <span class="n">params</span>
+</span><span class='line'>  <span class="vi">@event</span> <span class="o">=</span> <span class="no">Event</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="vi">@params</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@errors</span> <span class="o">=</span> <span class="vi">@event</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">full_messages</span> <span class="k">unless</span> <span class="vi">@event</span><span class="o">.</span><span class="n">valid?</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="k">if</span> <span class="vi">@errors</span>
+</span><span class='line'>      <span class="n">get</span> <span class="s1">&#39;/events/new&#39;</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>      <span class="n">get</span> <span class="s1">&#39;/events/#{@event.id}/show&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If there are errors, we want to direct the user back to the create_event page so they can have another attempt&hellip; and we&rsquo;ll be helpful and show them what information we need them to fix.</p>
+
+<p>Since we assigned our errors to an instance variable, we have access to those when we redirect back to the create_event page! Time to use some erb and iterate through the array of messages</p>
+
+<figure class='code'><figcaption><span>app/views/event_new.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="err">&lt;</span>% if @errors %&gt;
+</span><span class='line'><span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;error&quot;</span><span class="nt">&gt;</span> You have the following error(s): <span class="nt">&lt;/h3&gt;</span>
+</span><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'><span class="err">&lt;</span>% @errors.each do |error| %&gt;
+</span><span class='line'><span class="nt">&lt;li&gt;&lt;h4</span> <span class="na">class=</span><span class="s">&quot;error&quot;</span><span class="nt">&gt;</span><span class="err">&lt;</span>%= error %&gt;<span class="nt">&lt;/h4&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="err">&lt;</span>% end %&gt;
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'><span class="err">&lt;</span>% end %&gt;
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;/events/create&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>11:20pm &ndash; Depart</strong></p>
+
+<blockquote><p>Some people, when confronted with a problem, think, “I know, I’ll use regular expressions.” Now they have two problems.<br/>
+— Jamie Zawinksi</p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Armando Reed</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-26T08:17:39-08:00" pubdate data-updated="true">Feb 26<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://trekkie4life.github.io/blog/2014/02/26/phase-2-week-2-day-3-ajax/" data-via="" data-counturl="http://trekkie4life.github.io/blog/2014/02/26/phase-2-week-2-day-3-ajax/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/" title="Previous Post: Phase 2: Week 2: Day 2 - JavaScript Racer">&laquo; Phase 2: Week 2: Day 2 - JavaScript Racer</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/26/phase-2-week-2-day-3-ajax/">Phase 2: Week 2: Day 3 - AJAX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/">Phase 2: Week 2: Day 2 - JavaScript Racer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/25/phase-2-week-2-day-1-javascript/">Phase 2: Week 2: Day 1 - JavaScript</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/23/phase-2-week-1-saturday-warrior/">Phase 2: Week 1 - Weekend Warrior</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Armando Reed -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

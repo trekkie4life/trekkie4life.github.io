@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-25T22:22:43-08:00</updated>
+  <updated>2014-02-26T23:30:45-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -12,6 +12,162 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Phase 2: Week 2: Day 3 - AJAX]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/26/phase-2-week-2-day-3-ajax/"/>
+    <updated>2014-02-26T08:17:39-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/26/phase-2-week-2-day-3-ajax</id>
+    <content type="html"><![CDATA[<p><strong>7:55am &ndash; Arrive</strong></p>
+
+<p>Paired with Matthew today, a good session &ndash; we had steady progress through our AJAX challenges and that made me feel good.</p>
+
+<h2>Portfolio Challenge 5 &ndash; Validations</h2>
+
+<p>Using the ActiveRecord model to validate information meets certain criteria before saving it to the database.</p>
+
+<p>Our mission:</p>
+
+<p>Use ActiveRecord and Sinatra to allow anyone to create an event, so long as it passes validation rules.</p>
+
+<p>Add validations to the Event model and show appropriate messages to the user when the validations fail.</p>
+
+<p>Prevent Events from being saved when:</p>
+
+<ul>
+<li>The events date is empty, in the past, or is not valid.</li>
+<li>The events title is already taken or empty.</li>
+<li>The event organizers name is empty.</li>
+<li>The event organizers email address is invalid.</li>
+</ul>
+
+
+<p>So, let&rsquo;s take a look at the tests I made in the model</p>
+
+<figure class='code'><figcaption><span>app/models/event.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Event</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:title</span><span class="p">,</span> <span class="ss">uniqueness</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:organizer_name</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:organizer_email</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:organizer_email</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="p">{</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="sr">/.+@.+\..+/i</span><span class="p">,</span> <span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;is not valid&quot;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:date</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># here we tell Active Record to check our OWN validation method/test</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">validate</span>  <span class="ss">:valid_date?</span> <span class="c1"># calls the method below</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">valid_date?</span>
+</span><span class='line'>   <span class="k">if</span> <span class="n">date</span> <span class="o">&amp;&amp;</span> <span class="no">Date</span><span class="o">.</span><span class="n">today</span> <span class="o">&gt;</span> <span class="n">date</span>   <span class="c1"># why is it only &#39;date&#39; and not &#39;:date&#39;??</span>
+</span><span class='line'>     <span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="ss">:date</span><span class="p">,</span> <span class="s1">&#39;Must be a valid date, IN THE FUTURE!&#39;</span><span class="p">)</span>
+</span><span class='line'>   <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Look again at line 7</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">validates</span> <span class="ss">:organizer_email</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="p">{</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="sr">/.+@.+\..+/i</span><span class="p">,</span> <span class="ss">:message</span> <span class="o">=&gt;</span> <span class="s2">&quot;is not valid&quot;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There we check to make sure the format of <code>organizer_email</code> matches our <code>:with</code>, and then provide a custom error message as well.</p>
+
+<p>The cool thing with Active Record is that it wraps all our error messages into a hash (in an object) when we fail validation tests upon an attempt to write to the database.</p>
+
+<p>What can we do with these errors?  WE TELL THE USER, so they can correct the information and re-submit it.</p>
+
+<p>Ok, so how do we do all that?</p>
+
+<p>We grab the params we used from the new_event form.</p>
+
+<p>We will try to create a new Event in the database using those params.</p>
+
+<p>If it works, it works! If not, we will have an @event object which now contains a hash of errors from the failed validation tests.</p>
+
+<p>To get to the errors, take a careful look at line <code>4</code>. We get the full_messages which is an array of error message strings.</p>
+
+<figure class='code'><figcaption><span>app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">post</span> <span class="s1">&#39;/events/create&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@params</span> <span class="o">=</span> <span class="n">params</span>
+</span><span class='line'>  <span class="vi">@event</span> <span class="o">=</span> <span class="no">Event</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="vi">@params</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@errors</span> <span class="o">=</span> <span class="vi">@event</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">full_messages</span> <span class="k">unless</span> <span class="vi">@event</span><span class="o">.</span><span class="n">valid?</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="k">if</span> <span class="vi">@errors</span>
+</span><span class='line'>      <span class="n">get</span> <span class="s1">&#39;/events/new&#39;</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>      <span class="n">get</span> <span class="s1">&#39;/events/#{@event.id}/show&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If there are errors, we want to direct the user back to the create_event page so they can have another attempt&hellip; and we&rsquo;ll be helpful and show them what information we need them to fix.</p>
+
+<p>Since we assigned our errors to an instance variable, we have access to those when we redirect back to the create_event page! Time to use some erb and iterate through the array of messages</p>
+
+<figure class='code'><figcaption><span>app/views/event_new.erb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="err">&lt;</span>% if @errors %&gt;
+</span><span class='line'><span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;error&quot;</span><span class="nt">&gt;</span> You have the following error(s): <span class="nt">&lt;/h3&gt;</span>
+</span><span class='line'><span class="nt">&lt;ul&gt;</span>
+</span><span class='line'><span class="err">&lt;</span>% @errors.each do |error| %&gt;
+</span><span class='line'><span class="nt">&lt;li&gt;&lt;h4</span> <span class="na">class=</span><span class="s">&quot;error&quot;</span><span class="nt">&gt;</span><span class="err">&lt;</span>%= error %&gt;<span class="nt">&lt;/h4&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="err">&lt;</span>% end %&gt;
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'><span class="err">&lt;</span>% end %&gt;
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;/events/create&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>11:20pm &ndash; Depart</strong></p>
+
+<blockquote><p>Some people, when confronted with a problem, think, “I know, I’ll use regular expressions.” Now they have two problems.<br/>
+— Jamie Zawinksi</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Phase 2: Week 2: Day 2 - JavaScript Racer]]></title>
@@ -198,7 +354,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Even without knowing anything about what they do, you can probably surmise that they do <em>very</em> different things. <strong>Name spacing</strong> allows us and the computer to organize things accordingly.</p>
+<p>Even without knowing anything about what they do, you can probably surmise that they do <em>very</em> different things. <strong>Name spacing</strong> allows us and the computer to organize things accordingly.  Yeah, it&rsquo;s important.</p>
 
 <p><strong>10:45pm &ndash; Depart</strong></p>
 
@@ -1825,26 +1981,6 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
 
 <blockquote><p>Science is what we understand well enough to explain to a computer. Art is everything else we do.<br/>
 &ndash; Donald Knuth</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Phase 1: Week 2: Day 4 - Database Intro]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/02/06/phase-1-week-2-day-4-database-intro/"/>
-    <updated>2014-02-06T23:46:23-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/02/06/phase-1-week-2-day-4-database-intro</id>
-    <content type="html"><![CDATA[<p>7:15am &ndash; Arrive</p>
-
-<p>After going through how to design the schema for the different database types [One to One; One to Many; Many to Many] our challenge was to get aquainted with PostgreSQL.</p>
-
-<p>My thoughts &ndash; it&rsquo;s one ugly but powerful duckling. After getting our feet wet we were supposed to use Ruby to create a database and then the faker gem to populate the tables with some fake data, but we wanted to get a little dirtier so we went into Terminal and loaded up psql &ndash; created a database, some tables and columns and populated the fields ourselves. It was good to know what to expect from Postgres when we entered things correctly and incorrectly.  After that we went ahead and did it the way we were supposed to using Ruby.</p>
-
-<p>Tonight I took a small break in the evening to meet some good friends of mine who were visiting from overseas. A nice luxury to unwind for 90 minutes before heading back to DBC to spend some more time trying to hog-tie PostGres</p>
-
-<p>00:30am &ndash; Depart</p>
-
-<blockquote><p>Science is the belief in the ignorance of experts. The first principle is that you must not fool yourself — and you are the easiest person to fool.<br/>
--Richard Feynman</p></blockquote>
 ]]></content>
   </entry>
   
