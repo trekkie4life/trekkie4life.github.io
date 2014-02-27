@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="8:00 &ndash; Arrive Ruby JavaScript Racer JavaScript Racer &ndash; MVC 11:00pm &ndash; Depart I, myself, have had many failures and I&rsquo;ve &hellip;">
+  <meta name="description" content="8:00 &ndash; Arrive Ruby JavaScript Racer Given a very basic HTML template, utilize JS to map out actions to events (in this case, keyboard presses) &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,7 +95,139 @@
 
 <h2><del>Ruby</del> JavaScript Racer</h2>
 
+<p>Given a very basic HTML template, utilize JS to map out actions to events (in this case, keyboard presses) to then animate things in the view.</p>
+
+<p>In the case of the keyboard, we only the action of only two keys &ndash; &lsquo;P&rsquo; for player 1, and &lsquo;Q&rsquo; for player 2.  We also don&rsquo;t want someone to be able to cheat and merely hold down a key and have their &ldquo;racer&rdquo; zoom across the screen at lightening speed. So we want <code>.keyup</code> which will act when a key is released. Perfecto.</p>
+
+<p>We also need to change the position of our &lsquo;racer&rsquo; upon each key press. Here, we make use of the HTML template, and add a class to the sibling of the currently active cell. then we remove that class from the previous spot.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">player1Movement</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">keyup</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">80</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">game_end</span><span class="p">()){</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#player1_strip .active&quot;</span><span class="p">).</span><span class="nx">next</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#player1_strip .active&quot;</span><span class="p">).</span><span class="nx">prev</span><span class="p">().</span><span class="nx">removeClass</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>How do we know we are done? When the active cell is also the final cell in racetrack.</p>
+
+<p>just check out line 2 in this code</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">game_end</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#player1_strip .active&quot;</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">true</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.game_status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;PLAYER 1 WINS!&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#restart&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="s2">&quot;block&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#fuck_yeah&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="s2">&quot;block&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#player2_strip .active&quot;</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">true</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.game_status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;PLAYER 2 WINS!&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#restart&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="s2">&quot;block&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#fuck_yeah&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="s2">&quot;block&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When the game finishes, we want to acknowledge that it finishes and then have a rematch button pop up.</p>
+
+<p>The rematch button, we actually already have in the page.</p>
+
+<p>Here&rsquo;s a snippet from the HTML file</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;game_status&quot;</span><span class="nt">&gt;&lt;/h1&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">id=</span><span class="s">&quot;restart&quot;</span><span class="nt">&gt;</span>Rematch!<span class="nt">&lt;/button&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So to hide it, we just use CSS</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nf">#restart</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>How do we show it? If you paid extra special attention to how our game ends, you can pat yourself on the back. For everyone else, we use jQuery and capture the <code>#restart</code> id and then change the CSS method and use to change the property value.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">game_end</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#player1_strip .active&quot;</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">true</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.game_status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;PLAYER 1 WINS!&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#restart&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="s2">&quot;block&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <h2>JavaScript Racer &ndash; MVC</h2>
+
+<p>We did this in the afternoon and used our Sinatra skeleton to get it to work.</p>
+
+<p>We make a page to have our players enter their name &ndash; we provide a default in the case that a name isn&rsquo;t entered.</p>
+
+<figure class='code'><figcaption><span>app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">post</span> <span class="s1">&#39;/new_game&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">params</span><span class="o">[</span><span class="ss">:username1</span><span class="o">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="p">?</span> <span class="n">player1</span> <span class="o">=</span> <span class="s2">&quot;Your mom&quot;</span>  <span class="p">:</span> <span class="n">player1</span><span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:username1</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">params</span><span class="o">[</span><span class="ss">:username2</span><span class="o">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="p">?</span> <span class="n">player2</span> <span class="o">=</span> <span class="s2">&quot;Chuck Norris&quot;</span>  <span class="p">:</span> <span class="n">player2</span><span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:username2</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then we query the database to find or create a player of that name <code>User.find_or_create_by_username(player1)</code>. Then we add those values to the session to hold onto those User ID&rsquo;s so we can later write them to the database</p>
+
+<figure class='code'><figcaption><span>app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="vi">@player1</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_or_create_by_username</span><span class="p">(</span><span class="n">player1</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@player2</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_or_create_by_username</span><span class="p">(</span><span class="n">player2</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">session</span><span class="o">[</span><span class="ss">:player1_id</span><span class="o">]</span> <span class="o">=</span> <span class="vi">@player1</span><span class="o">.</span><span class="n">id</span>
+</span><span class='line'>  <span class="n">session</span><span class="o">[</span><span class="ss">:player2_id</span><span class="o">]</span> <span class="o">=</span> <span class="vi">@player2</span><span class="o">.</span><span class="n">id</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It&rsquo;s time to start the game, we pass in the player_ids to the URL, as a way of saving which users are playing the game.</p>
+
+<figure class='code'><figcaption><span>app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">redirect</span> <span class="s2">&quot;/play_game/player1_id=</span><span class="si">#{</span><span class="vi">@player1</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">/player2_id=</span><span class="si">#{</span><span class="vi">@player2</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><strong>11:00pm &ndash; Depart</strong></p>
 
@@ -159,6 +291,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/27/phase-2-week-2-day-4-remake-hacker-news/">Phase 2: Week 2: Day 4 - remake Hacker News</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/26/phase-2-week-2-day-3-ajax/">Phase 2: Week 2: Day 3 - AJAX</a>
       </li>
     
@@ -172,10 +308,6 @@
     
       <li class="post">
         <a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/23/phase-2-week-1-saturday-warrior/">Phase 2: Week 1 - Weekend Warrior</a>
       </li>
     
   </ul>

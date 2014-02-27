@@ -4,7 +4,7 @@
   <title><![CDATA[Captain's Log]]></title>
   <link href="http://trekkie4life.github.io/atom.xml" rel="self"/>
   <link href="http://trekkie4life.github.io/"/>
-  <updated>2014-02-26T23:30:45-08:00</updated>
+  <updated>2014-02-27T14:35:13-08:00</updated>
   <id>http://trekkie4life.github.io/</id>
   <author>
     <name><![CDATA[Armando Reed]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Phase 2: Week 2: Day 4 - remake Hacker News]]></title>
+    <link href="http://trekkie4life.github.io/blog/2014/02/27/phase-2-week-2-day-4-remake-hacker-news/"/>
+    <updated>2014-02-27T14:32:36-08:00</updated>
+    <id>http://trekkie4life.github.io/blog/2014/02/27/phase-2-week-2-day-4-remake-hacker-news</id>
+    <content type="html"><![CDATA[<p><strong>8:20am &ndash; Arrive</strong></p>
+
+<p><strong>&ndash; Depart</strong></p>
+
+<blockquote><p>&hellip;and then it occurred to me that a computer is a stupid machine with the ability to do incredibly smart things, while computer programmers are smart people with the ability to do incredibly stupid things. They are, in short, a perfect match.<br/>
+&ndash; B. Bryson</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Phase 2: Week 2: Day 3 - AJAX]]></title>
@@ -178,7 +192,139 @@
 
 <h2><del>Ruby</del> JavaScript Racer</h2>
 
+<p>Given a very basic HTML template, utilize JS to map out actions to events (in this case, keyboard presses) to then animate things in the view.</p>
+
+<p>In the case of the keyboard, we only the action of only two keys &ndash; &lsquo;P&rsquo; for player 1, and &lsquo;Q&rsquo; for player 2.  We also don&rsquo;t want someone to be able to cheat and merely hold down a key and have their &ldquo;racer&rdquo; zoom across the screen at lightening speed. So we want <code>.keyup</code> which will act when a key is released. Perfecto.</p>
+
+<p>We also need to change the position of our &lsquo;racer&rsquo; upon each key press. Here, we make use of the HTML template, and add a class to the sibling of the currently active cell. then we remove that class from the previous spot.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">player1Movement</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">keyup</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">80</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">game_end</span><span class="p">()){</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#player1_strip .active&quot;</span><span class="p">).</span><span class="nx">next</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#player1_strip .active&quot;</span><span class="p">).</span><span class="nx">prev</span><span class="p">().</span><span class="nx">removeClass</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>How do we know we are done? When the active cell is also the final cell in racetrack.</p>
+
+<p>just check out line 2 in this code</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">game_end</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#player1_strip .active&quot;</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">true</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.game_status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;PLAYER 1 WINS!&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#restart&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="s2">&quot;block&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#fuck_yeah&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="s2">&quot;block&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#player2_strip .active&quot;</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">true</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.game_status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;PLAYER 2 WINS!&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#restart&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="s2">&quot;block&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#fuck_yeah&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="s2">&quot;block&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When the game finishes, we want to acknowledge that it finishes and then have a rematch button pop up.</p>
+
+<p>The rematch button, we actually already have in the page.</p>
+
+<p>Here&rsquo;s a snippet from the HTML file</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;body&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">&quot;game_status&quot;</span><span class="nt">&gt;&lt;/h1&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">id=</span><span class="s">&quot;restart&quot;</span><span class="nt">&gt;</span>Rematch!<span class="nt">&lt;/button&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So to hide it, we just use CSS</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nf">#restart</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>How do we show it? If you paid extra special attention to how our game ends, you can pat yourself on the back. For everyone else, we use jQuery and capture the <code>#restart</code> id and then change the CSS method and use to change the property value.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">game_end</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#player1_strip .active&quot;</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">true</span><span class="p">){</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.game_status&quot;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">&quot;PLAYER 1 WINS!&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#restart&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;display&quot;</span><span class="p">,</span> <span class="s2">&quot;block&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <h2>JavaScript Racer &ndash; MVC</h2>
+
+<p>We did this in the afternoon and used our Sinatra skeleton to get it to work.</p>
+
+<p>We make a page to have our players enter their name &ndash; we provide a default in the case that a name isn&rsquo;t entered.</p>
+
+<figure class='code'><figcaption><span>app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">post</span> <span class="s1">&#39;/new_game&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">params</span><span class="o">[</span><span class="ss">:username1</span><span class="o">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="p">?</span> <span class="n">player1</span> <span class="o">=</span> <span class="s2">&quot;Your mom&quot;</span>  <span class="p">:</span> <span class="n">player1</span><span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:username1</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">params</span><span class="o">[</span><span class="ss">:username2</span><span class="o">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="p">?</span> <span class="n">player2</span> <span class="o">=</span> <span class="s2">&quot;Chuck Norris&quot;</span>  <span class="p">:</span> <span class="n">player2</span><span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:username2</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then we query the database to find or create a player of that name <code>User.find_or_create_by_username(player1)</code>. Then we add those values to the session to hold onto those User ID&rsquo;s so we can later write them to the database</p>
+
+<figure class='code'><figcaption><span>app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="vi">@player1</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_or_create_by_username</span><span class="p">(</span><span class="n">player1</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@player2</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_or_create_by_username</span><span class="p">(</span><span class="n">player2</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">session</span><span class="o">[</span><span class="ss">:player1_id</span><span class="o">]</span> <span class="o">=</span> <span class="vi">@player1</span><span class="o">.</span><span class="n">id</span>
+</span><span class='line'>  <span class="n">session</span><span class="o">[</span><span class="ss">:player2_id</span><span class="o">]</span> <span class="o">=</span> <span class="vi">@player2</span><span class="o">.</span><span class="n">id</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It&rsquo;s time to start the game, we pass in the player_ids to the URL, as a way of saving which users are playing the game.</p>
+
+<figure class='code'><figcaption><span>app/controllers/index.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">redirect</span> <span class="s2">&quot;/play_game/player1_id=</span><span class="si">#{</span><span class="vi">@player1</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">/player2_id=</span><span class="si">#{</span><span class="vi">@player2</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><strong>11:00pm &ndash; Depart</strong></p>
 
@@ -1909,78 +2055,6 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
 <h4><strong>10:20pm &ndash; Judging</strong></h4>
 
 <p>There were some amazing apps, only two teams had Phase 1 boots, and one of them won!  It wasn&rsquo;t us, but I was still really proud of everyone in my cohort that participated!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Phase 1: Week 2: Day 5 - Team Projects]]></title>
-    <link href="http://trekkie4life.github.io/blog/2014/02/07/phase-1-week-2-day-5-team-projects/"/>
-    <updated>2014-02-07T21:59:01-08:00</updated>
-    <id>http://trekkie4life.github.io/blog/2014/02/07/phase-1-week-2-day-5-team-projects</id>
-    <content type="html"><![CDATA[<p><strong>7:30am &ndash; Arrive</strong></p>
-
-<p>TEAM PROJECTS!  Holy crap &ndash; nervous and excited (but this seems to be the norm for my DBC experience thus far). NO RULES! NO RULES?!</p>
-
-<p>Well, maybe one &ndash; push ourselves but don&rsquo;t bite off more than we can chew for our first project.</p>
-
-<p>Our main goal &ndash; LEARN</p>
-
-<p><img src="https://github-camo.global.ssl.fastly.net/555fcf42315d33424e6ed0c9f0a9568f6b4fbbfb/687474703a2f2f662e636c2e6c792f6974656d732f32473170305530473133327231463335323034352f53637265656e25323053686f74253230323031332d31302d31382532306174253230332e33382e3237253230504d2e706e67" alt="Agile" /></p>
-
-<h3>The 4 main goals of Agile:</h3>
-
-<ul>
-<li>individuals and interactions &mdash; are more worthy of our attention than &mdash; processes and tools</li>
-<li>working software &mdash; is more worthy of our attention than &mdash; comprehensive documentation</li>
-<li>customer collaboration &mdash; is more worthy of our attention than &mdash; contract negotiation</li>
-<li>responding to change &mdash; is more worthy of our attention than &mdash; following a plan</li>
-</ul>
-
-
-<p>you want some clarification on that do you?</p>
-
-<ul>
-<li>Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.</li>
-<li>Welcome changing requirements, even late in development. Agile processes harness change for the customer&rsquo;s competitive advantage.</li>
-<li>Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.</li>
-<li>Client-side personnel and developers must work together daily throughout the project.</li>
-<li>Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.</li>
-<li>The most efficient and effective method ofconveying information to and within a development team is face-to-face conversation.</li>
-<li>Working software is the primary measure of progress.</li>
-<li>Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.</li>
-<li>Continuous attention to technical excellence and good design enhances agility.</li>
-<li>Simplicity&mdash;the art of maximizing the amount of work not done&mdash;is essential.</li>
-<li>The best architectures, requirements, and designs emerge from self-organizing teams.</li>
-<li>At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.</li>
-</ul>
-
-
-<h3>Working Agreements</h3>
-
-<p>Once you&rsquo;ve decided to work with other human beings, things tend to get a little complicated.</p>
-
-<p>The idea is that, once you&rsquo;re part of a team, it&rsquo;s impossible to operate independently without considering other members of your tribe. You have to spend time (basically overhead) to work out how to interact with each other in a meaningful way.</p>
-
-<p>For example, imagine a project has just started on Friday and your team is supposed to work through the weekend. does everyone agree on that plan? What if someone on the team had other plans for the weekend? When will everyone else find out? Not on Saturday morning, I hope.</p>
-
-<ul>
-<li>who is part of the team (by naming individuals)?</li>
-<li>what roles do they play (although generic roles are ok, specific roles are better)?</li>
-<li>how do people stay in touch (cell phones, email, etc)?</li>
-<li>when will the team work together vs apart?</li>
-<li>what are the working hours?</li>
-<li>what absences are expected?</li>
-<li>what are your goals as a team?</li>
-<li>what are your shared values as a team?</li>
-</ul>
-
-
-<p>Dinner was pizza with some of the cohort and then back to DBC for some coding!</p>
-
-<p><strong>11:30pm &ndash; Depart</strong></p>
-
-<blockquote><p>Science is what we understand well enough to explain to a computer. Art is everything else we do.<br/>
-&ndash; Donald Knuth</p></blockquote>
 ]]></content>
   </entry>
   
