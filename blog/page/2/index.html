@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="8:00am &ndash; Arrive New Cohort arrives &ndash; it&rsquo;s interesting being on the otherside of the activities for the morning. No less fun, and &hellip;">
+  <meta name="description" content="7:30am &ndash; Arrive Recall that HTTP is statless, so &ldquo;sessions&rdquo; were invented. A session keeps state during HTTP requests, and a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,270 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/20/phase-2-week-1-day-4-blogs-slash-pagination-and-more/">Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; More</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-20T21:11:08-08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>7:30am &ndash; Arrive</strong></p>
+
+<p>Recall that HTTP is statless, so &ldquo;sessions&rdquo; were invented.  A session keeps state during HTTP requests, and a session actually stores all data in a cookie.</p>
+
+<p>In Sinatra, the session data in this cookie is &lsquo;signed&rsquo; with a session secret, it&rsquo;s the default AND it&rsquo;s randomly generated every time you start Sinatra, though you can set it to a non-changing value.</p>
+
+<p>A client makes an HTTP request to the server. The server responds to the client and drops a cookie on/in the client&rsquo;s browser. Once the cookie is dropped, every subsequent request from the client has the cookie.</p>
+
+<p>Yes, there are exceptions that can be made and you can always manually clear cookies</p>
+
+<p>A session in not a hash, but it is treated like a hash in syntax. <code>session[:color]</code></p>
+
+<p>In Sinatra, you must enable sessions with a simple&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">enable</span> <span class="ss">:sessions</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>12:30pm &ndash; Yoga and lunch</p>
+
+<h2>Debugging</h2>
+
+<p>2 major types:</p>
+
+<p>1) Binary Search, whose efficiency in narrowing down the problem is <code>n log n</code></p>
+
+<p>2) Find &ldquo;seams&rdquo; between layers</p>
+
+<h2>Portfolio Challenge 1</h2>
+
+<h3>I&rsquo;d like to have more detailed blog posts, but phase 2 is crammed with work and it won&rsquo;t slow down anytime soon.</h3>
+
+<p><strong>1:00am &ndash; Depart</strong></p>
+
+<blockquote><p>Chance favors the prepared mind.<br/>
+-Louis Pasteur</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/">Phase 2: Week 1: Day 3 - More Sinatra and Active Record</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-19T08:16:59-08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>7:05am &ndash; Arrive</strong></p>
+
+<h2>REST</h2>
+
+<p>Relational State Transfer</p>
+
+<p>HTTP Verbs (what makes the &lsquo;net go round) + Paths &ndash;> Action</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th> Actions        </th>
+<th align="center"> HTTP Verb          </th>
+<th align="right">   Path  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td> index      </td>
+<td align="center"> GET </td>
+<td align="right"> puppies/    |</td>
+</tr>
+<tr>
+<td></td>
+<td> show      </td>
+<td align="center"> GET      </td>
+<td align="right">   puppies/:id    |</td>
+</tr>
+<tr>
+<td></td>
+<td> update </td>
+<td align="center"> POST      </td>
+<td align="right">    puppies/:id    |</td>
+</tr>
+<tr>
+<td></td>
+<td> create </td>
+<td align="center"> POST      </td>
+<td align="right">    puppies/    |</td>
+</tr>
+<tr>
+<td></td>
+<td> delete </td>
+<td align="center"> DEL      </td>
+<td align="right">    puppies/:id    |</td>
+</tr>
+<tr>
+<td></td>
+<td> edit (then points to update) </td>
+<td align="center"> GET      </td>
+<td align="right">    puppies/:id/edit    |</td>
+</tr>
+<tr>
+<td></td>
+<td> new (then point to create) </td>
+<td align="center"> GET      </td>
+<td align="right">    puppies/new    |</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>(edit) GET displays form for updating &ndash;> POST is the HTTP verb used to consume that action</p>
+
+<h2>Models</h2>
+
+<p>Don&rsquo;t forget to create models after creating DB</p>
+
+<p><code>$ rake generate:model NAME="[name in singular]"</code></p>
+
+<p>You can include join table in model file with</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">has_many</span> <span class="ss">:XYZ</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>HEROKU</h2>
+
+<p><code>$ heroku create</code><br/>
+<code>$ heroku remote local-branch:[git-remote-branch.git]</code></p>
+
+<p>Remember: Heroku doesn&rsquo;t like nested directories &ndash; only the main directory app and its corresponding folders are in.</p>
+
+<p>You can migrate and seed a database on Heroku from the Terminal (as long as you have a seed file in your application)!</p>
+
+<p><code>$ heroku run rake db:migrate</code><br/>
+<code>$ heroku run rake db:seed</code></p>
+
+<p><strong>10:45pm &ndash; Depart</strong></p>
+
+<blockquote><p>The opposite of a correct statement is a false statement. But the opposite of a profound truth may well be another profound truth.<br/>
+&ndash; Niels Bohr</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/18/phase-2-week-1-day-2-request-and-respononse/">Phase 2: Week 1: Day 2 - Request &amp; Respononse</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-18T08:15:51-08:00" pubdate data-updated="true">Feb 18<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
+
+<p>12:30pm &ndash; Lunch followed by power half-hour gym</p>
+
+<p>Lightening talks &ndash; short 5 minute presentations by people in the cohort (everyone has one every week).</p>
+
+<p>Portfolio projects unleashed (4 per week) &ndash; due by 11:59pm Sunday.</p>
+
+<p>Git workflow &ndash; how to deal with Merge Conflicts</p>
+
+<p>Once you are committed locally</p>
+
+<ul>
+<li><code>$ git co master</code></li>
+<li><code>$ git pull</code></li>
+<li><code>$ git co (my_branch)</code></li>
+<li><code>$ git rebase master</code></li>
+<li><code>$ git push origin (my_branch)</code></li>
+</ul>
+
+
+<p>And that&rsquo;s how you make sure you&rsquo;re up todate and won&rsquo;t have merge conflicts!</p>
+
+<p><strong>10:35pm &ndash; Depart</strong></p>
+
+<blockquote><p>It is not the strongest of the species that survive, nor the most intelligent, but the one most responsive to change.<br/>
+&ndash; Sir Francis Darwin</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1010,311 +1274,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/10/phase-1-week-3-day-1-databases/">Phase 1: Week 3: Day 1 - Databases</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-10T23:15:10-08:00" pubdate data-updated="true">Feb 10<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
-
-<h2>&ldquo;What excites you about programming?&rdquo;</h2>
-
-<p>The ability to create and reach 39 (and growing) percent of the world&rsquo;s population.</p>
-
-<p>Below the vertical axis is percentage of world&rsquo;s population, horizontal axis is years.</p>
-
-<p><img src="http://upload.wikimedia.org/wikipedia/commons/2/29/Internet_users_per_100_inhabitants_ITU.svg" alt="world internet usage graph" /></p>
-
-<p>It&rsquo;s time to think about programming in this way:</p>
-
-<h3>I have a need. I want to express it. How do I do it in this/that language?</h3>
-
-<h2>Database Schema and PostgreSQL</h2>
-
-<p>A self join is when a foreign key and the primary key it points to are in the same table.  In the pic below you&rsquo;ll notice we are showing that a user comment can be a reply to an earlier user comment.  We use a self join to make it a reality.  It&rsquo;s nice to find the beauty in simple things.</p>
-
-<p><img src="http://i2.minus.com/iJUPUs3sj1qYx.jpg" alt="Always whiteboard your schema. Always. No exceptions." /></p>
-
-<p>Rule one of databases &ndash; always illustrate your tables and how they relate to one another. Don&rsquo;t try juggling that stuff in your head. If it&rsquo;s a few tables, it might be ok. If it&rsquo;s hundreds of tables, not such a good idea. Build good habits now.</p>
-
-<p>Soon it was time to implement some databases in PostgreSQL via Ruby.</p>
-
-<p>Step 1 &ndash; remember to require postgres</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;pg&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p>Step 2 &ndash; don&rsquo;t be afraid of using a hash as an input parameter</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Student</span>
-</span><span class='line'>
-</span><span class='line'><span class="vg">$db</span> <span class="o">=</span> <span class="no">PG</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span> <span class="ss">dbname</span><span class="p">:</span> <span class="s1">&#39;students&#39;</span> <span class="p">)</span> <span class="c1"># allows us to save time when accessing the db</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">args</span> <span class="o">=</span> <span class="p">{})</span>
-</span><span class='line'>    <span class="vi">@first_name</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:first_name</span><span class="o">]</span>
-</span><span class='line'>    <span class="vi">@last_name</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:last_name</span><span class="o">]</span>
-</span><span class='line'>  <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-Step 3 &ndash; use binding variables to protect against <a href="http://en.wikipedia.org/wiki/SQL_injection">SQL injection</a>. In SQLite it&rsquo;s a &lsquo;?&rsquo; instead of &lsquo;$1&rsquo; or &lsquo;$2&rsquo; (and so on). $1 refers to the element at index 0, $2 refers to the element at index 1 (etc, etc) of the array the variable is bound to.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">save</span>
-</span><span class='line'>    <span class="vg">$db</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;INSERT INTO students (first_name, last_name, created_at, updated_at)</span>
-</span><span class='line'><span class="s2">        VALUES ( $1, $2, DATE(&#39;now&#39;), DATE(&#39;now&#39;))&quot;</span><span class="p">,</span> <span class="o">[</span><span class="vi">@first_name</span><span class="p">,</span> <span class="vi">@last_name</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">student</span> <span class="o">=</span> <span class="no">Student</span><span class="o">.</span><span class="n">new</span> <span class="p">({</span><span class="n">first_name</span><span class="p">:</span> <span class="s1">&#39;Armando&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="s1">&#39;Reed&#39;</span><span class="p">})</span>  <span class="c1"># notice the hash we pass in</span>
-</span><span class='line'><span class="n">student</span><span class="o">.</span><span class="n">save</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The second mission for today is to learn more about testing so when we tackle ActiveRecord and RSpec we won&rsquo;t think it&rsquo;s magic but that we&rsquo;ll understand what it&rsquo;s doing.</p>
-
-<p><strong>10:40pm &ndash; Depart</strong></p>
-
-<blockquote><p>The good thing about reinventing the wheel is that you can get a round one.<br/>
-&ndash; Douglas Crockford</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/09/weekend-review/">Weekend Review</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-09T20:12:55-08:00" pubdate data-updated="true">Feb 9<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Sunday morning errands to get some food for the first couple days</p>
-
-<p>11:00am &ndash; Arrive</p>
-
-<p>OOP (Object Oriented Programming)</p>
-
-<p>Reading Practical Object Oriented Design for Ruby &ndash; affectionately referred to as &ldquo;POODR&rdquo; (pooh-der).</p>
-
-<p>One problem we had was trying to keep the code DRY (Don&rsquo;t Repeat Yourself) in regards to our Fruit class and the classes that inherited from it. We wanted to have different fruits (Apples, Oranges, Pears) be initialized with different diameters. For awhile we couldn&rsquo;t figure out how to do that without repeating the code containing the diameter instance variable, until&hellip;</p>
-
-<p>Solution: passing an argument into <strong>super</strong> so the Superclass receives it.  I didn&rsquo;t know super was capable of that. Ruby, you are so nifty and great.</p>
-
-<p>Brain, grow more neurons to retain this nugget.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Initializes a new fruit with diameter +diameter+</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">Fruit</span>
-</span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:diameter</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">diameter</span><span class="p">)</span>  <span class="c1"># initialize takes an argument from super</span>
-</span><span class='line'>    <span class="vi">@diameter</span> <span class="o">=</span> <span class="n">diameter</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Initializes a new Orange with diameter +diameter+ (of random size)</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">Orange</span> <span class="o">&lt;</span> <span class="no">Fruit</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span>
-</span><span class='line'>    <span class="k">super</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># super takes an argument - </span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>9:30pm &ndash; Depart</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/08/dbc-hackathon/">DBC - Hackathon</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-08T11:53:39-08:00" pubdate data-updated="true">Feb 8<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>First off, let me say, this was a priceless experience. If you have the choice to do some challenges or go to a DBC Hackathon as a boot&hellip; GO TO THE HACKATHON! You will be able to participate and contribute and you&rsquo;ll be exposed to so many things. I just finished Phase 1 &ndash; Week 2, and I was still able to make a substantial amount of meaningful input. I loved it.</p>
-
-<p><strong>8:45am &ndash; Arrive</strong></p>
-
-<p>After app pitches, we pick which one interests us and converge.  Our team? 5 people: 2 DBC alums and 3 (that includes myself) Phase 1 students.</p>
-
-<h4>Our goal?</h4>
-
-<p>I should preface this by saying the Phase 1 students have no JavaScript experience, vanilla or otherwise.</p>
-
-<p>Use JS to build a 9 x 9 board of cells. Randomly generate  (horizontal/vertical)unions between the cells.</p>
-
-<p>Make a Dynamic Connectivity algorithm to see if there is a path that will connect two points, A and B on the board.  We were kind of stuck on the algorithm until a fellow Banana Slug, Quentin (my brother from another mother), came by and gave a great explanation on it.</p>
-
-<p>Animate the algorithm, so we can see it make a path as it goes through various possiblities until it finally reaches the destination cell OR runs out of possible options.</p>
-
-<p><img src="http://i.minus.com/ihuIdgNySiXPd.JPG" alt="Recursion" /></p>
-
-<h4>Execution</h4>
-
-<p>Javascript &ndash; closures!! You can wrap a group of functions together such that the variables in the &ldquo;wrapper&rdquo; can be used by functions contained in the wrapper but not by those outside of it. In other words &hellip; Whenever you see the function keyword within another function, the inner function has access to variables in the outer function. It&rsquo;s all about the scope!!</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">Board</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">board</span> <span class="o">=</span> <span class="p">[];</span>
-</span><span class='line'>  <span class="kd">var</span> <span class="nx">saveState</span> <span class="o">=</span> <span class="p">[];</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">return</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">makeSomeCells</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">81</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">cell</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cell</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">board</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">cell</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>    <span class="p">},</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">connectCells</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">81</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">findNeighbors</span><span class="p">();</span>
-</span><span class='line'>        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">makeConnections</span><span class="p">(</span><span class="nx">board</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>    <span class="p">},</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Two things went wrong:</p>
-
-<p>1) Animation debacle! Unfortunately tried as we might, we couldn&rsquo;t get it working in time by the end of the Hackathon. The animation was the fresh coat of paint on the whole project.  At least we do know through thorough testing that our algorithm works as it should.</p>
-
-<p>2) Because the unions are randomly generated, there isn&rsquo;t always a path from A to B.</p>
-
-<h4><strong>10:00pm &ndash; &ldquo;Pencils down&rdquo;</strong></h4>
-
-<p>Our team takes a huddle to discuss how we&rsquo;re going to present, points to concentrate on, things we took away, etc.</p>
-
-<h4><strong>10:20pm &ndash; Judging</strong></h4>
-
-<p>There were some amazing apps, only two teams had Phase 1 boots, and one of them won!  It wasn&rsquo;t us, but I was still really proud of everyone in my cohort that participated!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1332,23 +1291,23 @@ Step 3 &ndash; use binding variables to protect against <a href="http://en.wikip
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/04/phase-2-week-3-day-2-portfolio-challenge-day/">Phase 2: Week 3: Day 2 - Portfolio Challenge Day</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/phase-2-week-2-saturday/">Phase 2: Week 2: Saturday</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/28/phase-2-week-2-day-5-group-projects/">Phase 2: Week 2: Day 5 - Group Projects</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/27/phase-2-week-2-day-4-remake-hacker-news/">Phase 2: Week 2: Day 4 - remake Hacker News</a>
       </li>
     
       <li class="post">
         <a href="/blog/2014/02/26/phase-2-week-2-day-3-ajax/">Phase 2: Week 2: Day 3 - AJAX</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/">Phase 2: Week 2: Day 2 - JavaScript Racer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/25/phase-2-week-2-day-1-javascript/">Phase 2: Week 2: Day 1 - JavaScript</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a>
       </li>
     
   </ul>

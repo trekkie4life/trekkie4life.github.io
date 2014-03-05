@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="8:20am &ndash; Arrive &ndash; Depart &hellip;and then it occurred to me that a computer is a stupid machine with the ability to do incredibly smart &hellip;">
+  <meta name="description" content="8:30am &ndash; Arrive catching up on sleep after a late night Today is a catchup day on the portfolio challenges. I have 2 more to do and I&rsquo;m &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,292 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2014/03/04/phase-2-week-3-day-2-portfolio-challenge-day/">Phase 2: Week 3: Day 2 - Portfolio Challenge Day</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-04T14:25:49-08:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:30am &ndash; Arrive</strong></p>
+
+<p>catching up on sleep after a late night</p>
+
+<p>Today is a catchup day on the portfolio challenges. I have 2 more to do and I&rsquo;m done.</p>
+
+<p>It&rsquo;s nice to have a day to be able to concentrate and take a deep breath to</p>
+
+<p>Portfolio Challenge 9 &ndash;</p>
+
+<hr />
+
+<p>models do not have to be ActiveRecord backed. Think about the Die problem!</p>
+
+<hr />
+
+<p>some quick truth bombs from a review lecture on the boundary between JS &amp; jQuery:</p>
+
+<ul>
+<li>Models &ndash; better not have jQuery</li>
+<li>Controller &ndash; just has an &ldquo;ajax helper&rdquo; (maybe it returns JSON objects)</li>
+<li>View &ndash; jQuery, baby!</li>
+</ul>
+
+
+<p>Models instantiated by a Controller &ndash; i.e. collection of trees (possibly an array of tree objects) lives in the Controller
+render those in the View by using jQuery to manipulate the DOM</p>
+
+<p>Ajax makes it difficult because of things like Binding (where do those go?). Do not have binding jumble up the HTML, that responsiblity should be held in the View.</p>
+
+<hr />
+
+<p>Portfolio Challenge 10 &ndash; APIs</p>
+
+<p>1st go to <a href="http://instagram.com/developer/">instagram and signup</a> and register to get your client_ID and client_Secret.</p>
+
+<p>Instagram is very VERY picky about the website you sign up with as all requests redirect there, so be sure to use your local machine if you are making and testing an app locally.</p>
+
+<p>After you successfully sign up there, go <a href="https://github.com/Instagram/instagram-ruby-gem">Download the ruby gem &lsquo;instagram&rsquo;</a></p>
+
+<p>Their documentation is excellent.</p>
+
+<p><code>gem 'instagram'</code> to your Gemfile.</p>
+
+<p>Add <code>require 'instagram'</code> to your environment.</p>
+
+<p>Their example is hardcoded, but you can definitely make it cleaner and MVC it if you want (and you should want to do that).</p>
+
+<p>You can use the API to search for photos/videos by the following:</p>
+
+<ul>
+<li>geo location</li>
+<li>hashtag</li>
+<li>user-name</li>
+<li>etc&hellip;</li>
+</ul>
+
+
+<p>You can also have a user authorize the app to like/comment/unlike on things, but for this particular challenge, I found out how to gather the tags.  In my code the following line in the controller works the magic&hellip;
+what that returns is actually an array of Objects from instagram.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">post</span> <span class="s1">&#39;/tags/:tag&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@tag</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:tag</span><span class="o">]</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="vi">@tag</span>
+</span><span class='line'>  <span class="no">Instagram</span><span class="o">.</span><span class="n">tag_recent_media</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="vi">@tag</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="ss">count</span><span class="p">:</span> <span class="mi">24</span><span class="p">})</span><span class="o">.</span><span class="n">to_json</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Using jQuery, we iterate over the array parsing out the photo data we want from an object and throw it on the DOM.</p>
+
+<p>Since loading the images can take a while, I have an animated gif show until the ajax pings me that it&rsquo;s done at which point the Instagram images load.</p>
+
+<p>Once everything was working like it should, I added some minor styling using vanilla CSS.</p>
+
+<p>It&rsquo;s simple and clean and works well too! I&rsquo;d like to convert it to a Foundation 5 layout.</p>
+
+<p>Enter your hash tag below, let&rsquo;s go with puppies&hellip;
+<img src="http://i.minus.com/i0huzXcA3PD3L.png" alt="" /></p>
+
+<p>PUPPIES!!!!
+<img src="http://i.minus.com/imFzAFaGG9uP3.png" alt="" /></p>
+
+<p><strong>12:15am &ndash; Depart</strong></p>
+
+<blockquote><p>It is not knowledge, but the act of learning, not possession, but the act of getting there which generates the greatest satisfaction.<br/>
+&ndash; F. Gauss</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/02/phase-2-week-2-saturday/">Phase 2: Week 2: Saturday</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-02T01:40:15-08:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>11:45am &ndash; Arrive</strong></p>
+
+<p>Work on Group project</p>
+
+<p>and also portfolio challenge 7</p>
+
+<p>our challenge:</p>
+
+<p>Modify the shell code to implement the following functionality:</p>
+
+<ul>
+<li>Clicking on the &lsquo;Click Me&rsquo; button submits an AJAX request to the &lsquo;/colors&rsquo; route</li>
+<li>return a JSON object the server with a random color and cell number</li>
+<li>change the background color of the cell number returned to the color &ndash; WITHOUT MODIFYING THE HTML</li>
+</ul>
+
+
+<p>We use jQuery to put an event handler on the button, which has an ID &lsquo;#get_color&rsquo; on a click. Then we use AJAX to handle the action &ndash; by going to our controller and going to the correct route</p>
+
+<p>and on success, a cell object is passed back and we act on all list items <li> and then with the .eq() method we constructs a new jQuery object from the element within that set, then we change the css of the background to a random color that&rsquo;s passed to us from the return value given to us from the controller.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#get_color&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span><span class='line'>      <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;/color&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cell</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="nx">cell</span><span class="p">.</span><span class="nx">cell</span> <span class="o">-</span> <span class="mi">1</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="nx">cell</span><span class="p">.</span><span class="nx">color</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">})</span>
+</span><span class='line'>  <span class="p">})</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>what about the object that AJAX is returning?</p>
+
+<p>We turn it into a JSON object!!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">post</span> <span class="s1">&#39;/color&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">content_type</span> <span class="ss">:JSON</span>
+</span><span class='line'>    <span class="p">{</span><span class="ss">cell</span><span class="p">:</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">9</span><span class="p">),</span> <span class="ss">color</span><span class="p">:</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span> <span class="s2">&quot;%06x&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">rand</span> <span class="o">*</span> <span class="mh">0xffffff</span><span class="p">)}</span><span class="o">.</span><span class="n">to_json</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>1:00am &ndash; Depart</strong></p>
+
+<blockquote><p>Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.<br/>
+&ndash; M. Golding</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/28/phase-2-week-2-day-5-group-projects/">Phase 2: Week 2: Day 5 - Group Projects</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-28T22:41:51-08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:30am &ndash; Arrive</strong></p>
+
+<p>Well, after that late night last night, I need to sleep. I could&rsquo;ve used another hour but I&rsquo;m excited for group projects.</p>
+
+<p>picked our groups, I&rsquo;m pumped with ours, lots of potential and people with great strengths.</p>
+
+<p>Our team name? THE ULTIMATE AMAZING SUPER BEST FRIENDS!</p>
+
+<p>We design the database schema and then delegate tasks &ndash; we form an attack plan and keep communication open with stand-ups every couple hours. We use good git practices and use git pull/rebase before pushing a branch up, then we review eachother&rsquo;s code on pull requests.</p>
+
+<p>A note on git rebasing&hellip; when you rebase and sort out a merge conflict, be sure you <code>git rebase --continue</code> to finish the actual rebasing process!!</p>
+
+<p>We had a really really good flow going and while underpressure to deliver an MVP at 5pm, we had a good time. Hard to beat that kind of group dynamic.</p>
+
+<p><img src="http://i.minus.com/ibxxX3gvDbu3jK.jpg" alt="" /></p>
+
+<p><strong>11:20pm &ndash; Depart</strong></p>
+
+<blockquote><p>Precise language is not the problem. Clear language is the problem.<br/>
+&ndash; Richard Feynman</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/02/27/phase-2-week-2-day-4-remake-hacker-news/">Phase 2: Week 2: Day 4 - Remake Hacker News</a></h1>
     
     
@@ -96,7 +382,11 @@
 
   <div class="entry-content"><p><strong>8:20am &ndash; Arrive</strong></p>
 
-<p><strong>&ndash; Depart</strong></p>
+<p>Hacker News jr</p>
+
+<p>super busy and tired today &ndash; I will try to update this post, but probably won&rsquo;t have time to in the near future. I have to continue writing for future days, and I can already tell you it will be tough to find time to do it in the rigors of phase 2.</p>
+
+<p><strong>1:10am &ndash; Depart</strong></p>
 
 <blockquote><p>&hellip;and then it occurred to me that a computer is a stupid machine with the ability to do incredibly smart things, while computer programmers are smart people with the ability to do incredibly stupid things. They are, in short, a perfect match.<br/>
 &ndash; B. Bryson</p></blockquote>
@@ -1138,270 +1428,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/20/phase-2-week-1-day-4-blogs-slash-pagination-and-more/">Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; More</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-20T21:11:08-08:00" pubdate data-updated="true">Feb 20<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>7:30am &ndash; Arrive</strong></p>
-
-<p>Recall that HTTP is statless, so &ldquo;sessions&rdquo; were invented.  A session keeps state during HTTP requests, and a session actually stores all data in a cookie.</p>
-
-<p>In Sinatra, the session data in this cookie is &lsquo;signed&rsquo; with a session secret, it&rsquo;s the default AND it&rsquo;s randomly generated every time you start Sinatra, though you can set it to a non-changing value.</p>
-
-<p>A client makes an HTTP request to the server. The server responds to the client and drops a cookie on/in the client&rsquo;s browser. Once the cookie is dropped, every subsequent request from the client has the cookie.</p>
-
-<p>Yes, there are exceptions that can be made and you can always manually clear cookies</p>
-
-<p>A session in not a hash, but it is treated like a hash in syntax. <code>session[:color]</code></p>
-
-<p>In Sinatra, you must enable sessions with a simple&hellip;</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">enable</span> <span class="ss">:sessions</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>12:30pm &ndash; Yoga and lunch</p>
-
-<h2>Debugging</h2>
-
-<p>2 major types:</p>
-
-<p>1) Binary Search, whose efficiency in narrowing down the problem is <code>n log n</code></p>
-
-<p>2) Find &ldquo;seams&rdquo; between layers</p>
-
-<h2>Portfolio Challenge 1</h2>
-
-<h3>I&rsquo;d like to have more detailed blog posts, but phase 2 is crammed with work and it won&rsquo;t slow down anytime soon.</h3>
-
-<p><strong>1:00am &ndash; Depart</strong></p>
-
-<blockquote><p>Chance favors the prepared mind.<br/>
--Louis Pasteur</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/">Phase 2: Week 1: Day 3 - More Sinatra and Active Record</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-19T08:16:59-08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>7:05am &ndash; Arrive</strong></p>
-
-<h2>REST</h2>
-
-<p>Relational State Transfer</p>
-
-<p>HTTP Verbs (what makes the &lsquo;net go round) + Paths &ndash;> Action</p>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th> Actions        </th>
-<th align="center"> HTTP Verb          </th>
-<th align="right">   Path  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td> index      </td>
-<td align="center"> GET </td>
-<td align="right"> puppies/    |</td>
-</tr>
-<tr>
-<td></td>
-<td> show      </td>
-<td align="center"> GET      </td>
-<td align="right">   puppies/:id    |</td>
-</tr>
-<tr>
-<td></td>
-<td> update </td>
-<td align="center"> POST      </td>
-<td align="right">    puppies/:id    |</td>
-</tr>
-<tr>
-<td></td>
-<td> create </td>
-<td align="center"> POST      </td>
-<td align="right">    puppies/    |</td>
-</tr>
-<tr>
-<td></td>
-<td> delete </td>
-<td align="center"> DEL      </td>
-<td align="right">    puppies/:id    |</td>
-</tr>
-<tr>
-<td></td>
-<td> edit (then points to update) </td>
-<td align="center"> GET      </td>
-<td align="right">    puppies/:id/edit    |</td>
-</tr>
-<tr>
-<td></td>
-<td> new (then point to create) </td>
-<td align="center"> GET      </td>
-<td align="right">    puppies/new    |</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>(edit) GET displays form for updating &ndash;> POST is the HTTP verb used to consume that action</p>
-
-<h2>Models</h2>
-
-<p>Don&rsquo;t forget to create models after creating DB</p>
-
-<p><code>$ rake generate:model NAME="[name in singular]"</code></p>
-
-<p>You can include join table in model file with</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">has_many</span> <span class="ss">:XYZ</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>HEROKU</h2>
-
-<p><code>$ heroku create</code><br/>
-<code>$ heroku remote local-branch:[git-remote-branch.git]</code></p>
-
-<p>Remember: Heroku doesn&rsquo;t like nested directories &ndash; only the main directory app and its corresponding folders are in.</p>
-
-<p>You can migrate and seed a database on Heroku from the Terminal (as long as you have a seed file in your application)!</p>
-
-<p><code>$ heroku run rake db:migrate</code><br/>
-<code>$ heroku run rake db:seed</code></p>
-
-<p><strong>10:45pm &ndash; Depart</strong></p>
-
-<blockquote><p>The opposite of a correct statement is a false statement. But the opposite of a profound truth may well be another profound truth.<br/>
-&ndash; Niels Bohr</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/18/phase-2-week-1-day-2-request-and-respononse/">Phase 2: Week 1: Day 2 - Request &amp; Respononse</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-18T08:15:51-08:00" pubdate data-updated="true">Feb 18<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
-
-<p>12:30pm &ndash; Lunch followed by power half-hour gym</p>
-
-<p>Lightening talks &ndash; short 5 minute presentations by people in the cohort (everyone has one every week).</p>
-
-<p>Portfolio projects unleashed (4 per week) &ndash; due by 11:59pm Sunday.</p>
-
-<p>Git workflow &ndash; how to deal with Merge Conflicts</p>
-
-<p>Once you are committed locally</p>
-
-<ul>
-<li><code>$ git co master</code></li>
-<li><code>$ git pull</code></li>
-<li><code>$ git co (my_branch)</code></li>
-<li><code>$ git rebase master</code></li>
-<li><code>$ git push origin (my_branch)</code></li>
-</ul>
-
-
-<p>And that&rsquo;s how you make sure you&rsquo;re up todate and won&rsquo;t have merge conflicts!</p>
-
-<p><strong>10:35pm &ndash; Depart</strong></p>
-
-<blockquote><p>It is not the strongest of the species that survive, nor the most intelligent, but the one most responsive to change.<br/>
-&ndash; Sir Francis Darwin</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1417,23 +1443,23 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/04/phase-2-week-3-day-2-portfolio-challenge-day/">Phase 2: Week 3: Day 2 - Portfolio Challenge Day</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/phase-2-week-2-saturday/">Phase 2: Week 2: Saturday</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/28/phase-2-week-2-day-5-group-projects/">Phase 2: Week 2: Day 5 - Group Projects</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/27/phase-2-week-2-day-4-remake-hacker-news/">Phase 2: Week 2: Day 4 - remake Hacker News</a>
       </li>
     
       <li class="post">
         <a href="/blog/2014/02/26/phase-2-week-2-day-3-ajax/">Phase 2: Week 2: Day 3 - AJAX</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/">Phase 2: Week 2: Day 2 - JavaScript Racer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/25/phase-2-week-2-day-1-javascript/">Phase 2: Week 2: Day 1 - JavaScript</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a>
       </li>
     
   </ul>

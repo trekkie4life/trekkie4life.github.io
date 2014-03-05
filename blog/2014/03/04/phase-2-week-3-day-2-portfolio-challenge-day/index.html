@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Phase 2: Week 3: Day 2 - Portfolio Challenge Day - Captain's Log</title>
+  <meta name="author" content="Armando Reed">
+
+  
+  <meta name="description" content="8:30am &ndash; Arrive catching up on sleep after a late night Today is a catchup day on the portfolio challenges. I have 2 more to do and I&rsquo;m &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://trekkie4life.github.io/blog/2014/03/04/phase-2-week-3-day-2-portfolio-challenge-day">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Captain's Log" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Captain's Log</a></h1>
+  
+    <h2>one boot's journey through dev bootcamp</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:trekkie4life.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Phase 2: Week 3: Day 2 - Portfolio Challenge Day</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-04T14:25:49-08:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><strong>8:30am &ndash; Arrive</strong></p>
+
+<p>catching up on sleep after a late night</p>
+
+<p>Today is a catchup day on the portfolio challenges. I have 2 more to do and I&rsquo;m done.</p>
+
+<p>It&rsquo;s nice to have a day to be able to concentrate and take a deep breath to</p>
+
+<p>Portfolio Challenge 9 &ndash;</p>
+
+<hr />
+
+<p>models do not have to be ActiveRecord backed. Think about the Die problem!</p>
+
+<hr />
+
+<p>some quick truth bombs from a review lecture on the boundary between JS &amp; jQuery:</p>
+
+<ul>
+<li>Models &ndash; better not have jQuery</li>
+<li>Controller &ndash; just has an &ldquo;ajax helper&rdquo; (maybe it returns JSON objects)</li>
+<li>View &ndash; jQuery, baby!</li>
+</ul>
+
+
+<p>Models instantiated by a Controller &ndash; i.e. collection of trees (possibly an array of tree objects) lives in the Controller
+render those in the View by using jQuery to manipulate the DOM</p>
+
+<p>Ajax makes it difficult because of things like Binding (where do those go?). Do not have binding jumble up the HTML, that responsiblity should be held in the View.</p>
+
+<hr />
+
+<p>Portfolio Challenge 10 &ndash; APIs</p>
+
+<p>1st go to <a href="http://instagram.com/developer/">instagram and signup</a> and register to get your client_ID and client_Secret.</p>
+
+<p>Instagram is very VERY picky about the website you sign up with as all requests redirect there, so be sure to use your local machine if you are making and testing an app locally.</p>
+
+<p>After you successfully sign up there, go <a href="https://github.com/Instagram/instagram-ruby-gem">Download the ruby gem &lsquo;instagram&rsquo;</a></p>
+
+<p>Their documentation is excellent.</p>
+
+<p><code>gem 'instagram'</code> to your Gemfile.</p>
+
+<p>Add <code>require 'instagram'</code> to your environment.</p>
+
+<p>Their example is hardcoded, but you can definitely make it cleaner and MVC it if you want (and you should want to do that).</p>
+
+<p>You can use the API to search for photos/videos by the following:</p>
+
+<ul>
+<li>geo location</li>
+<li>hashtag</li>
+<li>user-name</li>
+<li>etc&hellip;</li>
+</ul>
+
+
+<p>You can also have a user authorize the app to like/comment/unlike on things, but for this particular challenge, I found out how to gather the tags.  In my code the following line in the controller works the magic&hellip;
+what that returns is actually an array of Objects from instagram.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">post</span> <span class="s1">&#39;/tags/:tag&#39;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="vi">@tag</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:tag</span><span class="o">]</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="vi">@tag</span>
+</span><span class='line'>  <span class="no">Instagram</span><span class="o">.</span><span class="n">tag_recent_media</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="vi">@tag</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="ss">count</span><span class="p">:</span> <span class="mi">24</span><span class="p">})</span><span class="o">.</span><span class="n">to_json</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Using jQuery, we iterate over the array parsing out the photo data we want from an object and throw it on the DOM.</p>
+
+<p>Since loading the images can take a while, I have an animated gif show until the ajax pings me that it&rsquo;s done at which point the Instagram images load.</p>
+
+<p>Once everything was working like it should, I added some minor styling using vanilla CSS.</p>
+
+<p>It&rsquo;s simple and clean and works well too! I&rsquo;d like to convert it to a Foundation 5 layout.</p>
+
+<p>Enter your hash tag below, let&rsquo;s go with puppies&hellip;
+<img src="http://i.minus.com/i0huzXcA3PD3L.png" alt="" /></p>
+
+<p>PUPPIES!!!!
+<img src="http://i.minus.com/imFzAFaGG9uP3.png" alt="" /></p>
+
+<p><strong>12:15am &ndash; Depart</strong></p>
+
+<blockquote><p>It is not knowledge, but the act of learning, not possession, but the act of getting there which generates the greatest satisfaction.<br/>
+&ndash; F. Gauss</p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Armando Reed</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-04T14:25:49-08:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://trekkie4life.github.io/blog/2014/03/04/phase-2-week-3-day-2-portfolio-challenge-day/" data-via="" data-counturl="http://trekkie4life.github.io/blog/2014/03/04/phase-2-week-3-day-2-portfolio-challenge-day/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/02/phase-2-week-2-saturday/" title="Previous Post: Phase 2: Week 2: Saturday">&laquo; Phase 2: Week 2: Saturday</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/04/phase-2-week-3-day-2-portfolio-challenge-day/">Phase 2: Week 3: Day 2 - Portfolio Challenge Day</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/phase-2-week-2-saturday/">Phase 2: Week 2: Saturday</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/28/phase-2-week-2-day-5-group-projects/">Phase 2: Week 2: Day 5 - Group Projects</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/27/phase-2-week-2-day-4-remake-hacker-news/">Phase 2: Week 2: Day 4 - remake Hacker News</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/26/phase-2-week-2-day-3-ajax/">Phase 2: Week 2: Day 3 - AJAX</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Armando Reed -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

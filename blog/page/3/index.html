@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="7:30am &ndash; Arrive TEAM PROJECTS! Holy crap &ndash; nervous and excited (but this seems to be the norm for my DBC experience thus far). NO RULES! &hellip;">
+  <meta name="description" content="8:00am &ndash; Arrive &ldquo;What excites you about programming?&rdquo; The ability to create and reach 39 (and growing) percent of the world&rsquo;s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,311 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/10/phase-1-week-3-day-1-databases/">Phase 1: Week 3: Day 1 - Databases</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-10T23:15:10-08:00" pubdate data-updated="true">Feb 10<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
+
+<h2>&ldquo;What excites you about programming?&rdquo;</h2>
+
+<p>The ability to create and reach 39 (and growing) percent of the world&rsquo;s population.</p>
+
+<p>Below the vertical axis is percentage of world&rsquo;s population, horizontal axis is years.</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/2/29/Internet_users_per_100_inhabitants_ITU.svg" alt="world internet usage graph" /></p>
+
+<p>It&rsquo;s time to think about programming in this way:</p>
+
+<h3>I have a need. I want to express it. How do I do it in this/that language?</h3>
+
+<h2>Database Schema and PostgreSQL</h2>
+
+<p>A self join is when a foreign key and the primary key it points to are in the same table.  In the pic below you&rsquo;ll notice we are showing that a user comment can be a reply to an earlier user comment.  We use a self join to make it a reality.  It&rsquo;s nice to find the beauty in simple things.</p>
+
+<p><img src="http://i2.minus.com/iJUPUs3sj1qYx.jpg" alt="Always whiteboard your schema. Always. No exceptions." /></p>
+
+<p>Rule one of databases &ndash; always illustrate your tables and how they relate to one another. Don&rsquo;t try juggling that stuff in your head. If it&rsquo;s a few tables, it might be ok. If it&rsquo;s hundreds of tables, not such a good idea. Build good habits now.</p>
+
+<p>Soon it was time to implement some databases in PostgreSQL via Ruby.</p>
+
+<p>Step 1 &ndash; remember to require postgres</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;pg&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>Step 2 &ndash; don&rsquo;t be afraid of using a hash as an input parameter</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Student</span>
+</span><span class='line'>
+</span><span class='line'><span class="vg">$db</span> <span class="o">=</span> <span class="no">PG</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span> <span class="ss">dbname</span><span class="p">:</span> <span class="s1">&#39;students&#39;</span> <span class="p">)</span> <span class="c1"># allows us to save time when accessing the db</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">args</span> <span class="o">=</span> <span class="p">{})</span>
+</span><span class='line'>    <span class="vi">@first_name</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:first_name</span><span class="o">]</span>
+</span><span class='line'>    <span class="vi">@last_name</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="ss">:last_name</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+Step 3 &ndash; use binding variables to protect against <a href="http://en.wikipedia.org/wiki/SQL_injection">SQL injection</a>. In SQLite it&rsquo;s a &lsquo;?&rsquo; instead of &lsquo;$1&rsquo; or &lsquo;$2&rsquo; (and so on). $1 refers to the element at index 0, $2 refers to the element at index 1 (etc, etc) of the array the variable is bound to.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">save</span>
+</span><span class='line'>    <span class="vg">$db</span><span class="o">.</span><span class="n">exec</span><span class="p">(</span><span class="s2">&quot;INSERT INTO students (first_name, last_name, created_at, updated_at)</span>
+</span><span class='line'><span class="s2">        VALUES ( $1, $2, DATE(&#39;now&#39;), DATE(&#39;now&#39;))&quot;</span><span class="p">,</span> <span class="o">[</span><span class="vi">@first_name</span><span class="p">,</span> <span class="vi">@last_name</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">student</span> <span class="o">=</span> <span class="no">Student</span><span class="o">.</span><span class="n">new</span> <span class="p">({</span><span class="n">first_name</span><span class="p">:</span> <span class="s1">&#39;Armando&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="s1">&#39;Reed&#39;</span><span class="p">})</span>  <span class="c1"># notice the hash we pass in</span>
+</span><span class='line'><span class="n">student</span><span class="o">.</span><span class="n">save</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The second mission for today is to learn more about testing so when we tackle ActiveRecord and RSpec we won&rsquo;t think it&rsquo;s magic but that we&rsquo;ll understand what it&rsquo;s doing.</p>
+
+<p><strong>10:40pm &ndash; Depart</strong></p>
+
+<blockquote><p>The good thing about reinventing the wheel is that you can get a round one.<br/>
+&ndash; Douglas Crockford</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/09/weekend-review/">Weekend Review</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-09T20:12:55-08:00" pubdate data-updated="true">Feb 9<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Sunday morning errands to get some food for the first couple days</p>
+
+<p>11:00am &ndash; Arrive</p>
+
+<p>OOP (Object Oriented Programming)</p>
+
+<p>Reading Practical Object Oriented Design for Ruby &ndash; affectionately referred to as &ldquo;POODR&rdquo; (pooh-der).</p>
+
+<p>One problem we had was trying to keep the code DRY (Don&rsquo;t Repeat Yourself) in regards to our Fruit class and the classes that inherited from it. We wanted to have different fruits (Apples, Oranges, Pears) be initialized with different diameters. For awhile we couldn&rsquo;t figure out how to do that without repeating the code containing the diameter instance variable, until&hellip;</p>
+
+<p>Solution: passing an argument into <strong>super</strong> so the Superclass receives it.  I didn&rsquo;t know super was capable of that. Ruby, you are so nifty and great.</p>
+
+<p>Brain, grow more neurons to retain this nugget.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Initializes a new fruit with diameter +diameter+</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Fruit</span>
+</span><span class='line'>  <span class="kp">attr_reader</span> <span class="ss">:diameter</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">diameter</span><span class="p">)</span>  <span class="c1"># initialize takes an argument from super</span>
+</span><span class='line'>    <span class="vi">@diameter</span> <span class="o">=</span> <span class="n">diameter</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Initializes a new Orange with diameter +diameter+ (of random size)</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Orange</span> <span class="o">&lt;</span> <span class="no">Fruit</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span>
+</span><span class='line'>    <span class="k">super</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># super takes an argument - </span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>9:30pm &ndash; Depart</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/08/dbc-hackathon/">DBC - Hackathon</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-08T11:53:39-08:00" pubdate data-updated="true">Feb 8<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>First off, let me say, this was a priceless experience. If you have the choice to do some challenges or go to a DBC Hackathon as a boot&hellip; GO TO THE HACKATHON! You will be able to participate and contribute and you&rsquo;ll be exposed to so many things. I just finished Phase 1 &ndash; Week 2, and I was still able to make a substantial amount of meaningful input. I loved it.</p>
+
+<p><strong>8:45am &ndash; Arrive</strong></p>
+
+<p>After app pitches, we pick which one interests us and converge.  Our team? 5 people: 2 DBC alums and 3 (that includes myself) Phase 1 students.</p>
+
+<h4>Our goal?</h4>
+
+<p>I should preface this by saying the Phase 1 students have no JavaScript experience, vanilla or otherwise.</p>
+
+<p>Use JS to build a 9 x 9 board of cells. Randomly generate  (horizontal/vertical)unions between the cells.</p>
+
+<p>Make a Dynamic Connectivity algorithm to see if there is a path that will connect two points, A and B on the board.  We were kind of stuck on the algorithm until a fellow Banana Slug, Quentin (my brother from another mother), came by and gave a great explanation on it.</p>
+
+<p>Animate the algorithm, so we can see it make a path as it goes through various possiblities until it finally reaches the destination cell OR runs out of possible options.</p>
+
+<p><img src="http://i.minus.com/ihuIdgNySiXPd.JPG" alt="Recursion" /></p>
+
+<h4>Execution</h4>
+
+<p>Javascript &ndash; closures!! You can wrap a group of functions together such that the variables in the &ldquo;wrapper&rdquo; can be used by functions contained in the wrapper but not by those outside of it. In other words &hellip; Whenever you see the function keyword within another function, the inner function has access to variables in the outer function. It&rsquo;s all about the scope!!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">Board</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">board</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">saveState</span> <span class="o">=</span> <span class="p">[];</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">makeSomeCells</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">81</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">cell</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cell</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">board</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">cell</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">connectCells</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">81</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">findNeighbors</span><span class="p">();</span>
+</span><span class='line'>        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">makeConnections</span><span class="p">(</span><span class="nx">board</span><span class="p">);</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>    <span class="p">},</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Two things went wrong:</p>
+
+<p>1) Animation debacle! Unfortunately tried as we might, we couldn&rsquo;t get it working in time by the end of the Hackathon. The animation was the fresh coat of paint on the whole project.  At least we do know through thorough testing that our algorithm works as it should.</p>
+
+<p>2) Because the unions are randomly generated, there isn&rsquo;t always a path from A to B.</p>
+
+<h4><strong>10:00pm &ndash; &ldquo;Pencils down&rdquo;</strong></h4>
+
+<p>Our team takes a huddle to discuss how we&rsquo;re going to present, points to concentrate on, things we took away, etc.</p>
+
+<h4><strong>10:20pm &ndash; Judging</strong></h4>
+
+<p>There were some amazing apps, only two teams had Phase 1 boots, and one of them won!  It wasn&rsquo;t us, but I was still really proud of everyone in my cohort that participated!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -556,263 +861,6 @@ ELSE we move onto the next spot &ndash; so on and so forth</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/31/phase-1-week-1-day-4-games/">Phase 1: Week 1: Day 4 - Games</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-31T02:00:49-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="https://github-camo.global.ssl.fastly.net/263edda0ba67654c5e68725c981d6701c0f4b8eb/68747470733a2f2f736f6372617465732e646576626f6f7463616d702e636f6d2f6173736574732f747265655f636f6d69632e6a7067" alt="communication" /></p>
-
-<p>How can you not love the above picture &ndash; it&rsquo;s correct on so many levels!</p>
-
-<p><strong>8:00am &ndash; Arrive</strong></p>
-
-<p>Diving into games! Scary and fun at the same time.</p>
-
-<p>First up: Pig Latin</p>
-
-<p>take an input string</p>
-
-<p>IF the string starts with a vowel, return the word (unchanged)
-ELSE set the consonants at the of the word and add the suffix &ldquo;ay&rdquo;
-PRINT the pig-latin-ified word
-The best way in my mind would be to use RegEx, and that&rsquo;s exactly what happened.</p>
-
-<p>For the first example.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">normal_word</span> <span class="o">=~</span> <span class="sr">/\A[aeiyou]/</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">normal_word</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>=~ \A  means the search MUST start at the beginning of the string.</p>
-
-<p>[aeiyou] the square brackets mean that a positive match will occur if the first letter (in this case) is one of the characters in the brackets &ndash; like “a” or “e” or “i” or “y” or “o” or “u” is the first letter, then <em>BING</em> we have a match</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">else</span>
-</span><span class='line'>    <span class="nb">p</span> <span class="n">normal_word</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="sr">/(^[^aeiyou]*)(.+)/</span><span class="p">,</span> <span class="err">”</span><span class="p">\</span><span class="mi">2</span><span class="o">-</span><span class="p">\</span><span class="mi">1</span><span class="n">ay</span><span class="err">”</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You’ll notice 2 pairs of paranthesis.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="sr">/(^[^aeiyou]*)(.+)/</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>the first hat ^ acts the same as \A</p>
-
-<p>inside the [ ] the ^ acts as “NOT”</p>
-
-<p>* after the right bracket ] means to end that search there</p>
-
-<p>the second pair of brackets assigns the result of that search to a second group.</p>
-
-<p>the period means to match any character, the + means “one or more”</p>
-
-<p>#gsub!(this is what we are searching for, replace it with this)</p>
-
-<p>will destructively match and replace the match. There’s a special syntax when you use those captured groups</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">“</span><span class="p">\</span><span class="mi">2</span><span class="o">-</span><span class="p">\</span><span class="mi">1</span><span class="n">ay</span><span class="err">”</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>When the group is inside double quotes, we have to have \ preceding the group number. \2 refers to group two, \1 refers to group one.</p>
-
-<p>So here, we’d have group two followed by a dash, then group one, followed by “ay” with no white-spaces separating them.</p>
-
-<p>DBC Yoga &ndash; especially good</p>
-
-<p>AHA Moments!</p>
-
-<p>Linked Lists:</p>
-
-<p>the pointer points to the entire object, not just the value
-object within an object within an object &ndash; on and on until the end of the list</p>
-
-<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/CPT-LinkedLists-deletingnode.svg/380px-CPT-LinkedLists-deletingnode.svg.png" alt="Linked Lists" /></p>
-
-<h4>Assignment Operators</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">||=</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>tests left argument for truthiness, if nil or false will overwrite it with right argument.  In the example below, if a is nil or false, it is assigned the value 3</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span><span class="o">||=</span><span class="mi">3</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">a</span><span class="o">||</span> <span class="n">a</span><span class="o">=</span><span class="mi">3</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>11:35pm &ndash; Depart</strong></p>
-
-<blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
-&ndash; Eric S. Raymond</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/29/phase-1-week-1-day-3-basic-data-structures/">Phase 1: Week 1: Day 3 - Basic Data Structures</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-29T23:35:49-08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>8:15am &ndash; Arrive</strong></p>
-
-<p>Solo (optional) day</p>
-
-<p>Didn’t go solo, had the pleasure of pairing with Quentin &ndash; my brother from another mother.  Happy to say he&rsquo;s a friend of mine thanks to our pairing sessions in Phase 0. He helped me grasp a lot of concepts that were foreign to me in the prep work. One hell of a guy.</p>
-
-<p>AM coding &ndash; Basic Data Structures</p>
-
-<p>Hawaiian BBQ for lunch &ndash; highly recommend it for fellow protein loving boots.</p>
-
-<p>Shadi gives us a nice tutorial on Test Driven Development (TDD). Quentin and I decided to approach the afternoon’s challenges utilizing this new and powerful tool by utilitizing asserts to test as opposed to “puts” statements.</p>
-
-<p>We wrote a bunch of tests and then started putting it together, locating the error in the stack, debugging that particular error, saving and retesting.</p>
-
-<p>PM coding &ndash; Abstract Data Structures (ADT)</p>
-
-<p>Some coaches had a very nice indepth teaching session on Git. I entered feeling like I had a basic idea of what was going on, I walked out feeling very confident I have a solid high-level understanding of how to correctly use Git moving forward.</p>
-
-<h2>Shuhari</h2>
-
-<p><img src="http://upload.wikimedia.org/wikipedia/commons/e/e2/ShuHaRi.png" alt="shuhari" /></p>
-
-<p>Our goals each week at DBC are broken down into 3 stages of &lsquo;mastery&rsquo; using the Japanese concept of &lsquo;Shuhari&rsquo; (しゅはり), which roughly translates to: &ldquo;first learn, then detach, and finally transcend&rdquo;</p>
-
-<p><strong>12:30am &ndash; Depart</strong></p>
-
-<blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
-&ndash; Eric S. Raymond</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/01/28/phase-1-week-1-day-2-data-loops-flows/">Phase 1: Week 1: Day 2 - Data, Decisions, Loops & Flows</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-01-28T23:30:29-08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>8:06am &ndash; Arrive</strong></p>
-
-<p>coding challenges &ndash; roman numerals &ndash; encoding and decoding them. After doing the first two parts, it was great fun to look at the case studies (collection of 29 examples of student code) and see where they differ and are similar. You start to be able to recognize how efficient/clean/easy to read different methods and approaches are. Then we use what we learned there to re-write our roman-numeral encoding method from scratch.</p>
-
-<p>Engineering Empathy training session with Karim Bishay &ndash; eye opening for sure. This kind of training will apply well to all areas of my life. We did an exercise where we confront out superego. Some people were crying afterward, who can blame them though. Luckily DBC is a very safe space to expose vulnerabilities and insecurities  Very intense. It&rsquo;s no wonder they planned that right before our first yoga session.  The yoga for those that are wondering is very meditative and relaxing, you won&rsquo;t be sweating afterwards, more getting in tune with your body and re-centering your mind. I promised my girlfriend I&rsquo;d be going at least 3 times a week for the duration of the course. It is mandatory Tues &amp; Thur for Phase 1.</p>
-
-<p>PM coding challenges &ndash; learning about different kinds of sorting and their Big O notation.</p>
-
-<p><img src="https://github-camo.global.ssl.fastly.net/e409d816ec89b91ff74fbfd728b2f4f8f4d9867d/687474703a2f2f636c2e6c792f696d6167652f316f333834343354313930312f53637265656e25323053686f74253230323031342d30312d32382532306174253230322e34342e3032253230504d2e706e67" alt="Big O Complexity" /></p>
-
-<h4>Bubblesort</h4>
-
-<p>is not very impressive and takes a LOOOONG time</p>
-
-<h4>Quicksort</h4>
-
-<p>you select a random piece of data, that&rsquo;s your pivot point. You remove that from the array you want to sort, now you separate the remaining data into 2 groups (let&rsquo;s call them): Left, Right. A piece of data goes into left if it&rsquo;s value is less than the pivot point. If it&rsquo;s greater than the pivot point, it goes into Right. You then run quicksort again on the two new sets of data Left, and Right.  Wait &ndash; is that recursion? NICE!</p>
-
-<p><strong>11:00pm &ndash; Depart</strong></p>
-
-<blockquote><p>Simplicity is prerequisite for reliability.<br/>
-&ndash; Edsger Dijkstra</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -830,23 +878,23 @@ object within an object within an object &ndash; on and on until the end of the 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/04/phase-2-week-3-day-2-portfolio-challenge-day/">Phase 2: Week 3: Day 2 - Portfolio Challenge Day</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/phase-2-week-2-saturday/">Phase 2: Week 2: Saturday</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/28/phase-2-week-2-day-5-group-projects/">Phase 2: Week 2: Day 5 - Group Projects</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/27/phase-2-week-2-day-4-remake-hacker-news/">Phase 2: Week 2: Day 4 - remake Hacker News</a>
       </li>
     
       <li class="post">
         <a href="/blog/2014/02/26/phase-2-week-2-day-3-ajax/">Phase 2: Week 2: Day 3 - AJAX</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/">Phase 2: Week 2: Day 2 - JavaScript Racer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/25/phase-2-week-2-day-1-javascript/">Phase 2: Week 2: Day 1 - JavaScript</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a>
       </li>
     
   </ul>

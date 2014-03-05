@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="8:30am &ndash; Arrive It&rsquo;s been over 12 weeks of official prep work &ndash; and something that I got accepted for in May of 2013. Hard to &hellip;">
+  <meta name="description" content="How can you not love the above picture &ndash; it&rsquo;s correct on so many levels! 8:00am &ndash; Arrive Diving into games! Scary and fun at the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,263 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/31/phase-1-week-1-day-4-games/">Phase 1: Week 1: Day 4 - Games</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-31T02:00:49-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="https://github-camo.global.ssl.fastly.net/263edda0ba67654c5e68725c981d6701c0f4b8eb/68747470733a2f2f736f6372617465732e646576626f6f7463616d702e636f6d2f6173736574732f747265655f636f6d69632e6a7067" alt="communication" /></p>
+
+<p>How can you not love the above picture &ndash; it&rsquo;s correct on so many levels!</p>
+
+<p><strong>8:00am &ndash; Arrive</strong></p>
+
+<p>Diving into games! Scary and fun at the same time.</p>
+
+<p>First up: Pig Latin</p>
+
+<p>take an input string</p>
+
+<p>IF the string starts with a vowel, return the word (unchanged)
+ELSE set the consonants at the of the word and add the suffix &ldquo;ay&rdquo;
+PRINT the pig-latin-ified word
+The best way in my mind would be to use RegEx, and that&rsquo;s exactly what happened.</p>
+
+<p>For the first example.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">normal_word</span> <span class="o">=~</span> <span class="sr">/\A[aeiyou]/</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">normal_word</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>=~ \A  means the search MUST start at the beginning of the string.</p>
+
+<p>[aeiyou] the square brackets mean that a positive match will occur if the first letter (in this case) is one of the characters in the brackets &ndash; like “a” or “e” or “i” or “y” or “o” or “u” is the first letter, then <em>BING</em> we have a match</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="nb">p</span> <span class="n">normal_word</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="sr">/(^[^aeiyou]*)(.+)/</span><span class="p">,</span> <span class="err">”</span><span class="p">\</span><span class="mi">2</span><span class="o">-</span><span class="p">\</span><span class="mi">1</span><span class="n">ay</span><span class="err">”</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You’ll notice 2 pairs of paranthesis.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="sr">/(^[^aeiyou]*)(.+)/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>the first hat ^ acts the same as \A</p>
+
+<p>inside the [ ] the ^ acts as “NOT”</p>
+
+<p>* after the right bracket ] means to end that search there</p>
+
+<p>the second pair of brackets assigns the result of that search to a second group.</p>
+
+<p>the period means to match any character, the + means “one or more”</p>
+
+<p>#gsub!(this is what we are searching for, replace it with this)</p>
+
+<p>will destructively match and replace the match. There’s a special syntax when you use those captured groups</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">“</span><span class="p">\</span><span class="mi">2</span><span class="o">-</span><span class="p">\</span><span class="mi">1</span><span class="n">ay</span><span class="err">”</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When the group is inside double quotes, we have to have \ preceding the group number. \2 refers to group two, \1 refers to group one.</p>
+
+<p>So here, we’d have group two followed by a dash, then group one, followed by “ay” with no white-spaces separating them.</p>
+
+<p>DBC Yoga &ndash; especially good</p>
+
+<p>AHA Moments!</p>
+
+<p>Linked Lists:</p>
+
+<p>the pointer points to the entire object, not just the value
+object within an object within an object &ndash; on and on until the end of the list</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/CPT-LinkedLists-deletingnode.svg/380px-CPT-LinkedLists-deletingnode.svg.png" alt="Linked Lists" /></p>
+
+<h4>Assignment Operators</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">||=</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>tests left argument for truthiness, if nil or false will overwrite it with right argument.  In the example below, if a is nil or false, it is assigned the value 3</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span><span class="o">||=</span><span class="mi">3</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span><span class="o">||</span> <span class="n">a</span><span class="o">=</span><span class="mi">3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>11:35pm &ndash; Depart</strong></p>
+
+<blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
+&ndash; Eric S. Raymond</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/29/phase-1-week-1-day-3-basic-data-structures/">Phase 1: Week 1: Day 3 - Basic Data Structures</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-29T23:35:49-08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:15am &ndash; Arrive</strong></p>
+
+<p>Solo (optional) day</p>
+
+<p>Didn’t go solo, had the pleasure of pairing with Quentin &ndash; my brother from another mother.  Happy to say he&rsquo;s a friend of mine thanks to our pairing sessions in Phase 0. He helped me grasp a lot of concepts that were foreign to me in the prep work. One hell of a guy.</p>
+
+<p>AM coding &ndash; Basic Data Structures</p>
+
+<p>Hawaiian BBQ for lunch &ndash; highly recommend it for fellow protein loving boots.</p>
+
+<p>Shadi gives us a nice tutorial on Test Driven Development (TDD). Quentin and I decided to approach the afternoon’s challenges utilizing this new and powerful tool by utilitizing asserts to test as opposed to “puts” statements.</p>
+
+<p>We wrote a bunch of tests and then started putting it together, locating the error in the stack, debugging that particular error, saving and retesting.</p>
+
+<p>PM coding &ndash; Abstract Data Structures (ADT)</p>
+
+<p>Some coaches had a very nice indepth teaching session on Git. I entered feeling like I had a basic idea of what was going on, I walked out feeling very confident I have a solid high-level understanding of how to correctly use Git moving forward.</p>
+
+<h2>Shuhari</h2>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/e/e2/ShuHaRi.png" alt="shuhari" /></p>
+
+<p>Our goals each week at DBC are broken down into 3 stages of &lsquo;mastery&rsquo; using the Japanese concept of &lsquo;Shuhari&rsquo; (しゅはり), which roughly translates to: &ldquo;first learn, then detach, and finally transcend&rdquo;</p>
+
+<p><strong>12:30am &ndash; Depart</strong></p>
+
+<blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
+&ndash; Eric S. Raymond</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/28/phase-1-week-1-day-2-data-loops-flows/">Phase 1: Week 1: Day 2 - Data, Decisions, Loops & Flows</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-28T23:30:29-08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:06am &ndash; Arrive</strong></p>
+
+<p>coding challenges &ndash; roman numerals &ndash; encoding and decoding them. After doing the first two parts, it was great fun to look at the case studies (collection of 29 examples of student code) and see where they differ and are similar. You start to be able to recognize how efficient/clean/easy to read different methods and approaches are. Then we use what we learned there to re-write our roman-numeral encoding method from scratch.</p>
+
+<p>Engineering Empathy training session with Karim Bishay &ndash; eye opening for sure. This kind of training will apply well to all areas of my life. We did an exercise where we confront out superego. Some people were crying afterward, who can blame them though. Luckily DBC is a very safe space to expose vulnerabilities and insecurities  Very intense. It&rsquo;s no wonder they planned that right before our first yoga session.  The yoga for those that are wondering is very meditative and relaxing, you won&rsquo;t be sweating afterwards, more getting in tune with your body and re-centering your mind. I promised my girlfriend I&rsquo;d be going at least 3 times a week for the duration of the course. It is mandatory Tues &amp; Thur for Phase 1.</p>
+
+<p>PM coding challenges &ndash; learning about different kinds of sorting and their Big O notation.</p>
+
+<p><img src="https://github-camo.global.ssl.fastly.net/e409d816ec89b91ff74fbfd728b2f4f8f4d9867d/687474703a2f2f636c2e6c792f696d6167652f316f333834343354313930312f53637265656e25323053686f74253230323031342d30312d32382532306174253230322e34342e3032253230504d2e706e67" alt="Big O Complexity" /></p>
+
+<h4>Bubblesort</h4>
+
+<p>is not very impressive and takes a LOOOONG time</p>
+
+<h4>Quicksort</h4>
+
+<p>you select a random piece of data, that&rsquo;s your pivot point. You remove that from the array you want to sort, now you separate the remaining data into 2 groups (let&rsquo;s call them): Left, Right. A piece of data goes into left if it&rsquo;s value is less than the pivot point. If it&rsquo;s greater than the pivot point, it goes into Right. You then run quicksort again on the two new sets of data Left, and Right.  Wait &ndash; is that recursion? NICE!</p>
+
+<p><strong>11:00pm &ndash; Depart</strong></p>
+
+<blockquote><p>Simplicity is prerequisite for reliability.<br/>
+&ndash; Edsger Dijkstra</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -145,23 +402,23 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/04/phase-2-week-3-day-2-portfolio-challenge-day/">Phase 2: Week 3: Day 2 - Portfolio Challenge Day</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/phase-2-week-2-saturday/">Phase 2: Week 2: Saturday</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/02/28/phase-2-week-2-day-5-group-projects/">Phase 2: Week 2: Day 5 - Group Projects</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/27/phase-2-week-2-day-4-remake-hacker-news/">Phase 2: Week 2: Day 4 - remake Hacker News</a>
       </li>
     
       <li class="post">
         <a href="/blog/2014/02/26/phase-2-week-2-day-3-ajax/">Phase 2: Week 2: Day 3 - AJAX</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/25/phase-2-week-2-day-2-javascript-contd-dot-dot-dot/">Phase 2: Week 2: Day 2 - JavaScript Racer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/25/phase-2-week-2-day-1-javascript/">Phase 2: Week 2: Day 1 - JavaScript</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a>
       </li>
     
   </ul>
