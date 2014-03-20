@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Phase 3: Week 1: Day 4 - Overflow - Captain's Log</title>
+  <meta name="author" content="Armando Reed">
+
+  
+  <meta name="description" content="8:30am &ndash; Arrive Seattle Style &ndash; the hidden menace, no parentheses. 1
+2
+3
+def add operandA, operandB operandA + operandB
+end Is it only &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://trekkie4life.github.io/blog/2014/03/13/phase-3-week-1-day-4-overflow">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Captain's Log" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Captain's Log</a></h1>
+  
+    <h2>one boot's journey through dev bootcamp</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:trekkie4life.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Phase 3: Week 1: Day 4 - Overflow</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-13T14:03:25-07:00" pubdate data-updated="true">Mar 13<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><strong>8:30am &ndash; Arrive</strong></p>
+
+<p>Seattle Style &ndash; the hidden menace, no parentheses.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">add</span> <span class="n">operandA</span><span class="p">,</span> <span class="n">operandB</span>
+</span><span class='line'>  <span class="n">operandA</span> <span class="o">+</span> <span class="n">operandB</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Is it only style or is it function? Well, it makes the edge cases (where you actually have to use parentheses) harder to find and fix in your code. But to each their own.</p>
+
+<hr />
+
+<p>Testing RSpec, Rails doesn&rsquo;t actually render the body, so the body is just an empty string. To check if something is actually in the body that you&rsquo;re testing for, use <code>render_views</code> right below the first <code>describe</code> statement in your controller tests.</p>
+
+<p>Remember, in Capybara, an actual browser window is opened, so you don&rsquo;t run into this problem.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">describe</span> <span class="s2">&quot;this is the first describe&quot;</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">render_views</span>
+</span><span class='line'>  <span class="c1"># more fun testing code here!</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<p>#change</p>
+
+<p>once upon a time change did not exist, there was only up &amp; down</p>
+
+<p>Rails got smarter, would figure out what the inverse operation was.</p>
+
+<p>Migrations change structure. If you need to change structure (raw data) AND edit the code, you&hellip;</p>
+
+<p>1) migration (structural change)</p>
+
+<p>2) SQL operations &ndash; populate new column you added</p>
+
+<p>DO NOT UNDER ANY CIRCUM &ndash; USE YOUR ACTIVE RECORD MODEL TO CHANGE YOUR DB</p>
+
+<p>want data repopulation to not be bound to Rails, but solely to the database itself &ndash; it&rsquo;s also much faster bc Active Record has a lot of overhead on migrations.</p>
+
+<p>What does that look like in code?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">add_column</span> <span class="ss">:tasks</span><span class="p">,</span> <span class="ss">:todo_id</span><span class="p">,</span> <span class="ss">:integer</span> <span class="c1">#the structural change</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#ActiveRecord::Base connection.execute_sql &quot;long string of SQL&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Group project &ndash; first one using Rails!!</p>
+
+<p>Quentin, Chermaine, Matthew, Hunter, and myself. I&rsquo;ve never been in a group with either Matthew or Hunter, but they are both sharp and bring a lot, so I&rsquo;m looking forward to the experience and learning from them too.</p>
+
+<p>We have to make a <a href="http:/www.stackoverflow.com/questions">Stack Overflow</a> clone. Although make it about something other programming. &ndash; We are deciding to make a &ldquo;DBC Overflow&rdquo; &ndash; where Phase 0 and potential applicants can ask questions about the experience and how to prepare.</p>
+
+<p>After getting our Rails skeleton set up (no scaffolding allowed here, folks), we had our division of labor set up. Vertical slices and features split up among the team.</p>
+
+<p>Hunter and I were to work on Questions/Answers from the database all the way up to their views.</p>
+
+<p>Everyone committed early AND often.</p>
+
+<p>Hunter and I methodically worked through several errors and bugs &ndash; getting everything set up with passing tests by the time we left.  Gotta tell you, that is one hell of a feeling of accomplishment. Tomorrow we tie everything together and iron out the kinks.</p>
+
+<p>Also, no merge conflicts! Woo hoo!</p>
+
+<p><strong>1:20am &ndash; Depart</strong></p>
+
+<blockquote><p>Simplicity is the soul of efficiency.<br/>
+&ndash; A. Freeman</p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Armando Reed</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-13T14:03:25-07:00" pubdate data-updated="true">Mar 13<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://trekkie4life.github.io/blog/2014/03/13/phase-3-week-1-day-4-overflow/" data-via="" data-counturl="http://trekkie4life.github.io/blog/2014/03/13/phase-3-week-1-day-4-overflow/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/12/phase-3-week-1-day-3-tdd-w-rails/" title="Previous Post: Phase 3: Week 1: Day 3 - TDD w Rails">&laquo; Phase 3: Week 1: Day 3 - TDD w Rails</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/14/phase-3-week-1-day-5-overflow-contd/" title="Next Post: Phase 3: Week 1: Day 5 - Overflow cont'd">Phase 3: Week 1: Day 5 - Overflow cont'd &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-3-client-side-heavy-apps/">Phase 3: Week 2: Day 3 - Client-side Heavy Apps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-2-miniquery/">Phase 3: Week 2: Day 2 - miniQuery</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-1-karmaville/">Phase 3: Week 2: Day 1 - Karmaville</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/14/phase-3-week-1-day-5-overflow-contd/">Phase 3: Week 1: Day 5 - Overflow cont'd</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/13/phase-3-week-1-day-4-overflow/">Phase 3: Week 1: Day 4 - Overflow</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Armando Reed -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Captain's Log</title>
+  <meta name="author" content="Armando Reed">
+
+  
+  <meta name="description" content="I&rsquo;ve heard many times from many different people that the main thing to do after a vigorous week is to relax for a little bit and let the mind &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://trekkie4life.github.io/blog/page/5">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Captain's Log" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Captain's Log</a></h1>
+  
+    <h2>one boot's journey through dev bootcamp</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:trekkie4life.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/02/superbowl-sunday-funday/">Superbowl Sunday-Funday</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-02T22:36:29-08:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;ve heard many times from many different people that the main thing to do after a vigorous week is to relax for a little bit and let the mind recoup from the vigors of the week. So today was errand day, stocked up on some groceries then headed into DBC.</p>
+
+<p><strong>11:30am &ndash; Arrival</strong></p>
+
+<p>Review, Review, Review and Reading!</p>
+
+<p><strong>3:30pm &ndash; Depart</strong></p>
+
+<p>After that &ndash; it was pizza, beer, and Superbowl time.</p>
+
+<p>Hard to believe week 2 starts tomorrow. One week down, eight to go!</p>
+
+<blockquote><p>Testing can only prove the presence of bugs, not their absence.<br/>
+&ndash; Edsger Dijkstra</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/31/phase-1-week-1-day-5-sudoku/">Phase 1: Week 1: Day 5 - Sudoku</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-31T23:30:49-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
+
+<p>AM &ndash; check-in with new small groups (3 from our cohort, 3 from the cohort ahead of us). We each get 2 min to talk about anything and not be interrupted. The goal of this exercise is open up, take what’s on your mind and in your heart and talk about it. It may or may not be related to the happenings of DBC.</p>
+
+<p>After pairing up with my coding partner for the day, we dive into how to solve soduku. First step &ndash; let’s solve a puzzle on paper and see how we each (as humans) solve it.</p>
+
+<p>How do you choose where to start?
+Did you adopt the same notation/board markings while playing Sudoku? Why? If not, why did you choose differently?
+Why do we do a certain action?
+Are we avoiding any strategies because they’re too tedious or require us to remember too much?</p>
+
+<p>From there we build the logic of how our sudoku solving algorithm (without guessing) will work. We use a high level approach in our Pseudocode and avoid language specific syntax.</p>
+
+<p>Once we find an empty cell, to form a set of possible values for that cell we check what values are already in that row, then in the column, then in the 3x3 sub-box the cell falls within.</p>
+
+<p>IF the number of possible values is just one, we put that value into the grid
+ELSE we move onto the next spot &ndash; so on and so forth</p>
+
+<p>Yes, we’ll have to go over the board several times in order to fill in all the empty cells.</p>
+
+<p><strong>12:30pm &ndash; lunch and yoga</strong> &ndash; harder than Tues or Thurs, but more enjoyable at the same time &ndash; definitely allows me to keep my body and mind centered.</p>
+
+<p>PM &ndash; finishing up the challenge</p>
+
+<p><strong>11:00pm &ndash; Depart</strong></p>
+
+<blockquote><p>Email is a wonderful thing for people whose role in life is to be on top of things. But not for me; my role is to be on the bottom of things. What I do takes long hours of studying and uninterruptible concentration.<br/>
+&ndash; Donald Knuth</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/31/phase-1-week-1-day-4-games/">Phase 1: Week 1: Day 4 - Games</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-31T02:00:49-08:00" pubdate data-updated="true">Jan 31<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="https://github-camo.global.ssl.fastly.net/263edda0ba67654c5e68725c981d6701c0f4b8eb/68747470733a2f2f736f6372617465732e646576626f6f7463616d702e636f6d2f6173736574732f747265655f636f6d69632e6a7067" alt="communication" /></p>
+
+<p>How can you not love the above picture &ndash; it&rsquo;s correct on so many levels!</p>
+
+<p><strong>8:00am &ndash; Arrive</strong></p>
+
+<p>Diving into games! Scary and fun at the same time.</p>
+
+<p>First up: Pig Latin</p>
+
+<p>take an input string</p>
+
+<p>IF the string starts with a vowel, return the word (unchanged)
+ELSE set the consonants at the of the word and add the suffix &ldquo;ay&rdquo;
+PRINT the pig-latin-ified word
+The best way in my mind would be to use RegEx, and that&rsquo;s exactly what happened.</p>
+
+<p>For the first example.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">normal_word</span> <span class="o">=~</span> <span class="sr">/\A[aeiyou]/</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">normal_word</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>=~ \A  means the search MUST start at the beginning of the string.</p>
+
+<p>[aeiyou] the square brackets mean that a positive match will occur if the first letter (in this case) is one of the characters in the brackets &ndash; like “a” or “e” or “i” or “y” or “o” or “u” is the first letter, then <em>BING</em> we have a match</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="nb">p</span> <span class="n">normal_word</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="sr">/(^[^aeiyou]*)(.+)/</span><span class="p">,</span> <span class="err">”</span><span class="p">\</span><span class="mi">2</span><span class="o">-</span><span class="p">\</span><span class="mi">1</span><span class="n">ay</span><span class="err">”</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You’ll notice 2 pairs of paranthesis.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="sr">/(^[^aeiyou]*)(.+)/</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>the first hat ^ acts the same as \A</p>
+
+<p>inside the [ ] the ^ acts as “NOT”</p>
+
+<p>* after the right bracket ] means to end that search there</p>
+
+<p>the second pair of brackets assigns the result of that search to a second group.</p>
+
+<p>the period means to match any character, the + means “one or more”</p>
+
+<p>#gsub!(this is what we are searching for, replace it with this)</p>
+
+<p>will destructively match and replace the match. There’s a special syntax when you use those captured groups</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">“</span><span class="p">\</span><span class="mi">2</span><span class="o">-</span><span class="p">\</span><span class="mi">1</span><span class="n">ay</span><span class="err">”</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When the group is inside double quotes, we have to have \ preceding the group number. \2 refers to group two, \1 refers to group one.</p>
+
+<p>So here, we’d have group two followed by a dash, then group one, followed by “ay” with no white-spaces separating them.</p>
+
+<p>DBC Yoga &ndash; especially good</p>
+
+<p>AHA Moments!</p>
+
+<p>Linked Lists:</p>
+
+<p>the pointer points to the entire object, not just the value
+object within an object within an object &ndash; on and on until the end of the list</p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/CPT-LinkedLists-deletingnode.svg/380px-CPT-LinkedLists-deletingnode.svg.png" alt="Linked Lists" /></p>
+
+<h4>Assignment Operators</h4>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">||=</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>tests left argument for truthiness, if nil or false will overwrite it with right argument.  In the example below, if a is nil or false, it is assigned the value 3</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span><span class="o">||=</span><span class="mi">3</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span><span class="o">||</span> <span class="n">a</span><span class="o">=</span><span class="mi">3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>11:35pm &ndash; Depart</strong></p>
+
+<blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
+&ndash; Eric S. Raymond</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/29/phase-1-week-1-day-3-basic-data-structures/">Phase 1: Week 1: Day 3 - Basic Data Structures</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-29T23:35:49-08:00" pubdate data-updated="true">Jan 29<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:15am &ndash; Arrive</strong></p>
+
+<p>Solo (optional) day</p>
+
+<p>Didn’t go solo, had the pleasure of pairing with Quentin &ndash; my brother from another mother.  Happy to say he&rsquo;s a friend of mine thanks to our pairing sessions in Phase 0. He helped me grasp a lot of concepts that were foreign to me in the prep work. One hell of a guy.</p>
+
+<p>AM coding &ndash; Basic Data Structures</p>
+
+<p>Hawaiian BBQ for lunch &ndash; highly recommend it for fellow protein loving boots.</p>
+
+<p>Shadi gives us a nice tutorial on Test Driven Development (TDD). Quentin and I decided to approach the afternoon’s challenges utilizing this new and powerful tool by utilitizing asserts to test as opposed to “puts” statements.</p>
+
+<p>We wrote a bunch of tests and then started putting it together, locating the error in the stack, debugging that particular error, saving and retesting.</p>
+
+<p>PM coding &ndash; Abstract Data Structures (ADT)</p>
+
+<p>Some coaches had a very nice indepth teaching session on Git. I entered feeling like I had a basic idea of what was going on, I walked out feeling very confident I have a solid high-level understanding of how to correctly use Git moving forward.</p>
+
+<h2>Shuhari</h2>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/e/e2/ShuHaRi.png" alt="shuhari" /></p>
+
+<p>Our goals each week at DBC are broken down into 3 stages of &lsquo;mastery&rsquo; using the Japanese concept of &lsquo;Shuhari&rsquo; (しゅはり), which roughly translates to: &ldquo;first learn, then detach, and finally transcend&rdquo;</p>
+
+<p><strong>12:30am &ndash; Depart</strong></p>
+
+<blockquote><p>Smart data structures and dumb code works a lot better than the other way around.<br/>
+&ndash; Eric S. Raymond</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/28/phase-1-week-1-day-2-data-loops-flows/">Phase 1: Week 1: Day 2 - Data, Decisions, Loops & Flows</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-28T23:30:29-08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:06am &ndash; Arrive</strong></p>
+
+<p>coding challenges &ndash; roman numerals &ndash; encoding and decoding them. After doing the first two parts, it was great fun to look at the case studies (collection of 29 examples of student code) and see where they differ and are similar. You start to be able to recognize how efficient/clean/easy to read different methods and approaches are. Then we use what we learned there to re-write our roman-numeral encoding method from scratch.</p>
+
+<p>Engineering Empathy training session with Karim Bishay &ndash; eye opening for sure. This kind of training will apply well to all areas of my life. We did an exercise where we confront out superego. Some people were crying afterward, who can blame them though. Luckily DBC is a very safe space to expose vulnerabilities and insecurities  Very intense. It&rsquo;s no wonder they planned that right before our first yoga session.  The yoga for those that are wondering is very meditative and relaxing, you won&rsquo;t be sweating afterwards, more getting in tune with your body and re-centering your mind. I promised my girlfriend I&rsquo;d be going at least 3 times a week for the duration of the course. It is mandatory Tues &amp; Thur for Phase 1.</p>
+
+<p>PM coding challenges &ndash; learning about different kinds of sorting and their Big O notation.</p>
+
+<p><img src="https://github-camo.global.ssl.fastly.net/e409d816ec89b91ff74fbfd728b2f4f8f4d9867d/687474703a2f2f636c2e6c792f696d6167652f316f333834343354313930312f53637265656e25323053686f74253230323031342d30312d32382532306174253230322e34342e3032253230504d2e706e67" alt="Big O Complexity" /></p>
+
+<h4>Bubblesort</h4>
+
+<p>is not very impressive and takes a LOOOONG time</p>
+
+<h4>Quicksort</h4>
+
+<p>you select a random piece of data, that&rsquo;s your pivot point. You remove that from the array you want to sort, now you separate the remaining data into 2 groups (let&rsquo;s call them): Left, Right. A piece of data goes into left if it&rsquo;s value is less than the pivot point. If it&rsquo;s greater than the pivot point, it goes into Right. You then run quicksort again on the two new sets of data Left, and Right.  Wait &ndash; is that recursion? NICE!</p>
+
+<p><strong>11:00pm &ndash; Depart</strong></p>
+
+<blockquote><p>Simplicity is prerequisite for reliability.<br/>
+&ndash; Edsger Dijkstra</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/27/phase-1-week-1-day-1-encoding-decoding/">Phase 1: Week 1: Day 1 - Encoding, Decoding</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-27T23:00:29-08:00" pubdate data-updated="true">Jan 27<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:30am &ndash; Arrive</strong></p>
+
+<p>It&rsquo;s been over 12 weeks of official prep work &ndash; and something that I got accepted for in May of 2013.  Hard to believe it&rsquo;s finally here. Not having a programming background I am definitely nervous.</p>
+
+<p>doors open promptly at 9am on the first day&hellip; what&rsquo;s it like? Well you&rsquo;ll just have to be there to experience it. Suffice to say, any new boots will love it!</p>
+
+<h3>First day lessons:</h3>
+
+<ul>
+<li>Be open with your ignorance</li>
+<li>Don&rsquo;t be afraid to ask questions</li>
+<li>Teach if you understand something</li>
+<li>Be kind</li>
+<li>Critically ride the wave of curiosity</li>
+<li>Sleep</li>
+<li>Step away from the bubble</li>
+</ul>
+
+
+<p>The first half of the morning was getting to know our fellow cohorts and the DBC family, the resources available to us, and what to expect.</p>
+
+<p>Lunch followed and then afterward we were coding in the afternoon. We paired 3 times in 3 hours. Taking what we learned/applied/how we approached to each subsequent pairing session. It was much more useful than I initially thought it would be. I gained a lot of insight from pairing several times on the SAME challenge.</p>
+
+<p>A final note &ndash; I made the right decision to come and attend. No doubt about it :)</p>
+
+<p><strong>10:45pm &ndash; Depart</strong></p>
+
+<blockquote><p>Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.<br/>
+&ndash; Brian Kernighan</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/page/4/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-3-client-side-heavy-apps/">Phase 3: Week 2: Day 3 - Client-side Heavy Apps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-2-miniquery/">Phase 3: Week 2: Day 2 - miniQuery</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-1-karmaville/">Phase 3: Week 2: Day 1 - Karmaville</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/14/phase-3-week-1-day-5-overflow-contd/">Phase 3: Week 1: Day 5 - Overflow cont&#8217;d</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/13/phase-3-week-1-day-4-overflow/">Phase 3: Week 1: Day 4 - Overflow</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Armando Reed -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

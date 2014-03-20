@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Phase 3: Week 2: Day 1 - Karmaville - Captain's Log</title>
+  <meta name="author" content="Armando Reed">
+
+  
+  <meta name="description" content="8:30am &ndash; Arrive The goal today was different but no less fun than normal &ndash; we were given a highly UNoptimized webapp and told to make it &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://trekkie4life.github.io/blog/2014/03/19/phase-3-week-2-day-1-karmaville">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Captain's Log" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Captain's Log</a></h1>
+  
+    <h2>one boot's journey through dev bootcamp</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:trekkie4life.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Phase 3: Week 2: Day 1 - Karmaville</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-19T08:47:15-07:00" pubdate data-updated="true">Mar 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><strong>8:30am &ndash; Arrive</strong></p>
+
+<p>The goal today was different but no less fun than normal &ndash; we were given a highly UNoptimized webapp and told to make it faster.</p>
+
+<p>How?</p>
+
+<p>Look for bottlenecks.  Look for the lowest hanging fruit, and then start fine tuning!</p>
+
+<p>How do we get from a page taking 11sec to load down to under 200ms?</p>
+
+<p>It was a really good foray into looking at code and what causes certain things to really slow down (I&rsquo;m speaking to you, database queries), and also what small fixes you can implement to take care of that.</p>
+
+<p>One of the best things you can do to speed up database queries in Rails/Active Record is to add a foreign-key Index!  In fact, it should be and often is considered a Rails best practice.</p>
+
+<p>Why do you have to do it? Because Rails does NOT do it automatically for a foreign key.</p>
+
+<figure class='code'><figcaption><span>your_migration_file.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateKarmaPoints</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:karma_points</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">integer</span> <span class="ss">:user_id</span><span class="p">,</span> <span class="ss">:null</span> <span class="o">=&gt;</span> <span class="kp">false</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">integer</span> <span class="ss">:value</span><span class="p">,</span>   <span class="ss">:null</span> <span class="o">=&gt;</span> <span class="kp">false</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span>  <span class="ss">:label</span><span class="p">,</span>   <span class="ss">:null</span> <span class="o">=&gt;</span> <span class="kp">false</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="n">add_index</span> <span class="ss">:karma_points</span><span class="p">,</span> <span class="ss">:user_id</span>  <span class="c1"># this adds the foreign index!!</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>On a completely non-sequitur note &ndash; I have never let my facial hair grow for this amount of time without shaving. I&rsquo;d like to think of it as a &ldquo;real&rdquo; beard, something that makes men tremble in fear and stare in awe.  Instead, it more closely resembles a dying lawn with a few patches of grass clinging to life. I&rsquo;ve also taken to stroking my (sad) beard when deep in thought. I never used to do that motion unless in jest, but apparently having facial hair and arms means you will form that habit. It&rsquo;s instinctual. You cant fight it.</p>
+
+<p><strong>12:00am &ndash; Depart</strong></p>
+
+<blockquote><p>On two occasions, I have been asked [by members of Parliament], &ldquo;Pray, Mr. Babbage, if you put into the machine wrong figures, will the right answers come out?&rdquo; I am not able to rightly apprehend the kind of confusion of ideas that could provoke such a question.<br/>
+&ndash; C. Babage</p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Armando Reed</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-19T08:47:15-07:00" pubdate data-updated="true">Mar 19<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://trekkie4life.github.io/blog/2014/03/19/phase-3-week-2-day-1-karmaville/" data-via="" data-counturl="http://trekkie4life.github.io/blog/2014/03/19/phase-3-week-2-day-1-karmaville/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/14/phase-3-week-1-day-5-overflow-contd/" title="Previous Post: Phase 3: Week 1: Day 5 - Overflow cont'd">&laquo; Phase 3: Week 1: Day 5 - Overflow cont'd</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/19/phase-3-week-2-day-2-miniquery/" title="Next Post: Phase 3: Week 2: Day 2 - miniQuery">Phase 3: Week 2: Day 2 - miniQuery &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-3-client-side-heavy-apps/">Phase 3: Week 2: Day 3 - Client-side Heavy Apps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-2-miniquery/">Phase 3: Week 2: Day 2 - miniQuery</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-1-karmaville/">Phase 3: Week 2: Day 1 - Karmaville</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/14/phase-3-week-1-day-5-overflow-contd/">Phase 3: Week 1: Day 5 - Overflow cont'd</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/13/phase-3-week-1-day-4-overflow/">Phase 3: Week 1: Day 4 - Overflow</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Armando Reed -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

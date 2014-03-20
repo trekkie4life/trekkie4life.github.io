@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Phase 3: Week 2: Day 2 - miniQuery - Captain's Log</title>
+  <meta name="author" content="Armando Reed">
+
+  
+  <meta name="description" content="8:30am &ndash; Arrive So what&rsquo;s the deal about miniQuery? It&rsquo;s using vanilla JavaScript to build certain functions of jQuery &ndash; the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://trekkie4life.github.io/blog/2014/03/19/phase-3-week-2-day-2-miniquery">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Captain's Log" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Captain's Log</a></h1>
+  
+    <h2>one boot's journey through dev bootcamp</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:trekkie4life.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Phase 3: Week 2: Day 2 - miniQuery</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-19T08:47:30-07:00" pubdate data-updated="true">Mar 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><strong>8:30am &ndash; Arrive</strong></p>
+
+<p>So what&rsquo;s the deal about miniQuery? It&rsquo;s using vanilla JavaScript to build certain functions of jQuery &ndash; the purpose? So we become enlightened and unafraid of jQuery under the hood and come to the realization that we can understand it and create it&hellip; to empower us and give us faith in our ability.</p>
+
+<p>In addition to that, one cool thing we learned about today in JavaScript &ndash; hidden methods &ndash; the common indicator is to add an underscore in front of a method name.</p>
+
+<p>In the code below if we call</p>
+
+<p><code>SweetSelector.sweetness</code> the only thing that gets returned is <code>_sweetSelector()</code> but we can&rsquo;t actually see what <code>_sweetSelector()</code> is doing. Pretty cooool!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">SweetSelector</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">string</span><span class="p">){</span>
+</span><span class='line'><span class="c1">//getelementsbyclassname</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">_sweetSelector</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">string</span><span class="p">){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">splitString</span> <span class="o">=</span> <span class="nx">string</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="nx">splitString</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;.&#39;</span><span class="p">){</span>
+</span><span class='line'>      <span class="nx">splitString</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>      <span class="kd">var</span> <span class="nx">className</span> <span class="o">=</span> <span class="nx">splitString</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="nx">className</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="c1">//getelementbyid</span>
+</span><span class='line'>  <span class="c1">//getelementsbytag</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">return</span><span class="p">{</span>
+</span><span class='line'>    <span class="nx">sweetness</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nx">_sweetSelector</span><span class="p">();</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}())</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We had trouble when modifying an HTML display property, our miniQuery could set the display property to none, but when we showed it, the default/initial display property vanished into thin air. This really bothered us, but since we were on a time crunch we moved on &mdash; ONLY AFTER we took a dive in the jQuery source code to see how they did it.</p>
+
+<p>The way they took care of that was to have a single method showHide with logic inside that hid a class/id/target but holds the display property in a variable and then sets <code>display: none</code> if it&rsquo;s <code>show</code> then it checks to see if there was an initial display value, if so it sets <code>display</code> to that, if not, then it gets the default display property of other elements of that type on the page.</p>
+
+<p>My take away? Well played, Steven and Shadi, it&rsquo;s not magic and we can create it and understand it.</p>
+
+<p><strong>12:15am &ndash; Depart</strong></p>
+
+<blockquote><p>If you&rsquo;re not failing every now and again, it&rsquo;s a sign you&rsquo;re not doing anything very innovative.<br/>
+&ndash; W. Allen</p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Armando Reed</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-19T08:47:30-07:00" pubdate data-updated="true">Mar 19<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://trekkie4life.github.io/blog/2014/03/19/phase-3-week-2-day-2-miniquery/" data-via="" data-counturl="http://trekkie4life.github.io/blog/2014/03/19/phase-3-week-2-day-2-miniquery/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/03/19/phase-3-week-2-day-1-karmaville/" title="Previous Post: Phase 3: Week 2: Day 1 - Karmaville">&laquo; Phase 3: Week 2: Day 1 - Karmaville</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/03/19/phase-3-week-2-day-3-client-side-heavy-apps/" title="Next Post: Phase 3: Week 2: Day 3 - Client-side Heavy Apps">Phase 3: Week 2: Day 3 - Client-side Heavy Apps &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-3-client-side-heavy-apps/">Phase 3: Week 2: Day 3 - Client-side Heavy Apps</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-2-miniquery/">Phase 3: Week 2: Day 2 - miniQuery</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/19/phase-3-week-2-day-1-karmaville/">Phase 3: Week 2: Day 1 - Karmaville</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/14/phase-3-week-1-day-5-overflow-contd/">Phase 3: Week 1: Day 5 - Overflow cont'd</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/13/phase-3-week-1-day-4-overflow/">Phase 3: Week 1: Day 4 - Overflow</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Armando Reed -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
