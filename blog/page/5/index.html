@@ -9,7 +9,8 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="I&rsquo;ve heard many times from many different people that the main thing to do after a vigorous week is to relax for a little bit and let the mind &hellip;">
+  <meta name="description" content="8:00am &ndash; Arrive Morning session: Part 1: public vs private interfaces: the interface is the contract
+Part 2: argument order dependency: fewer &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +66,163 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/04/phase-1-week-2-day-2-OOP/">Phase 1: Week 2: Day 2 - Object Oriented Programming</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-04T22:30:31-08:00" pubdate data-updated="true">Feb 4<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
+
+<h3>Morning session:</h3>
+
+<ul>
+<li>Part 1: public vs private interfaces: the interface is the contract</li>
+<li>Part 2: argument order dependency: fewer dependencies is always better</li>
+<li>Part 3: the self keyword: to thine own self be true</li>
+<li>Part 4: classical inheritance: hierarchies are good</li>
+<li>Part 5: object composition: but composites are better, or so some say</li>
+<li>Part 6: oo terminology: review the words that change your thoughts</li>
+</ul>
+
+
+<p><strong>12:30pm &ndash; Lunch break &amp; Yoga</strong></p>
+
+<p>Afternoon session:
+We are introduced to basic application development using the object oriented programming paradigm. Because this is my first time using this approach, it&rsquo;s taking my mind some time to switch from thinking about how to solve the problem procedurally. OO definitely makes more sense for a ton of things so having the exposure now will only help me in the long run.</p>
+
+<h3>an object has both state and behavior</h3>
+
+<p>We dive into building/modeling an interface for a hospital. Users interact with the system via the terminal. Different levels of access for different employees (one example: doctors can add to patient records, but receptionists can not).</p>
+
+<p>Authenticate via user passwords which are stored in the program in a private method whose values are returned to a public method that calls it.</p>
+
+<p><strong>10:30pm &ndash; Depart</strong> &ndash; feels good to head home at a &ldquo;decent&rdquo; time!</p>
+
+<blockquote><p>A change in perspective is worth 80 IQ points.<br/>
+&ndash; Alan Kay</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/02/03/phase-1-week-2-day-1-advanced-ruby/">Phase 1: Week 2: Day 1 - Advanced Ruby</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-03T22:30:31-08:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>&ldquo;Something old, something new&rdquo;</h2>
+
+<p><strong>8:00am &ndash; Arrive</strong></p>
+
+<p> we had 9 challenges today.  I def had a favorite&hellip;</p>
+
+<h4>&ldquo;revisiting Fibonacci&rdquo;</h4>
+
+<p>Instead of merely checking to see if a number is a Fibonacci number, we take an input, say 27, which then returns the 27th Fibonacci number.  Then we do some benchmarking to see whether having the program run iteratively or recursively was quicker! First intro to benchmarking &ndash; sweeeeet.</p>
+
+<p>Here&rsquo;s our iterative code</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">fib_iterative</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">fibonacci</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">current_fib_num</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">fibonacci</span> <span class="o">&lt;&lt;</span> <span class="n">fibonacci</span><span class="o">[-</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">fibonacci</span><span class="o">.</span><span class="n">last</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here&rsquo;s our recursive code</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">fibonacci_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prev_fib</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">current_fib</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">prev_fib</span> <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
+</span><span class='line'>  <span class="n">fibonacci</span> <span class="o">=</span> <span class="n">prev_fib</span> <span class="o">+</span> <span class="n">current_fib</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">fibonacci_recursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prev_fib</span> <span class="o">=</span> <span class="n">current_fib</span><span class="p">,</span> <span class="n">current_fib</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So, which one is faster? What do <strong><em>you</em></strong> think?  Benchmark it and see if you&rsquo;re right!</p>
+
+<p><strong>11:07pm &ndash; Depart</strong></p>
+
+<blockquote><p>The best way to predict the future is to invent it.<br/>
+&ndash; Alan Kay</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -514,6 +672,14 @@ object within an object within an object &ndash; on and on until the end of the 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/21/phase-3-week-2-day-4-hitting-the-ground-running-er/">Phase 3: Week 2: Day 5 - Hitting the ground running - er</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/20/phase-3-week-2-day-4-elevator-pitches-for-final-project/">Phase 3: Week 2: Day 4 - Elevator Pitches for Final project</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/19/phase-3-week-2-day-3-client-side-heavy-apps/">Phase 3: Week 2: Day 3 - Client-side Heavy Apps</a>
       </li>
     
@@ -523,14 +689,6 @@ object within an object within an object &ndash; on and on until the end of the 
     
       <li class="post">
         <a href="/blog/2014/03/19/phase-3-week-2-day-1-karmaville/">Phase 3: Week 2: Day 1 - Karmaville</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/14/phase-3-week-1-day-5-overflow-contd/">Phase 3: Week 1: Day 5 - Overflow cont&#8217;d</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/13/phase-3-week-1-day-4-overflow/">Phase 3: Week 1: Day 4 - Overflow</a>
       </li>
     
   </ul>

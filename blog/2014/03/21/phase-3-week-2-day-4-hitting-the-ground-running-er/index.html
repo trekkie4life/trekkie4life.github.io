@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Phase 2: Week 1: Day 3 - More Sinatra and Active Record - Captain's Log</title>
+  <title>Phase 3: Week 2: Day 5 - Hitting the ground running - er - Captain's Log</title>
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="7:05am &ndash; Arrive REST Relational State Transfer HTTP Verbs (what makes the &lsquo;net go round) + Paths &ndash;> Action Actions HTTP Verb Path &hellip;">
+  <meta name="description" content="8:30am &ndash; Arrive 12:30am &ndash; Depart ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://trekkie4life.github.io/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record">
+  <link rel="canonical" href="http://trekkie4life.github.io/blog/2014/03/21/phase-3-week-2-day-4-hitting-the-ground-running-er">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Captain's Log" type="application/atom+xml">
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Phase 2: Week 1: Day 3 - More Sinatra and Active Record</h1>
+      <h1 class="entry-title">Phase 3: Week 2: Day 5 - Hitting the Ground Running - Er</h1>
     
     
       <p class="meta">
@@ -84,108 +84,18 @@
   
 
 
-<time datetime="2014-02-19T08:16:59-08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+<time datetime="2014-03-21T21:30:40-07:00" pubdate data-updated="true">Mar 21<span>st</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><strong>7:05am &ndash; Arrive</strong></p>
+<div class="entry-content"><p><strong>8:30am &ndash; Arrive</strong></p>
 
-<h2>REST</h2>
+<p><strong>12:30am &ndash; Depart</strong></p>
 
-<p>Relational State Transfer</p>
-
-<p>HTTP Verbs (what makes the &lsquo;net go round) + Paths &ndash;> Action</p>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th> Actions        </th>
-<th align="center"> HTTP Verb          </th>
-<th align="right">   Path  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td> index      </td>
-<td align="center"> GET </td>
-<td align="right"> puppies/    |</td>
-</tr>
-<tr>
-<td></td>
-<td> show      </td>
-<td align="center"> GET      </td>
-<td align="right">   puppies/:id    |</td>
-</tr>
-<tr>
-<td></td>
-<td> update </td>
-<td align="center"> POST      </td>
-<td align="right">    puppies/:id    |</td>
-</tr>
-<tr>
-<td></td>
-<td> create </td>
-<td align="center"> POST      </td>
-<td align="right">    puppies/    |</td>
-</tr>
-<tr>
-<td></td>
-<td> delete </td>
-<td align="center"> DEL      </td>
-<td align="right">    puppies/:id    |</td>
-</tr>
-<tr>
-<td></td>
-<td> edit (then points to update) </td>
-<td align="center"> GET      </td>
-<td align="right">    puppies/:id/edit    |</td>
-</tr>
-<tr>
-<td></td>
-<td> new (then point to create) </td>
-<td align="center"> GET      </td>
-<td align="right">    puppies/new    |</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>(edit) GET displays form for updating &ndash;> POST is the HTTP verb used to consume that action</p>
-
-<h2>Models</h2>
-
-<p>Don&rsquo;t forget to create models after creating DB</p>
-
-<p><code>$ rake generate:model NAME="[name in singular]"</code></p>
-
-<p>You can include join table in model file with</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">has_many</span> <span class="ss">:XYZ</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>HEROKU</h2>
-
-<p><code>$ heroku create</code><br/>
-<code>$ heroku remote local-branch:[git-remote-branch.git]</code></p>
-
-<p>Remember: Heroku doesn&rsquo;t like nested directories &ndash; only the main directory app and its corresponding folders are in.</p>
-
-<p>You can migrate and seed a database on Heroku from the Terminal (as long as you have a seed file in your application)!</p>
-
-<p><code>$ heroku run rake db:migrate</code><br/>
-<code>$ heroku run rake db:seed</code></p>
-
-<p><strong>10:45pm &ndash; Depart</strong></p>
-
-<blockquote><p>The opposite of a correct statement is a false statement. But the opposite of a profound truth may well be another profound truth.<br/>
-&ndash; Niels Bohr</p></blockquote>
+<blockquote></blockquote>
 </div>
 
 
@@ -208,7 +118,7 @@
   
 
 
-<time datetime="2014-02-19T08:16:59-08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2014</time>
+<time datetime="2014-03-21T21:30:40-07:00" pubdate data-updated="true">Mar 21<span>st</span>, 2014</time>
       
 
 
@@ -216,7 +126,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://trekkie4life.github.io/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/" data-via="" data-counturl="http://trekkie4life.github.io/blog/2014/02/19/phase-2-week-1-day-3-more-sinatra-and-active-record/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://trekkie4life.github.io/blog/2014/03/21/phase-3-week-2-day-4-hitting-the-ground-running-er/" data-via="" data-counturl="http://trekkie4life.github.io/blog/2014/03/21/phase-3-week-2-day-4-hitting-the-ground-running-er/" >Tweet</a>
   
   
   
@@ -225,10 +135,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/18/phase-2-week-1-day-2-request-and-respononse/" title="Previous Post: Phase 2: Week 1: Day 2 - Request &amp; Respononse">&laquo; Phase 2: Week 1: Day 2 - Request &amp; Respononse</a>
+        <a class="basic-alignment left" href="/blog/2014/03/20/phase-3-week-2-day-4-elevator-pitches-for-final-project/" title="Previous Post: Phase 3: Week 2: Day 4 - Elevator Pitches for Final project">&laquo; Phase 3: Week 2: Day 4 - Elevator Pitches for Final project</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/02/20/phase-2-week-1-day-4-blogs-slash-pagination-and-more/" title="Next Post: Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; more">Phase 3: Week 1: Day 4 - Blogs/Pagination &amp; more &raquo;</a>
       
     </p>
   </footer>

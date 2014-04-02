@@ -9,7 +9,7 @@
   <meta name="author" content="Armando Reed">
 
   
-  <meta name="description" content="8:30am &ndash; Arrive A lecture on the intricacies of O-Auth flow. Yeah, it&rsquo;s complicated, but as long as I have a high-level understanding I &hellip;">
+  <meta name="description" content="8:00am &ndash; Arrive A quick review of JavaScript prototypal inheritance. In most languages (like Ruby), classes inherit from other classes. In JS, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,112 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/07/phase-2-week-3-day-5-end-of-phase/">Phase 2: Week 3: Day 5 - End of Phase</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-07T09:58:11-08:00" pubdate data-updated="true">Mar 7<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
+
+<p>A quick review of JavaScript prototypal inheritance. In most languages (like Ruby), classes inherit from other classes. In JS, the inheritance is &ldquo;prototype&rdquo; based, that means there are NO CLASSES. Instead an object inherits from another object.</p>
+
+<p>Inheritance, the <strong>proto</strong> &ndash; When an object rabbit inherits from another object animal, in JavaScript that means that there is a special property rabbit.<strong>proto</strong> = animal.</p>
+
+<p><img src="http://javascript.info/files/tutorial/intro/object/prototype.png" alt="" /></p>
+
+<p>When a rabbit property is accessed, and the interpreter can’t find it in rabbit, it follows the <strong>proto</strong> link and searches in animal.</p>
+
+<p><img src="http://javascript.info/files/tutorial/intro/object/proto4.png" alt="" /></p>
+
+<p>One could put a method into animal and it becomes available in rabbit.</p>
+
+<hr />
+
+<p>The phase 3&#8217;ers had their final project presentations today &ndash; They were great, and I&rsquo;m a bit overwhelmed. I can see it happening, but I can&rsquo;t imagine it happening in 3 weeks. It&rsquo;s kind of mind boggling&hellip; even after being in this program for 6 weeks already.</p>
+
+<p><strong>8:00pm &ndash; Depart</strong></p>
+
+<blockquote><p>I am always doing that which I cannot do, in order that I may learn how to do it.<br/>
+&ndash; P. Picasso</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/06/phase-2-week-3-day-4-testing/">Phase 2: Week 3: Day 4 - Testing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-06T15:40:22-08:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>8:00am &ndash; Arrive</strong></p>
+
+<p>Officially make it into Phase 3, which is nice. Part of me feels not ready. Part of me is&hellip; I feel like I need more time to gain a very very solid understanding on some things, but as I learn more I realize that I know less. It&rsquo;s humbling and makes you want to strive for more&hellip; but at the same time, when is enough actually enough? When will you ever feel comfortable?</p>
+
+<p>&ldquo;If you don&rsquo;t have tests, you&rsquo;re just moving shit around&rdquo; -Strand</p>
+
+<p>Today, we aimed for maximum test coverage. Test Coverage shows which parts of your code are tested and which are not. It does not say anything about the quality of those tests, so make sure you are also writing meaningful tests.</p>
+
+<p><a href="http://www.developertesting.com/archives/month200705/20070504-000425.html">&ldquo;What is Testivus&#8217; wisdom concerning the proper percentage of test coverage?&rdquo;</a>.</p>
+
+<p><strong>11:00pm &ndash; Depart</strong></p>
+
+<blockquote><p>The limits of your language are the limits of your world.<br/>
+&ndash; L. Wittgenstein</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -873,266 +979,6 @@ what that returns is actually an array of Objects from instagram.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/25/phase-2-week-2-day-1-javascript/">Phase 2: Week 2: Day 1 - JavaScript</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-25T13:24:24-08:00" pubdate data-updated="true">Feb 25<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>8:00 &ndash; Arrive</strong></p>
-
-<p>A morning lecture on the wonders of jQuery &hellip; and how we are to avoid at all costs crazy long chains of doing things in our code. We want to be thoughtful of the people who will read/edit our code in the future. So what do we do? Clean it up, then wrap it in a descriptive callback method!</p>
-
-<p>jQuery is a JavaScript library that&rsquo;s supposed to simplify client side scripting of HTML. In English (well closer to English) that means it&rsquo;s easy to grab elements in the DOM, create animations and capture events (mouse clicks, keyboard actions, etc) and map those to different actions.  The <a href="http://api.jquery.com/">jQuery documentation</a> is very very thorough, and worth looking at if you want to learn more.</p>
-
-<p>The syntax is kind of funky &ndash; it almost looks like chaining methods in Ruby&hellip; but on steroids.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">//when the page is done loading do the function</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>  <span class="c1">//this captures all div tags &amp; has them fade out, 1000 is time in milliseconds</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The above action could generically be written out as</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>  <span class="c1">// jQuery &quot;magic&quot;</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>So if you wanted to chnage the background color of a class <code>.lead</code>, you&rsquo;d type</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.lead&quot;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Take a nice long look at what is in <code>" "</code>.</p>
-
-<p>Wait, colors are too boring for you? Let&rsquo;s replace some boring images that are already in there</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;http://imgur.com/superamazingimage.jpg&quot;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="c1">// if there are a ton of images and you only want to replace the first one</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;img:first&quot;</span><span class="p">)...</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ok, bear with me, what if we wanted to select elements from the navbar and use the <code>.on()</code> method to bind an event handler on these elements?</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.nav&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;mouseenter&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;#FF0000&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.nav&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;mouseleave&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;background-color&quot;</span><span class="p">,</span> <span class="s2">&quot;#FFFFFF&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And that&rsquo;s a micro-intro to jQuery. PSA: if you are actually a VIP in the insane chaining club for jQuery. Take a step back, remove your sunglasses, rip up that VIP card, and step into the light. Everything will be ok.</p>
-
-<h2>JavaScript (JS)</h2>
-
-<p>you don&rsquo;t always need jQuery though, Steven (one of our instructors and a fellow Longhorn) would argue that you don&rsquo;t ever need it.  And if you don&rsquo;t believe him, you can head on over to <a href="http://youmightnotneedjquery.com">youmightnotneedjquery.com</a>.</p>
-
-<p>Our intro to JS is done in with OO in mind, using Ruby as a basis and taking our knowledge and logic from Ruby and applying it to JS.</p>
-
-<p>What makes a Class a class?</p>
-
-<ul>
-<li>Initializer function</li>
-<li>Attributes</li>
-<li>Methods</li>
-</ul>
-
-
-<p>JavaScript has something akin to &ldquo;Open&rdquo; Classes, we open a class and bolt behavior onto it.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">Talker</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// like a class - it&#39;s a Constructor Function</span>
-</span><span class='line'>  <span class="k">this</span><span class="p">.</span><span class="nx">word</span> <span class="o">=</span> <span class="nx">word</span><span class="p">;</span> <span class="c1">// instance method equivalent</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">Talker</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// an Anonymous prototype</span>
-</span><span class='line'>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">word</span><span class="p">);</span> <span class="c1">// behavior</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">var</span> <span class="nx">en_espana</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Talker</span><span class="p">(</span><span class="s2">&quot;mundo&quot;</span><span class="p">);</span> <span class="c1">// instance of Talker</span>
-</span><span class='line'><span class="nx">en_espana</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">();</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">en_la_france</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Talker</span><span class="p">(</span><span class="s2">&quot;le monde&quot;</span><span class="p">);</span> <span class="c1">// instance of Talker</span>
-</span><span class='line'><span class="nx">en_la_france</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Well, that makes some kind of sense now doesn&rsquo;t it!?</p>
-
-<h2>What about initialize methods in a class, Ruby has those, what about JS?</h2>
-
-<p>If we look at tthis line, it is JS equivalent of an initialize method.  An instance of Talker is born with knowledge of #word.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="k">this</span><span class="p">.</span><span class="nx">word</span> <span class="o">=</span> <span class="nx">word</span><span class="p">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Set Attributes</p>
-
-<p>Define methods on the thing&rsquo;s prototype &ndash; this exactly what we did with <code>Talker.prototype.sayHello ...</code></p>
-
-<p>Two ways to define an object in JS, with the object constructor or the literal syntax</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">anObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>  <span class="c1">// constructor</span>
-</span><span class='line'><span class="kd">var</span> <span class="nx">anotherObject</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1">// literal</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">anObject</span><span class="p">));</span>
-</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">anotherObject</span><span class="p">));</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Name spacing</h2>
-
-<p>Take a look at these 2 methods, <code>.sin()</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Trig</span><span class="p">.</span><span class="nx">sin</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="nx">Morality</span><span class="p">.</span><span class="nx">sin</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Even without knowing anything about what they do, you can probably surmise that they do <em>very</em> different things. <strong>Name spacing</strong> allows us and the computer to organize things accordingly.  Yeah, it&rsquo;s important.</p>
-
-<p><strong>10:45pm &ndash; Depart</strong></p>
-
-<blockquote><p>The sole justification of teaching, of the school itself, is that the student comes out of it able to do something he could not do before. I say do and not know, because knowledge that doesn&rsquo;t lead to doing something new or doing something better is not knowledge at all.<br/>
-&ndash; J. Barzun</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/02/23/phase-2-week-1-sunday-funday-at-dbc/">Phase 2: Week 1 - Sunday Funday @ DBC</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-23T22:41:04-08:00" pubdate data-updated="true">Feb 23<span>rd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>11:00am &ndash; Arrive</strong></p>
-
-<p>The CSS challenge: Editing only the CSS file, can we make a webpage identical to a given screenshot.</p>
-
-<p>The answer: Yes, we can.</p>
-
-<p>Moral of the story: CSS can be your best friend but one who likes to punch you in the face when you least expect it.</p>
-
-<p><code>float</code> can mess some things up, use it sparingly.</p>
-
-<p>Use Chrome Developer Tools, they are your best friend.</p>
-
-<p>Ahhh, the beauty of CSS.</p>
-
-<p><img src="http://4.bp.blogspot.com/-121N0L5IdA4/UJq-3XHuuAI/AAAAAAAAAwM/o1jA-2Zy0-g/s1600/css_is_awesome.gif" alt="CSS is awesome" /></p>
-
-<p>Doh!</p>
-
-<p><strong>9:30pm &ndash; Depart</strong></p>
-
-<blockquote><p>Don&rsquo;t worry about people stealing your ideas. If your ideas are any good, you&rsquo;ll have to ram them down people&rsquo;s throats.<br/>
-&ndash; H. Aiken</p></blockquote>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1150,6 +996,14 @@ what that returns is actually an array of Objects from instagram.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/21/phase-3-week-2-day-4-hitting-the-ground-running-er/">Phase 3: Week 2: Day 5 - Hitting the ground running - er</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/20/phase-3-week-2-day-4-elevator-pitches-for-final-project/">Phase 3: Week 2: Day 4 - Elevator Pitches for Final project</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/03/19/phase-3-week-2-day-3-client-side-heavy-apps/">Phase 3: Week 2: Day 3 - Client-side Heavy Apps</a>
       </li>
     
@@ -1159,14 +1013,6 @@ what that returns is actually an array of Objects from instagram.</p>
     
       <li class="post">
         <a href="/blog/2014/03/19/phase-3-week-2-day-1-karmaville/">Phase 3: Week 2: Day 1 - Karmaville</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/14/phase-3-week-1-day-5-overflow-contd/">Phase 3: Week 1: Day 5 - Overflow cont&#8217;d</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/13/phase-3-week-1-day-4-overflow/">Phase 3: Week 1: Day 4 - Overflow</a>
       </li>
     
   </ul>
