@@ -3,7 +3,7 @@
 # ----------------------- #
 
 url: http://trekkie4life.github.io
-title: Bytes to Bits
+title: Captain's Log
 subtitle: one boot's journey through dev bootcamp
 author: Armando Reed
 simple_search: http://google.com/search
@@ -34,6 +34,8 @@ plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
 markdown: rdiscount
+# redcarpet:
+#   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 rdiscount:
   extensions:
     - autolink

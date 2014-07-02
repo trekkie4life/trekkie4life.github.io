@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Phase 1: Week 1: Day 4"
+title: "Phase 1: Week 1: Day 4 - Games"
 date: 2014-01-31 02:00:49 -0800
 comments: true
 categories: 
@@ -10,6 +10,7 @@ categories:
 
 How can you not love the above picture - it's correct on so many levels!
 
+**8:00am - Arrive**
 
 Diving into games! Scary and fun at the same time.
 
@@ -39,7 +40,7 @@ p normal_word
     p normal_word.gsub!(/(^[^aeiyou]*)(.+)/, ”\2-\1ay”)
   end
 ```
-You’ll notice 2 pairs of brackets.
+You’ll notice 2 pairs of paranthesis.
 
 ```ruby
 /(^[^aeiyou]*)(.+)/
@@ -49,7 +50,7 @@ the first hat ^ acts the same as \A
 
 inside the [ ] the ^ acts as “NOT”
 
-* after the right bracket ] means to end that search there
+\* after the right bracket ] means to end that search there
 
 the second pair of brackets assigns the result of that search to a second group.
 
@@ -86,9 +87,13 @@ object within an object within an object - on and on until the end of the list
 ||= 
 ```
 
-tests left argument for truthiness, if nil or false will overwrite it with right argument.  In the example below, if a is nil or false, it is assigned the value 3
+tests left argument for truthiness, if nil or false will overwrite it with right argument.  In the example below, if a is nil or false, it is assigned the value 3  
+
 ```ruby
 a||=3
 
 a|| a=3
 ```
+**11:35pm - Depart**
+>Smart data structures and dumb code works a lot better than the other way around.  
+- Eric S. Raymond

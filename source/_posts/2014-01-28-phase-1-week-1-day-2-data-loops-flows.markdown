@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Phase 1: Week 1: Day 2"
+title: "Phase 1: Week 1: Day 2 - Data, Decisions, Loops & Flows"
 date: 2014-01-28 23:30:29 -0800
 comments: true
 categories: 
 ---
 
-8:06am - arrive
+**8:06am - Arrive**
 
 coding challenges - roman numerals - encoding and decoding them. After doing the first two parts, it was great fun to look at the case studies (collection of 29 examples of student code) and see where they differ and are similar. You start to be able to recognize how efficient/clean/easy to read different methods and approaches are. Then we use what we learned there to re-write our roman-numeral encoding method from scratch.
 
@@ -21,3 +21,7 @@ is not very impressive and takes a LOOOONG time
 
 ####Quicksort
 you select a random piece of data, that's your pivot point. You remove that from the array you want to sort, now you separate the remaining data into 2 groups (let's call them): Left, Right. A piece of data goes into left if it's value is less than the pivot point. If it's greater than the pivot point, it goes into Right. You then run quicksort again on the two new sets of data Left, and Right.  Wait - is that recursion? NICE!
+
+**11:00pm - Depart**
+>Simplicity is prerequisite for reliability.  
+- Edsger Dijkstra
